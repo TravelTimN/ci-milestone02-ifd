@@ -1,0 +1,10 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+header {
+    background-color: #444444;
+    width: 100vw;
+    height: 20vh;
+    border-bottom: 10px solid #018FC3;
+}
