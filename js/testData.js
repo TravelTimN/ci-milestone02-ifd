@@ -191,6 +191,88 @@ var testData = {
                 "country": "Ireland",
                 "wikipedia": "https://en.wikipedia.org/wiki/Kerry_Airport"
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-10.03079987, 54.22280121]
+            },
+            "properties": {
+                "iata": "BLY",
+                "type": "heliport",
+                "name": "Belmullet Aerodrome",
+                "country": "Ireland",
+                "wikipedia": "https://en.wikipedia.org/wiki/Belmullet_Aerodrome"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.28037, 53.8484]
+            },
+            "properties": {
+                "iata": "CLB",
+                "type": "seaplane_base",
+                "name": "Castlebar Airport",
+                "country": "Ireland"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.818490028, 53.91030121]
+            },
+            "properties": {
+                "iata": "NOC",
+                "type": "ferry_port",
+                "name": "Ireland West Knock Airport",
+                "country": "Ireland",
+                "wikipedia": "https://en.wikipedia.org/wiki/Ireland_West_Airport_Knock"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.599209785, 54.28020096]
+            },
+            "properties": {
+                "iata": "SXL",
+                "type": "train_station",
+                "name": "Sligo Airport",
+                "country": "Ireland",
+                "wikipedia": "https://en.wikipedia.org/wiki/Sligo_Airport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-7.086959839, 52.18719864]
+            },
+            "properties": {
+                "iata": "WAT",
+                "type": "bus_station",
+                "name": "Waterford Airport",
+                "country": "Ireland",
+                "wikipedia": "https://en.wikipedia.org/wiki/Waterford_Airport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-6.306470, 53.346938]
+            },
+            "properties": {
+                "iata": "Dublin",
+                "type": "city_code",
+                "name": "Dublin",
+                "country": "Ireland"
+            }
         }
     ]
 };

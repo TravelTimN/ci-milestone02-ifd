@@ -31,6 +31,36 @@ $(document).ready(function () {
         iconSize: [50, 50],
         iconAnchor: [25, 50]
     });
+    var busIcon = new L.Icon({
+        iconUrl: "images/bus.png",
+        iconSize: [50, 50],
+        iconAnchor: [25, 50]
+    });
+    var cityIcon = new L.Icon({
+        iconUrl: "images/city.png",
+        iconSize: [50, 50],
+        iconAnchor: [25, 50]
+    });
+    var ferryIcon = new L.Icon({
+        iconUrl: "images/ferry.png",
+        iconSize: [50, 50],
+        iconAnchor: [25, 50]
+    });
+    var helicopterIcon = new L.Icon({
+        iconUrl: "images/helicopter.png",
+        iconSize: [50, 50],
+        iconAnchor: [25, 50]
+    });
+    var seaplaneIcon = new L.Icon({
+        iconUrl: "images/seaplane.png",
+        iconSize: [50, 50],
+        iconAnchor: [25, 50]
+    });
+    var trainIcon = new L.Icon({
+        iconUrl: "images/train.png",
+        iconSize: [50, 50],
+        iconAnchor: [25, 50]
+    });
 
     // adding the data to Popups
     function addPopupData(feature) {
@@ -39,8 +69,14 @@ $(document).ready(function () {
         return popupData;
     }
 
-    // creating the Layers
+    // creating the Transportation Layers
     var airports = new L.LayerGroup();
+    var buses = new L.LayerGroup();
+    var cities = new L.LayerGroup();
+    var ferries = new L.LayerGroup();
+    var heliports = new L.LayerGroup();
+    var seaports = new L.LayerGroup();
+    var trains = new L.LayerGroup();
 
     // assigning the data to the respective layer
     var markers = L.markerClusterGroup();
@@ -50,6 +86,24 @@ $(document).ready(function () {
             if (feature.properties.type === "airport") {
                 layer.setIcon(airplaneIcon);
                 layer.addTo(airports);
+            } else if (feature.properties.type === "bus_station") {
+                layer.setIcon(busIcon);
+                layer.addTo(buses);
+            } else if (feature.properties.type === "city_code") {
+                layer.setIcon(cityIcon);
+                layer.addTo(cities);
+            } else if (feature.properties.type === "ferry_port") {
+                layer.setIcon(ferryIcon);
+                layer.addTo(ferries);
+            } else if (feature.properties.type === "heliport") {
+                layer.setIcon(helicopterIcon);
+                layer.addTo(heliports);
+            } else if (feature.properties.type === "seaplane_base") {
+                layer.setIcon(seaplaneIcon);
+                layer.addTo(seaports);
+            } else if (feature.properties.type === "train_station") {
+                layer.setIcon(trainIcon);
+                layer.addTo(trains);
             }
         }
     });
@@ -77,7 +131,13 @@ $(document).ready(function () {
 
     // map Options
     var mapOptions = {
-        "Airports": airports
+        "Heliports": heliports,
+        "Bus Stations": buses,
+        "Ferry Ports": ferries,
+        "Train Stations": trains,
+        "Airports": airports,
+        "Seaplane Bases": seaports,
+        "City Codes": cities
     };
 
     // add Map Layer Control
