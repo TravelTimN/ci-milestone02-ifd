@@ -4,18 +4,20 @@
 }
 
 header {
-    background-color: #444444;
-    max-width: 100vw;
     height: 19vh;
-}
-
-#separator {
     max-width: 100vw;
-    height: 1vh;
-    background-color: #018FC3;
+    background-color: #444444;
 }
 
 #map {
+    height: 75vh;
     max-width: 100vw;
-    height: 80vh;
+    border-top: 0.5vh solid #018FC3;
+    border-bottom: 0.5vh solid #018FC3;
+}
+
+footer {
+    height: 5vh;
+    max-width: 100vw;
+    background-color: #000000;
 }
