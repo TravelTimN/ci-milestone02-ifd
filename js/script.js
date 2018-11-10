@@ -65,7 +65,45 @@ $(document).ready(function () {
     // adding the data to Popups
     function addPopupData(feature) {
         var popupData = "";
-        popupData += feature.properties.iata;
+        // add IATA code if it exists
+        if (feature.properties.hasOwnProperty("iata")) {
+            popupData += "<h1>" + feature.properties.iata + "</h1>";
+        }
+        // add Name code if it exists
+        if (feature.properties.hasOwnProperty("name")) {
+            popupData += "<p><b>" + feature.properties.name + "</b>";
+        }
+        if (feature.properties.hasOwnProperty("municipality")) {
+            if (feature.properties.hasOwnProperty("region")) {
+                if (feature.properties.hasOwnProperty("country")) {
+                    // add Municipality only if it doesn't match the Region and Region doesn't match Country (ie: Cocos/Keeling Islands)
+                    if (feature.properties.municipality != feature.properties.region) {
+                        if (feature.properties.region != feature.properties.country) {
+                            popupData += "<br>" + feature.properties.municipality + ", " + feature.properties.region + "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
+                        }
+                        // add Region only if it doesn't match the Country
+                    } else if (feature.properties.region != feature.properties.country) {
+                        popupData += "<br>" + feature.properties.region + "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
+                        // add just Country if all others are identical (ie: Cocos/Keeling Islands)
+                    } else {
+                        popupData += "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
+                    }
+                }
+            }
+        }
+        // add Continent if it exists
+        if (feature.properties.hasOwnProperty("continent")) {
+            popupData += "<br>" + feature.properties.continent + "</p>";
+        }
+        // add Wikipedia page if it exists
+        if (feature.properties.hasOwnProperty("wikipedia")) {
+            popupData += "<p><a href='" + feature.properties.wikipedia + "' target='_blank'>Wikipedia</a></p>";
+        }
+        // add Latitude / Longitude
+        if (feature.geometry.hasOwnProperty("coordinates")) {
+            popupData += "</p>latitude: " + feature.geometry.coordinates[0] + "<br>longitude: " + feature.geometry.coordinates[1] + "</p>";
+        }
+        // display the data in the PopUp
         return popupData;
     }
 
@@ -83,25 +121,32 @@ $(document).ready(function () {
     var theMarkers = L.geoJson(testData, {
         onEachFeature: function (feature, layer) {
             layer.bindPopup(addPopupData(feature));
-            if (feature.properties.type === "airport") {
+            if (feature.properties.transport === "airport") {
+                // set the AIRPLANE icon if the "transport" type is airport
                 layer.setIcon(airplaneIcon);
                 layer.addTo(airports);
-            } else if (feature.properties.type === "bus_station") {
+            } else if (feature.properties.transport === "bus_station") {
+                // set the BUS icon if the "transport" type is bus_station
                 layer.setIcon(busIcon);
                 layer.addTo(buses);
-            } else if (feature.properties.type === "city_code") {
+            } else if (feature.properties.transport === "city_code") {
+                // set the CITY icon if the "transport" type is city_code
                 layer.setIcon(cityIcon);
                 layer.addTo(cities);
-            } else if (feature.properties.type === "ferry_port") {
+            } else if (feature.properties.transport === "ferry_port") {
+                // set the FERRY icon if the "transport" type is ferry_port
                 layer.setIcon(ferryIcon);
                 layer.addTo(ferries);
-            } else if (feature.properties.type === "heliport") {
+            } else if (feature.properties.transport === "heliport") {
+                // set the HELICOPTER icon if the "transport" type is heliport
                 layer.setIcon(helicopterIcon);
                 layer.addTo(heliports);
-            } else if (feature.properties.type === "seaplane_base") {
+            } else if (feature.properties.transport === "seaplane_base") {
+                // set the SEAPLANE icon if the "transport" type is seaplane_base
                 layer.setIcon(seaplaneIcon);
                 layer.addTo(seaports);
-            } else if (feature.properties.type === "train_station") {
+            } else if (feature.properties.transport === "train_station") {
+                // set the TRAIN icon if the "transport" type is train_station
                 layer.setIcon(trainIcon);
                 layer.addTo(trains);
             }
@@ -114,10 +159,10 @@ $(document).ready(function () {
     // the Map
     var map = L.map("map", {
         layers: [osmDarkMap],
-        //center: [30.15, 4.53], // temporary changing to Dublin for testing icon markers
-        center: [53.345959, -6.273580],
-        //zoom: 3, // temporary changing to Dublin for testing icon markers
-        zoom: 7,
+        //center: [30.15, 4.53], // temporary change to test Ireland + UK
+        center: [54.151337, -4.478758],
+        //zoom: 3, // temporary change to test Ireland + UK
+        zoom: 5,
         minZoom: 2,
         maxZoom: 18
     });
