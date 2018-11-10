@@ -67,11 +67,13 @@ $(document).ready(function () {
         var popupData = "";
         // add IATA code if it exists
         if (feature.properties.hasOwnProperty("iata")) {
-            popupData += "<h1>" + feature.properties.iata + "</h1>";
+            popupData += "<h1 class='popup-iata " + feature.properties.transport + "'>" +
+                feature.properties.iata + "</h1>";
         }
         // add Name code if it exists
         if (feature.properties.hasOwnProperty("name")) {
-            popupData += "<p><b>" + feature.properties.name + "</b>";
+            popupData += "<p class='popup-text'><span class='popup-name " +
+                feature.properties.transport + "'><b>" + feature.properties.name + "</b></span>";
         }
         if (feature.properties.hasOwnProperty("municipality")) {
             if (feature.properties.hasOwnProperty("region")) {
@@ -79,11 +81,13 @@ $(document).ready(function () {
                     // add Municipality only if it doesn't match the Region and Region doesn't match Country (ie: Cocos/Keeling Islands)
                     if (feature.properties.municipality != feature.properties.region) {
                         if (feature.properties.region != feature.properties.country) {
-                            popupData += "<br>" + feature.properties.municipality + ", " + feature.properties.region + "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
+                            popupData += "<br>" + feature.properties.municipality + ", " + feature.properties.region +
+                                "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
                         }
                         // add Region only if it doesn't match the Country
                     } else if (feature.properties.region != feature.properties.country) {
-                        popupData += "<br>" + feature.properties.region + "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
+                        popupData += "<br>" + feature.properties.region +
+                            "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
                         // add just Country if all others are identical (ie: Cocos/Keeling Islands)
                     } else {
                         popupData += "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
@@ -97,11 +101,15 @@ $(document).ready(function () {
         }
         // add Wikipedia page if it exists
         if (feature.properties.hasOwnProperty("wikipedia")) {
-            popupData += "<p><a href='" + feature.properties.wikipedia + "' target='_blank'>Wikipedia</a></p>";
+            popupData += "<p class='popup-wiki " + feature.properties.transport +
+                "'><a href='" + feature.properties.wikipedia + "' target='_blank'>Wikipedia</a></p>";
         }
         // add Latitude / Longitude
         if (feature.geometry.hasOwnProperty("coordinates")) {
-            popupData += "</p>latitude: " + feature.geometry.coordinates[0] + "<br>longitude: " + feature.geometry.coordinates[1] + "</p>";
+            popupData += "<p class='popup-latlng'>latitude: <span class='latlng " +
+                feature.properties.transport + "'>" + feature.geometry.coordinates[0] +
+                "</span><br>longitude: <span class='latlng " + feature.properties.transport +
+                "'>" + feature.geometry.coordinates[1] + "</span></p>";
         }
         // display the data in the PopUp
         return popupData;

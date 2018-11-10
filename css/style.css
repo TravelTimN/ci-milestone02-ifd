@@ -1,23 +1,161 @@
+/*----- ROOT VARIABLES -----*/
+:root {
+    --airplane: #018FC3; /* color: var(--airplane); */
+    --bus: #C33E01; /* color: var(--bus); */
+    --ferry: #C39F01; /* color: var(--ferry); */
+    --helicopter: #C30E01; /* color: var(--helicopter); */
+    --seaplane: #7C01C3; /* color: var(--seaplane); */
+    --train: #01C335; /* color: var(--train); */
+    --white: #FFFFFF; /* color: var(--white); */
+    --black: #000000; /* color: var(--black); */
+    --gray: #444444; /* color: var(--gray); */
+    --txtShadow: 2px 2px 2px var(--black); /* text-shadow: var(--txtShadow); */
+}
+
 * {
     margin: 0 auto;
     padding: 0;
 }
 
+/*----- HEADER -----*/
 header {
     height: 19vh;
     max-width: 100vw;
-    background-color: #444444;
+    background-color: var(--gray);
 }
 
+/*----- MAP -----*/
 #map {
     height: 75vh;
     max-width: 100vw;
-    border-top: 0.5vh solid #018FC3;
-    border-bottom: 0.5vh solid #018FC3;
+    border-top: 0.5vh solid var(--airplane);
+    border-bottom: 0.5vh solid var(--airplane);
 }
 
+/* map icons/markers */
+img.leaflet-marker-icon {
+    border-radius: 50%;
+    border: 1px solid var(--black);
+    transition: all 0.2s ease-in-out;
+}
+img[src*="airplane"]:hover {
+    box-shadow: 0px 0px 50px 5px var(--airplane);
+}
+img[src*="bus"]:hover {
+    box-shadow: 0px 0px 50px 5px var(--bus);
+}
+img[src*="city"]:hover {
+    box-shadow: 0px 0px 50px 5px var(--white);
+}
+img[src*="ferry"]:hover {
+    box-shadow: 0px 0px 50px 5px var(--ferry);
+}
+img[src*="helicopter"]:hover {
+    box-shadow: 0px 0px 50px 5px var(--helicopter);
+}
+img[src*="seaplane"]:hover {
+    box-shadow: 0px 0px 50px 5px var(--seaplane);
+}
+img[src*="train"]:hover {
+    box-shadow: 0px 0px 50px 5px var(--train);
+}
+
+/* pop-up text styles*/
+.popup-iata {
+    font-size: 4em;
+    font-weight: bold;
+    text-shadow: var(--txtShadow);
+}
+.popup-text {
+    color: var(--white);
+    font-size: 1.5em;
+    text-shadow: var(--txtShadow);
+}
+.popup-name {
+    font-size: 1.25em;
+}
+.popup-wiki a {
+    padding: 10px;
+    font-size: 1.25em;
+    text-decoration: none;
+    background-color: var(--black);
+}
+.popup-latlng {
+    color: var(--white);
+    font-size: 1.25em;
+    text-shadow: var(--txtShadow);
+}
+.latlng {
+    font-weight: bold;
+}
+.popup-iata.airport,
+.popup-name.airport,
+.popup-wiki.airport a,
+.latlng.airport {
+    color: var(--airplane);
+}
+.popup-iata.bus_station,
+.popup-name.bus_station,
+.popup-wiki.bus_station a,
+.latlng.bus_station {
+    color: var(--bus);
+}
+.popup-iata.city_code,
+.popup-name.city_code,
+.popup-wiki.city_code a,
+.latlng.city_code {
+    color: var(--white);
+}
+.popup-iata.ferry_port,
+.popup-name.ferry_port,
+.popup-wiki.ferry_port a,
+.latlng.ferry_port {
+    color: var(--ferry);
+}
+.popup-iata.heliport,
+.popup-name.heliport,
+.popup-wiki.heliport a,
+.latlng.heliport {
+    color: var(--helicopter);
+}
+.popup-iata.seaplane_base,
+.popup-name.seaplane_base,
+.popup-wiki.seaplane_base a,
+.latlng.seaplane_base {
+    color: var(--seaplane);
+}
+.popup-iata.train_station,
+.popup-name.train_station,
+.popup-wiki.train_station a,
+.latlng.train_station {
+    color: var(--train);
+}
+
+/* override Leaflet.css pop-up styles */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    min-width: 300px;
+    border: 1px solid var(--black);
+    background-color: rgba(68, 68, 68, 0.95);
+    box-shadow: 0px 0px 50px 1px rgba(255, 255, 255, 0.25);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    color: var(--white);
+    font-size: 3em;
+    right: 20px;
+    top: 10px;
+    text-shadow: var(--txtShadow);
+    transition: all 0.3s ease-in-out;
+}
+.leaflet-container a.leaflet-popup-close-button:hover {
+    color: var(--black);
+    text-shadow: none;
+}
+
+/*----- FOOTER -----*/
 footer {
     height: 5vh;
     max-width: 100vw;
-    background-color: #000000;
+    background-color: var(--black);
 }
