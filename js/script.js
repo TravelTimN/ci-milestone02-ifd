@@ -130,7 +130,8 @@ $(document).ready(function () {
     var trains = new L.LayerGroup();
 
     // assigning the Icons to their respective layers
-    var theMarkers = L.geoJson(testData, {
+    //var theMarkers = L.geoJson(testData, { // using testDataAll to temporarily test ALL current data
+    var theMarkers = L.geoJson(testDataAll, {
         onEachFeature: function (feature, layer) {
             layer.bindPopup(addPopupData(feature));
             if (feature.properties.transport === "airport") {
