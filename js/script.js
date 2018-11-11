@@ -130,7 +130,6 @@ $(document).ready(function () {
     var trains = new L.LayerGroup();
 
     // assigning the data to the respective layer
-    var markers = L.markerClusterGroup();
     var theMarkers = L.geoJson(testData, {
         onEachFeature: function (feature, layer) {
             layer.bindPopup(addPopupData(feature));
@@ -198,13 +197,18 @@ $(document).ready(function () {
         "City Codes": cities
     };
 
+    // add Markers to MarkerClusterGroup with Layer Support
+    var markers = L.markerClusterGroup.layerSupport(mapOptions);
+    var layerGroup = L.layerGroup(theMarkers);
+    markers.addLayer(theMarkers);
+    markers.addTo(map);
+    markers.checkIn(layerGroup);
+    layerGroup.addTo(map);
+
     // add Map Layer Control
     L.control.layers(mapLayers, mapOptions).addTo(map);
 
     // add Map Overlay and sit on very top
     mapOverlay.bringToFront().addTo(map).setZIndex(9);
-
-    // add Icons to Map
-    markers.addLayer(theMarkers);
 
 });
