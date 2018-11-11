@@ -42,25 +42,6 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [19.72060013, 41.41469955]
-            },
-            "properties": {
-                "iata": "TIA",
-                "transport": "airport",
-                "name": "Tirana International Airport Mother Teresa",
-                "municipality": "Tirana",
-                "region": "Tirana",
-                "country": "Albania",
-                "countryISO": "AL",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": "https://en.wikipedia.org/wiki/Tirana_International_Airport_Nene_Tereza"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
                 "coordinates": [19.800275, 41.332656]
             },
             "properties": {
@@ -74,6 +55,25 @@ var testData = {
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [19.72060013, 41.41469955]
+            },
+            "properties": {
+                "iata": "TIA",
+                "transport": "airport",
+                "name": "Tirana International Airport Mother Teresa",
+                "municipality": "Tirana",
+                "region": "Tirana",
+                "country": "Albania",
+                "countryISO": "AL",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": "https://en.wikipedia.org/wiki/Tirana_International_Airport_Nene_Tereza"
             }
         },
         {
@@ -251,25 +251,6 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [15.43959999, 46.99110031]
-            },
-            "properties": {
-                "iata": "GRZ",
-                "transport": "airport",
-                "name": "Graz Airport",
-                "municipality": "Graz",
-                "region": "Styria",
-                "country": "Austria",
-                "countryISO": "AT",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": "https://en.wikipedia.org/wiki/Graz_Airport"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
                 "coordinates": [15.416264, 47.072749]
             },
             "properties": {
@@ -283,6 +264,25 @@ var testData = {
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [15.43959999, 46.99110031]
+            },
+            "properties": {
+                "iata": "GRZ",
+                "transport": "airport",
+                "name": "Graz Airport",
+                "municipality": "Graz",
+                "region": "Styria",
+                "country": "Austria",
+                "countryISO": "AT",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": "https://en.wikipedia.org/wiki/Graz_Airport"
             }
         },
         {
@@ -1448,12 +1448,12 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [23.409129, 42.710313]
+                "coordinates": [23.408483, 42.707332]
             },
             "properties": {
                 "iata": "QVJ",
-                "transport": "city_code",
-                "name": "Vrajdebna",
+                "transport": "bus_station",
+                "name": "Vrajdebna Bus Stop",
                 "municipality": "Vrajdebna",
                 "region": "Sofia",
                 "country": "Bulgaria",
@@ -1847,12 +1847,12 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [32.88157, 34.675308]
+                "coordinates": [32.902444, 34.665766]
             },
             "properties": {
                 "iata": "EPK",
-                "transport": "city_code",
-                "name": "Episkopi",
+                "transport": "bus_station",
+                "name": "Episkopi Bus Stop",
                 "municipality": "Episkopi",
                 "region": "Limassol",
                 "country": "Cyprus",
@@ -1950,7 +1950,7 @@ var testData = {
                 "name": "Vodochody Airport",
                 "municipality": "Vodochody",
                 "region": "Central Bohemia",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -1969,7 +1969,7 @@ var testData = {
                 "name": "Karlovy Vary International Airport",
                 "municipality": "Karlovy Vary",
                 "region": "Karlovy Vary",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -1988,7 +1988,7 @@ var testData = {
                 "name": "Karlovy Vary Bus Station",
                 "municipality": "Karlovy Vary",
                 "region": "Karlovy Vary",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2007,7 +2007,7 @@ var testData = {
                 "name": "Marianske Lazne Airport",
                 "municipality": "Marianske Lazne",
                 "region": "Karlovy Vary",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2026,7 +2026,7 @@ var testData = {
                 "name": "Ostrava Leos Janacek Airport",
                 "municipality": "Ostrava",
                 "region": "Moravia-Silesia",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2045,7 +2045,7 @@ var testData = {
                 "name": "Ostrava Main Train Station",
                 "municipality": "Ostrava",
                 "region": "Moravia-Silesia",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2064,7 +2064,7 @@ var testData = {
                 "name": "Zabreh Ostrava Airport",
                 "municipality": "Zabreh",
                 "region": "Moravia-Silesia",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2083,7 +2083,7 @@ var testData = {
                 "name": "Olomouc-Neredin Airport",
                 "municipality": "Olomouc",
                 "region": "Olomouc",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2102,7 +2102,7 @@ var testData = {
                 "name": "Olomouc Main Train Station",
                 "municipality": "Olomouc",
                 "region": "Olomouc",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2121,7 +2121,7 @@ var testData = {
                 "name": "Prerov Air Base",
                 "municipality": "Prerov",
                 "region": "Olomouc",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2140,7 +2140,7 @@ var testData = {
                 "name": "Pardubice Airport",
                 "municipality": "Pardubice",
                 "region": "Pardubice",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2159,7 +2159,26 @@ var testData = {
                 "name": "Pardubice Main Train Station",
                 "municipality": "Pardubice",
                 "region": "Pardubice",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
+                "countryISO": "CZ",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [14.438999, 50.089592]
+            },
+            "properties": {
+                "iata": "PFL",
+                "transport": "bus_station",
+                "name": "Florenc Bus Station",
+                "municipality": "Prague",
+                "region": "Prague",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2178,30 +2197,11 @@ var testData = {
                 "name": "Vaclav Havel Airport Prague",
                 "municipality": "Prague",
                 "region": "Prague",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": "https://en.wikipedia.org/wiki/Ruzyne_International_Airport"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [14.438999, 50.089592]
-            },
-            "properties": {
-                "iata": "PFL",
-                "transport": "bus_station",
-                "name": "Florenc Bus Station",
-                "municipality": "Prague",
-                "region": "Prague",
-                "country": "Czech Republic (Czechia)",
-                "countryISO": "CZ",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": ""
             }
         },
         {
@@ -2216,7 +2216,7 @@ var testData = {
                 "name": "Prague Main Train Station",
                 "municipality": "Prague",
                 "region": "Prague",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2235,7 +2235,7 @@ var testData = {
                 "name": "Prague Holesovice Train Station",
                 "municipality": "Prague",
                 "region": "Prague",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2254,7 +2254,7 @@ var testData = {
                 "name": "Brno-Turany Airport",
                 "municipality": "Brno",
                 "region": "South Moravia",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2273,7 +2273,7 @@ var testData = {
                 "name": "Brno Train Station",
                 "municipality": "Brno",
                 "region": "South Moravia",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2292,7 +2292,7 @@ var testData = {
                 "name": "Holesov Airport",
                 "municipality": "Holesov",
                 "region": "Zlin",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -2311,7 +2311,7 @@ var testData = {
                 "name": "Kunovice Airport",
                 "municipality": "Uherske Hradiste",
                 "region": "Zlin",
-                "country": "Czech Republic (Czechia)",
+                "country": "Czech Republic / Czechia",
                 "countryISO": "CZ",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -3462,12 +3462,12 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [6.7745, 46.1877]
+                "coordinates": [6.774839, 46.187693]
             },
             "properties": {
                 "iata": "AVF",
-                "transport": "city_code",
-                "name": "Avoriaz",
+                "transport": "bus_station",
+                "name": "Avoriaz Bus Stop",
                 "municipality": "Avoriaz",
                 "region": "Auvergne-Rhone-Alpes",
                 "country": "France",
@@ -3703,6 +3703,25 @@ var testData = {
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": "https://en.wikipedia.org/wiki/Saint-Etienne_-_Boutheon_Airport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [6.881734, 45.450547]
+            },
+            "properties": {
+                "iata": "VAZ",
+                "transport": "airport",
+                "name": "Altiport de Tignes",
+                "municipality": "Val-d'Isere ",
+                "region": "Auvergne-Rhone-Alpes",
+                "country": "France",
+                "countryISO": "FR",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
             }
         },
         {
@@ -4279,6 +4298,44 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
+                "coordinates": [7.520645, 47.602367]
+            },
+            "properties": {
+                "iata": "EAP",
+                "transport": "airport",
+                "name": "EuroAirport Basel-Mulhouse-Freiburg Airport",
+                "municipality": "Basel / Mulhouse",
+                "region": "Grand Est",
+                "country": "France",
+                "countryISO": "FR",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": "https://en.wikipedia.org/wiki/EuroAirport_Basel-Mulhouse-Freiburg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [7.509386, 47.618412]
+            },
+            "properties": {
+                "iata": "MLH",
+                "transport": "airport",
+                "name": "EuroAirport Basel-Mulhouse-Freiburg Airport",
+                "municipality": "Basel / Mulhouse",
+                "region": "Grand Est",
+                "country": "France",
+                "countryISO": "FR",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": "https://en.wikipedia.org/wiki/EuroAirport_Basel-Mulhouse-Freiburg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
                 "coordinates": [4.647079945, 49.78390121]
             },
             "properties": {
@@ -4400,6 +4457,44 @@ var testData = {
                 "transport": "airport",
                 "name": "Reims-Champagne (BA 112) Air Base",
                 "municipality": "Reims / Champagne",
+                "region": "Grand Est",
+                "country": "France",
+                "countryISO": "FR",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [6.94854, 48.281976]
+            },
+            "properties": {
+                "iata": "XCK",
+                "transport": "train_station",
+                "name": "Saint Die des Vosges Train Station",
+                "municipality": "Saint Die",
+                "region": "Grand Est",
+                "country": "France",
+                "countryISO": "FR",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [7.007345, 48.266468]
+            },
+            "properties": {
+                "iata": "XTD",
+                "transport": "airport",
+                "name": "Aero-Club de Saint Die",
+                "municipality": "Saint Die",
                 "region": "Grand Est",
                 "country": "France",
                 "countryISO": "FR",
@@ -4742,6 +4837,25 @@ var testData = {
                 "transport": "city_code",
                 "name": "Paris",
                 "municipality": "Paris",
+                "region": "Ile-de-France",
+                "country": "France",
+                "countryISO": "FR",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [2.273045, 48.833022]
+            },
+            "properties": {
+                "iata": "JPU",
+                "transport": "heliport",
+                "name": "La Defense Heliport ",
+                "municipality": "Paris ",
                 "region": "Ile-de-France",
                 "country": "France",
                 "countryISO": "FR",
@@ -5951,6 +6065,25 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
+                "coordinates": [6.632948, 43.2724]
+            },
+            "properties": {
+                "iata": "XPZ",
+                "transport": "ferry_port",
+                "name": "St Tropez Harbour ",
+                "municipality": "St Tropez ",
+                "region": "Provence-Alpes-Cote d'Azur",
+                "country": "France",
+                "countryISO": "FR",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
                 "coordinates": [6.146029949, 43.09730148]
             },
             "properties": {
@@ -6097,6 +6230,25 @@ var testData = {
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": "https://en.wikipedia.org/wiki/Mannheim_City_Airport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [8.703058, 48.893714]
+            },
+            "properties": {
+                "iata": "UPF",
+                "transport": "train_station",
+                "name": "Pforzheim Hbf Train Station",
+                "municipality": "Pforzheim ",
+                "region": "Baden-Wurttemberg",
+                "country": "Germany",
+                "countryISO": "DE",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
             }
         },
         {
@@ -6711,25 +6863,6 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [8.325400352, 50.04980087]
-            },
-            "properties": {
-                "iata": "WIE",
-                "transport": "airport",
-                "name": "Wiesbaden Army Airfield",
-                "municipality": "Wiesbaden",
-                "region": "Hesse",
-                "country": "Germany",
-                "countryISO": "DE",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": "https://en.wikipedia.org/wiki/Wiesbaden_Army_Airfield"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
                 "coordinates": [8.18951, 50.063608]
             },
             "properties": {
@@ -6743,6 +6876,25 @@ var testData = {
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [8.325400352, 50.04980087]
+            },
+            "properties": {
+                "iata": "WIE",
+                "transport": "airport",
+                "name": "Wiesbaden Army Airfield",
+                "municipality": "Wiesbaden",
+                "region": "Hesse",
+                "country": "Germany",
+                "countryISO": "DE",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": "https://en.wikipedia.org/wiki/Wiesbaden_Army_Airfield"
             }
         },
         {
@@ -10853,25 +11005,6 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [8.72811, 45.6306]
-            },
-            "properties": {
-                "iata": "MXP",
-                "transport": "airport",
-                "name": "Malpensa International Airport",
-                "municipality": "Milan",
-                "region": "Lombardy",
-                "country": "Italy",
-                "countryISO": "IT",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": "https://en.wikipedia.org/wiki/Malpensa_Airport"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
                 "coordinates": [9.191935, 45.464128]
             },
             "properties": {
@@ -10885,6 +11018,25 @@ var testData = {
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [8.72811, 45.6306]
+            },
+            "properties": {
+                "iata": "MXP",
+                "transport": "airport",
+                "name": "Malpensa International Airport",
+                "municipality": "Milan",
+                "region": "Lombardy",
+                "country": "Italy",
+                "countryISO": "IT",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": "https://en.wikipedia.org/wiki/Malpensa_Airport"
             }
         },
         {
@@ -11830,7 +11982,7 @@ var testData = {
                 "name": "Ohrid St. Paul the Apostle Airport",
                 "municipality": "Ohrid",
                 "region": "Ohrid",
-                "country": "Macedonia (North Macedonia)",
+                "country": "Macedonia / North Macedonia",
                 "countryISO": "MK",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -11849,7 +12001,7 @@ var testData = {
                 "name": "Skopje Alexander the Great Airport",
                 "municipality": "Skopje",
                 "region": "Skopje",
-                "country": "Macedonia (North Macedonia)",
+                "country": "Macedonia / North Macedonia",
                 "countryISO": "MK",
                 "continent": "Europe",
                 "continentISO": "EU",
@@ -14368,25 +14520,6 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [26.085, 44.5711111]
-            },
-            "properties": {
-                "iata": "OTP",
-                "transport": "airport",
-                "name": "Henri Coanda International Airport",
-                "municipality": "Bucharest",
-                "region": "Bucharest",
-                "country": "Romania",
-                "countryISO": "RO",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": "https://en.wikipedia.org/wiki/Henri_Coanda_International_Airport"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
                 "coordinates": [26.102389, 44.426819]
             },
             "properties": {
@@ -14400,6 +14533,25 @@ var testData = {
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [26.085, 44.5711111]
+            },
+            "properties": {
+                "iata": "OTP",
+                "transport": "airport",
+                "name": "Henri Coanda International Airport",
+                "municipality": "Bucharest",
+                "region": "Bucharest",
+                "country": "Romania",
+                "countryISO": "RO",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": "https://en.wikipedia.org/wiki/Henri_Coanda_International_Airport"
             }
         },
         {
@@ -15413,6 +15565,25 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
+                "coordinates": [37.619868, 55.75391]
+            },
+            "properties": {
+                "iata": "MOW",
+                "transport": "city_code",
+                "name": "Moscow",
+                "municipality": "Moscow",
+                "region": "Moscow Oblast",
+                "country": "Russia",
+                "countryISO": "RU",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
                 "coordinates": [37.507222, 55.511667]
             },
             "properties": {
@@ -15464,25 +15635,6 @@ var testData = {
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": "https://en.wikipedia.org/wiki/Vnukovo_International_Airport"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [37.619868, 55.75391]
-            },
-            "properties": {
-                "iata": "MOW",
-                "transport": "city_code",
-                "name": "Moscow",
-                "municipality": "Moscow",
-                "region": "Moscow Oblast",
-                "country": "Russia",
-                "countryISO": "RU",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": ""
             }
         },
         {
@@ -18662,6 +18814,44 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
+                "coordinates": [8.051497, 47.391394]
+            },
+            "properties": {
+                "iata": "ZDA",
+                "transport": "train_station",
+                "name": "Aarau Train Station",
+                "municipality": "Aarau",
+                "region": "Aargau",
+                "country": "Switzerland",
+                "countryISO": "CH",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [8.307718, 47.476377]
+            },
+            "properties": {
+                "iata": "ZDG",
+                "transport": "train_station",
+                "name": "Baden Train Station",
+                "municipality": "Baden",
+                "region": "Aargau",
+                "country": "Switzerland",
+                "countryISO": "CH",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
                 "coordinates": [8.170537, 47.39108]
             },
             "properties": {
@@ -18707,44 +18897,6 @@ var testData = {
                 "transport": "train_station",
                 "name": "Zofingen Train Station",
                 "municipality": "Zofingen",
-                "region": "Aargau",
-                "country": "Switzerland",
-                "countryISO": "CH",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": ""
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [8.051497, 47.391394]
-            },
-            "properties": {
-                "iata": "ZDA",
-                "transport": "train_station",
-                "name": "Aarau Train Station",
-                "municipality": "Aarau",
-                "region": "Aargau",
-                "country": "Switzerland",
-                "countryISO": "CH",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": ""
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [8.307718, 47.476377]
-            },
-            "properties": {
-                "iata": "ZDG",
-                "transport": "train_station",
-                "name": "Baden Train Station",
-                "municipality": "Baden",
                 "region": "Aargau",
                 "country": "Switzerland",
                 "countryISO": "CH",
@@ -19783,6 +19935,25 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
+                "coordinates": [9.433459, 47.510604]
+            },
+            "properties": {
+                "iata": "ZDD",
+                "transport": "train_station",
+                "name": "Arbon Train Station",
+                "municipality": "Arbon",
+                "region": "Thurgau",
+                "country": "Switzerland",
+                "countryISO": "CH",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
                 "coordinates": [8.896603, 47.558149]
             },
             "properties": {
@@ -19828,25 +19999,6 @@ var testData = {
                 "transport": "train_station",
                 "name": "Weinfelden Train Station",
                 "municipality": "Weinfelden",
-                "region": "Thurgau",
-                "country": "Switzerland",
-                "countryISO": "CH",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": ""
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [9.433459, 47.510604]
-            },
-            "properties": {
-                "iata": "ZDD",
-                "transport": "train_station",
-                "name": "Arbon Train Station",
-                "municipality": "Arbon",
                 "region": "Thurgau",
                 "country": "Switzerland",
                 "countryISO": "CH",
@@ -20448,25 +20600,6 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [8.54917, 47.464699]
-            },
-            "properties": {
-                "iata": "ZRH",
-                "transport": "airport",
-                "name": "Zurich Airport",
-                "municipality": "Zurich",
-                "region": "Zurich",
-                "country": "Switzerland",
-                "countryISO": "CH",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": "https://en.wikipedia.org/wiki/Zurich_Airport"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
                 "coordinates": [8.54019, 47.377937]
             },
             "properties": {
@@ -20499,6 +20632,25 @@ var testData = {
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [8.54917, 47.464699]
+            },
+            "properties": {
+                "iata": "ZRH",
+                "transport": "airport",
+                "name": "Zurich Airport",
+                "municipality": "Zurich",
+                "region": "Zurich",
+                "country": "Switzerland",
+                "countryISO": "CH",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": "https://en.wikipedia.org/wiki/Zurich_Airport"
             }
         },
         {
@@ -21968,6 +22120,25 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
+                "coordinates": [-0.119563, 51.503442]
+            },
+            "properties": {
+                "iata": "LON",
+                "transport": "city_code",
+                "name": "London",
+                "municipality": "London",
+                "region": "England",
+                "country": "United Kingdom",
+                "countryISO": "GB",
+                "continent": "Europe",
+                "continentISO": "EU",
+                "wikipedia": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
                 "coordinates": [-0.368333012, 51.87469864]
             },
             "properties": {
@@ -22019,25 +22190,6 @@ var testData = {
                 "continent": "Europe",
                 "continentISO": "EU",
                 "wikipedia": "https://en.wikipedia.org/wiki/London_Stansted_Airport"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-0.119563, 51.503442]
-            },
-            "properties": {
-                "iata": "LON",
-                "transport": "city_code",
-                "name": "London",
-                "municipality": "London",
-                "region": "England",
-                "country": "United Kingdom",
-                "countryISO": "GB",
-                "continent": "Europe",
-                "continentISO": "EU",
-                "wikipedia": ""
             }
         },
         {
@@ -23393,12 +23545,12 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [-0.853850007, 60.74720001]
+                "coordinates": [-1.263621, 60.282533]
             },
             "properties": {
-                "iata": "UNT",
-                "transport": "airport",
-                "name": "Unst Airport",
+                "iata": "SDZ",
+                "transport": "city_code",
+                "name": "Shetland Islands",
                 "municipality": "Shetland Islands",
                 "region": "Scotland",
                 "country": "United Kingdom",
@@ -23412,12 +23564,12 @@ var testData = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [-1.263621, 60.282533]
+                "coordinates": [-0.853850007, 60.74720001]
             },
             "properties": {
-                "iata": "SDZ",
-                "transport": "city_code",
-                "name": "Shetland Islands",
+                "iata": "UNT",
+                "transport": "airport",
+                "name": "Unst Airport",
                 "municipality": "Shetland Islands",
                 "region": "Scotland",
                 "country": "United Kingdom",
