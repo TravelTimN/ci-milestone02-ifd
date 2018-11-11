@@ -167,10 +167,10 @@ $(document).ready(function () {
     // the Map
     var map = L.map("map", {
         layers: [osmDarkMap],
-        //center: [30.15, 4.53], // temporary change to test Ireland + UK
-        center: [54.151337, -4.478758],
-        //zoom: 3, // temporary change to test Ireland + UK
-        zoom: 5,
+        //center: [30.15, 4.53], // temporary change to center of Europe
+        center: [48.616478, 16.940151],
+        //zoom: 3, // temporary change to center of Europe
+        zoom: 4,
         minZoom: 2,
         maxZoom: 18
     });
