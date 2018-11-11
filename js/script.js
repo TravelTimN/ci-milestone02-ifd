@@ -129,7 +129,7 @@ $(document).ready(function () {
     var seaports = new L.LayerGroup();
     var trains = new L.LayerGroup();
 
-    // assigning the data to the respective layer
+    // assigning the Icons to their respective layers
     var theMarkers = L.geoJson(testData, {
         onEachFeature: function (feature, layer) {
             layer.bindPopup(addPopupData(feature));
@@ -200,7 +200,7 @@ $(document).ready(function () {
     // add Markers to MarkerClusterGroup with Layer Support
     var markers = L.markerClusterGroup.layerSupport(mapOptions);
     var layerGroup = L.layerGroup(theMarkers);
-    markers.addLayer(theMarkers);
+    markers.checkIn(theMarkers);
     markers.addTo(map);
     markers.checkIn(layerGroup);
     layerGroup.addTo(map);
