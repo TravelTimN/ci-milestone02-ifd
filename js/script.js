@@ -83,6 +83,9 @@ $(document).ready(function () {
                         if (feature.properties.region != feature.properties.country) {
                             popupData += "<br>" + feature.properties.municipality + ", " + feature.properties.region +
                                 "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
+                        } else {
+                            popupData += "<br>" + feature.properties.municipality +
+                                "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
                         }
                         // add Region only if it doesn't match the Country
                     } else if (feature.properties.region != feature.properties.country) {
@@ -101,8 +104,10 @@ $(document).ready(function () {
         }
         // add Wikipedia page if it exists
         if (feature.properties.hasOwnProperty("wikipedia")) {
-            popupData += "<p class='popup-wiki " + feature.properties.transport +
-                "'><a href='" + feature.properties.wikipedia + "' target='_blank'>Wikipedia</a></p>";
+            if (feature.properties.wikipedia != "") {
+                popupData += "<p class='popup-wiki " + feature.properties.transport +
+                    "'><a href='" + feature.properties.wikipedia + "' target='_blank'>Wikipedia</a></p>";
+            }
         }
         // add Latitude / Longitude
         if (feature.geometry.hasOwnProperty("coordinates")) {
