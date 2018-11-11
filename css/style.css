@@ -9,6 +9,7 @@
     --white: #FFFFFF; /* color: var(--white); */
     --black: #000000; /* color: var(--black); */
     --gray: #444444; /* color: var(--gray); */
+    --earth: #1157B9; /* color: var(--earth); */
     --txtShadow: 2px 2px 2px var(--black); /* text-shadow: var(--txtShadow); */
 }
 
@@ -38,25 +39,25 @@ img.leaflet-marker-icon {
     border: 1px solid var(--black);
     transition: all 0.2s ease-in-out;
 }
-img[src*="airplane"]:hover {
+img[src*="airplane"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 50px 5px var(--airplane);
 }
-img[src*="bus"]:hover {
+img[src*="bus"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 50px 5px var(--bus);
 }
-img[src*="city"]:hover {
+img[src*="city"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 50px 5px var(--white);
 }
-img[src*="ferry"]:hover {
+img[src*="ferry"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 50px 5px var(--ferry);
 }
-img[src*="helicopter"]:hover {
+img[src*="helicopter"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 50px 5px var(--helicopter);
 }
-img[src*="seaplane"]:hover {
+img[src*="seaplane"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 50px 5px var(--seaplane);
 }
-img[src*="train"]:hover {
+img[src*="train"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 50px 5px var(--train);
 }
 
@@ -129,6 +130,48 @@ img[src*="train"]:hover {
 .popup-wiki.train_station a,
 .latlng.train_station {
     color: var(--train);
+}
+
+/* custom Leaflet Layer styles */
+.leaflet-control-layers-expanded {
+    min-width: 200px;
+    color: var(--airplane);
+    font-weight: bold;
+    text-shadow: 2px 2px 2px var(--black);
+    background-color: rgba(68, 68, 68, 0.95);
+}
+.leaflet-control-layers-toggle {
+    padding: 5px;
+    border-radius: 50%;
+    background-color: var(--gray);
+    box-shadow: 0px 0px 10px 5px var(--airplane);
+}
+.leaflet-control-layers.leaflet-control:not(.leaflet-control-layers-expanded) {
+    background-color: transparent;
+    border: 0;
+}
+.leaflet-control-layers.leaflet-control.leaflet-control-layers-expanded {
+    border: 0;
+    padding-right: 10px;
+    padding-left: 15px;
+    box-shadow: 0px 0px 5px 3px var(--airplane);
+}
+
+/* override Leaflet.css Zoom Controls */
+.leaflet-bar a {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--airplane);
+    box-shadow: 0px 0px 5px 1px var(--airplane);
+    transition: all 0.1s ease-in-out;
+}
+.leaflet-bar a:hover {
+    background-color: var(--airplane);
+    color: var(--black);
+    box-shadow: 0px 0px 5px 1px var(--airplane);
+}
+.leaflet-bar a.leaflet-disabled {
+    color: transparent;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* override Leaflet.css pop-up styles */

@@ -181,20 +181,20 @@ $(document).ready(function () {
 
     // map Layer Control
     var mapLayers = {
-        "Dark": osmDarkMap,
-        "Light": osmLightMap,
-        "Earth": arcgisEarthMap
+        "<img src='images/mapDark.png' width='25px'> <span class='popup-text'>Dark</span>": osmDarkMap,
+        "<img src='images/mapLight.png' width='25px'> <span class='popup-text'>Light</span>": osmLightMap,
+        "<img src='images/mapEarth.png' width='25px'> <span class='popup-text'>Earth</span>": arcgisEarthMap
     };
 
     // map Options
     var mapOptions = {
-        "Heliports": heliports,
-        "Bus Stations": buses,
-        "Ferry Ports": ferries,
-        "Train Stations": trains,
-        "Airports": airports,
-        "Seaplane Bases": seaports,
-        "City Codes": cities
+        "<img src='images/helicopter.png' width='25px' class='layers-icon'> <span class='popup-text heliport'>Heliports</span>": heliports,
+        "<img src='images/bus.png' width='25px' class='layers-icon'> <span class='popup-text bus_station'>Bus Stations</span>": buses,
+        "<img src='images/ferry.png' width='25px' class='layers-icon'> <span class='popup-text ferry_port'>Ferry Ports</span>": ferries,
+        "<img src='images/train.png' width='25px' class='layers-icon'> <span class='popup-text train_station'>Train Stations</span>": trains,
+        "<img src='images/airplane.png' width='25px' class='layers-icon'> <span class='popup-text airport'>Airports</span>": airports,
+        "<img src='images/seaplane.png' width='25px' class='layers-icon'> <span class='popup-text seaplane_base'>Seaplane Bases</span>": seaports,
+        "<img src='images/city.png' width='25px' class='layers-icon'> <span class='popup-text city_code'>City Codes</span>": cities
     };
 
     // add Markers to MarkerClusterGroup with Layer Support
