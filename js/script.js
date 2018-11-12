@@ -180,6 +180,21 @@ $(document).ready(function () {
         maxZoom: 18
     });
 
+    // country selection concept from: https://jsfiddle.net/thiagobsouza/m09t5at0/5/
+    window.mapChange = function () {
+        var countrySelection = document.getElementById("countries");
+        var countryCenter = countrySelection.value;
+        if (countryCenter == "jp") {
+            map.setView([37.59230135, 138.0308956]);
+        } else if (countryCenter == "mn") {
+            map.setView([46.82681544, 103.0529976]);
+        } else if (countryCenter == "de") {
+            map.setView([51.10698181, 10.38578051]);
+        } else if (countryCenter == "ie") {
+            map.setView([53.1754487, -8.137935687]);
+        }
+    };
+
     // map Layer Control
     var mapLayers = {
         "<img src='images/mapDark.png' width='25px'> <span class='popup-text'>Dark</span>": osmDarkMap,

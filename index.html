@@ -23,7 +23,18 @@
     <!-- HEADER + NAV -->
     <header>
         <nav>
-
+            <label for="countries">Select a Country (TEST)</label>
+            <select name="countries" id="countries" onchange="mapChange()">
+                <option value="null"></option>
+                <optgroup label="Asia">
+                    <option value="jp">Japan</option>
+                    <option value="mn">Mongolia</option>
+                </optgroup>
+                <optgroup label="Europe">
+                    <option value="de">Germany</option>
+                    <option value="ie">Ireland</option>
+                </optgroup>
+            </select>
         </nav>
     </header>
 
