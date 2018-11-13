@@ -171,11 +171,9 @@ $(document).ready(function () {
 
     // the Map
     var map = L.map("map", {
-        layers: [osmDarkMap],
-        //center: [30.15, 4.53], // temporary change to center of Europe
-        center: [48.616478, 16.940151],
-        //zoom: 3, // temporary change to center of Europe
-        zoom: 4,
+        layers: [arcgisEarthMap],
+        center: [30.15, 4.53],
+        zoom: 3,
         minZoom: 2,
         maxZoom: 18
     });
@@ -184,124 +182,126 @@ $(document).ready(function () {
     window.mapChange = function () {
         var countrySelection = document.getElementById("countries");
         var countryCenter = countrySelection.value;
-        if (countryCenter == "dzMap") {
-            map.setView([28.1589384945, 2.6173230092]);
+        if (countryCenter == "null") {
+            map.setView([30.15, 4.53], 3);
+        } else if (countryCenter == "dzMap") {
+            map.setView([28.1589384945, 2.6173230092], 5);
         } else if (countryCenter == "aoMap") {
-            map.setView([-12.2933605438, 17.5373676815]);
+            map.setView([-12.2933605438, 17.5373676815], 5);
         } else if (countryCenter == "bjMap") {
-            map.setView([9.64175970225, 2.32785254449]);
+            map.setView([9.64175970225, 2.32785254449], 6);
         } else if (countryCenter == "bwMap") {
-            map.setView([-22.1840321328, 23.7985336773]);
+            map.setView([-22.1840321328, 23.7985336773], 6);
         } else if (countryCenter == "bfMap") {
-            map.setView([12.2695384574, -1.75456600914]);
+            map.setView([12.2695384574, -1.75456600914], 6);
         } else if (countryCenter == "biMap") {
-            map.setView([-3.35939665747, 29.8751215645]);
+            map.setView([-3.35939665747, 29.8751215645], 8);
         } else if (countryCenter == "cmMap") {
-            map.setView([5.69109848986, 12.7396415575]);
+            map.setView([5.69109848986, 12.7396415575], 6);
         } else if (countryCenter == "cvMap") {
-            map.setView([15.9552332421, -23.9598882026]);
+            map.setView([15.9552332421, -23.9598882026], 8);
         } else if (countryCenter == "cfMap") {
-            map.setView([6.56823297048, 20.4682683098]);
+            map.setView([6.56823297048, 20.4682683098], 6);
         } else if (countryCenter == "tdMap") {
-            map.setView([15.333337585, 18.6449251291]);
+            map.setView([15.333337585, 18.6449251291], 5);
         } else if (countryCenter == "kmMap") {
-            map.setView([-11.8778344355, 43.6825396848]);
+            map.setView([-11.8778344355, 43.6825396848], 8);
         } else if (countryCenter == "cdMap") {
-            map.setView([-2.8774628897, 23.643961066]);
+            map.setView([-2.8774628897, 23.643961066], 5);
         } else if (countryCenter == "cgMap") {
-            map.setView([-0.837874631184, 15.2196576195]);
+            map.setView([-0.837874631184, 15.2196576195], 6);
         } else if (countryCenter == "djMap") {
-            map.setView([11.7487180559, 42.5606754026]);
+            map.setView([11.7487180559, 42.5606754026], 8);
         } else if (countryCenter == "egMap") {
-            map.setView([26.4959331064, 29.8619009908]);
+            map.setView([26.4959331064, 29.8619009908], 5);
         } else if (countryCenter == "gqMap") {
-            map.setView([1.70555135464, 10.3413792389]);
+            map.setView([1.70555135464, 10.3413792389], 8);
         } else if (countryCenter == "erMap") {
-            map.setView([15.361866184, 38.8461701125]);
+            map.setView([15.361866184, 38.8461701125], 6);
         } else if (countryCenter == "etMap") {
-            map.setView([8.6227867931, 39.6008009763]);
+            map.setView([8.6227867931, 39.6008009763], 5);
         } else if (countryCenter == "gaMap") {
-            map.setView([-0.586600249551, 11.7886286968]);
+            map.setView([-0.586600249551, 11.7886286968], 6);
         } else if (countryCenter == "gmMap") {
-            map.setView([13.4496524352, -15.3960129463]);
+            map.setView([13.4496524352, -15.3960129463], 8);
         } else if (countryCenter == "ghMap") {
-            map.setView([7.95345643541, -1.21676565807]);
+            map.setView([7.95345643541, -1.21676565807], 6);
         } else if (countryCenter == "gnMap") {
-            map.setView([10.4362159331, -10.9406661161]);
+            map.setView([10.4362159331, -10.9406661161], 6);
         } else if (countryCenter == "gwMap") {
-            map.setView([12.0474494815, -14.9497244459]);
+            map.setView([12.0474494815, -14.9497244459], 8);
         } else if (countryCenter == "ciMap") {
-            map.setView([7.62842620235, -5.5692156998]);
+            map.setView([7.62842620235, -5.5692156998], 6);
         } else if (countryCenter == "keMap") {
-            map.setView([0.599880215445, 37.7959397293]);
+            map.setView([0.599880215445, 37.7959397293], 6);
         } else if (countryCenter == "lsMap") {
-            map.setView([-29.5800318833, 28.2272313098]);
+            map.setView([-29.5800318833, 28.2272313098], 8);
         } else if (countryCenter == "lrMap") {
-            map.setView([6.45278491657, -9.3220757269]);
+            map.setView([6.45278491657, -9.3220757269], 7);
         } else if (countryCenter == "lyMap") {
-            map.setView([27.0309449491, 18.0086616872]);
+            map.setView([27.0309449491, 18.0086616872], 5);
         } else if (countryCenter == "mgMap") {
-            map.setView([-19.3718958677, 46.7047367428]);
+            map.setView([-19.3718958677, 46.7047367428], 5);
         } else if (countryCenter == "mwMap") {
-            map.setView([-13.2180808806, 34.2893559871]);
+            map.setView([-13.2180808806, 34.2893559871], 6);
         } else if (countryCenter == "mlMap") {
-            map.setView([17.3458158135, -3.54269064851]);
+            map.setView([17.3458158135, -3.54269064851], 5);
         } else if (countryCenter == "mrMap") {
-            map.setView([20.257367056, -10.3477981455]);
+            map.setView([20.257367056, -10.3477981455], 5);
         } else if (countryCenter == "muMap") {
-            map.setView([-20.2776870433, 57.5712055061]);
+            map.setView([-20.253548, 57.588843], 10);
         } else if (countryCenter == "ytMap") {
-            map.setView([-12.811625, 45.142045]);
+            map.setView([-12.811625, 45.142045], 10);
         } else if (countryCenter == "maMap") {
-            map.setView([29.8376295469, -8.45615794798]);
+            map.setView([29.8376295469, -8.45615794798], 5);
         } else if (countryCenter == "mzMap") {
-            map.setView([-17.2738164259, 35.5336754259]);
+            map.setView([-17.2738164259, 35.5336754259], 5);
         } else if (countryCenter == "naMap") {
-            map.setView([-22.1303256842, 17.209635667]);
+            map.setView([-22.1303256842, 17.209635667], 5);
         } else if (countryCenter == "neMap") {
-            map.setView([17.4191249296, 9.38545881539]);
+            map.setView([17.4191249296, 9.38545881539], 5);
         } else if (countryCenter == "ngMap") {
-            map.setView([9.59411452233, 8.08943894771]);
+            map.setView([9.115869, 8.038924], 6);
         } else if (countryCenter == "reMap") {
-            map.setView([-21.128469, 55.531412]);
+            map.setView([-21.128469, 55.531412], 10);
         } else if (countryCenter == "rwMap") {
-            map.setView([-1.99033831693, 29.9198851524]);
+            map.setView([-1.99033831693, 29.9198851524], 8);
         } else if (countryCenter == "shMap") {
-            map.setView([-12.4035595078, -9.5477941587]);
+            map.setView([-15.965989, -5.705098], 11);
         } else if (countryCenter == "stMap") {
-            map.setView([0.443914449308, 6.72429657927]);
+            map.setView([1.013725, 7.021009], 8);
         } else if (countryCenter == "snMap") {
-            map.setView([14.3662417313, -14.4734923973]);
+            map.setView([14.3662417313, -14.4734923973], 7);
         } else if (countryCenter == "scMap") {
-            map.setView([-4.66099093522, 55.4760327912]);
+            map.setView([-4.66099093522, 55.4760327912], 9);
         } else if (countryCenter == "slMap") {
-            map.setView([8.56329593038, -11.7927124668]);
+            map.setView([8.56329593038, -11.7927124668], 7);
         } else if (countryCenter == "soMap") {
-            map.setView([4.75062876055, 45.7071448699]);
+            map.setView([4.75062876055, 45.7071448699], 5);
         } else if (countryCenter == "zaMap") {
-            map.setView([-29.0003409534, 25.0839009251]);
+            map.setView([-29.0003409534, 25.0839009251], 5);
         } else if (countryCenter == "ssMap") {
-            map.setView([7.30877944922, 30.2479000186]);
+            map.setView([7.30877944922, 30.2479000186], 6);
         } else if (countryCenter == "sdMap") {
-            map.setView([15.9903566856, 29.9404681199]);
+            map.setView([15.9903566856, 29.9404681199], 5);
         } else if (countryCenter == "szMap") {
-            map.setView([-26.5584304502, 31.4819369011]);
+            map.setView([-26.5584304502, 31.4819369011], 8);
         } else if (countryCenter == "tzMap") {
-            map.setView([-6.27565408332, 34.8130998093]);
+            map.setView([-6.27565408332, 34.8130998093], 6);
         } else if (countryCenter == "tgMap") {
-            map.setView([8.52531356141, 0.962328449769]);
+            map.setView([8.52531356141, 0.962328449769], 7);
         } else if (countryCenter == "tnMap") {
-            map.setView([34.1195624649, 9.55288358933]);
+            map.setView([34.1195624649, 9.55288358933], 6);
         } else if (countryCenter == "ugMap") {
-            map.setView([1.27469298731, 32.3690797137]);
+            map.setView([1.27469298731, 32.3690797137], 7);
         } else if (countryCenter == "ehMap") {
-            map.setView([24.2295673865, -12.2198275485]);
+            map.setView([24.2295673865, -12.2198275485], 6);
         } else if (countryCenter == "zmMap") {
-            map.setView([-13.4582415186, 27.7747594637]);
+            map.setView([-13.4582415186, 27.7747594637], 6);
         } else if (countryCenter == "zwMap") {
-            map.setView([-19.0042041882, 29.8514412019]);
+            map.setView([-19.0042041882, 29.8514412019], 6);
         } else if (countryCenter == "aqMap") {
-            map.setView([-80.5085791311, 19.9210895122]);
+            map.setView([-66.898693, -63.787375], 4);
         } else if (countryCenter == "afMap") {
             map.setView([33.8352307278, 66.0047336558]);
         } else if (countryCenter == "amMap") {
