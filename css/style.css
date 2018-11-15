@@ -25,6 +25,12 @@ header {
     background-color: var(--gray);
 }
 
+/*----- NAV ------*/
+#countries-label {
+    margin: 15px;
+    color: var(--white);
+}
+
 /*----- MAP -----*/
 #map {
     height: 75vh;
