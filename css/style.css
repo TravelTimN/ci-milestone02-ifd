@@ -17,9 +17,12 @@
     margin: 0 auto;
     padding: 0;
 }
+body {
+    background: url(../images/earth.jpg) top center no-repeat;
+}
 
 /*----- HEADER -----*/
-header {
+#main-container header {
     height: 19vh;
     max-width: 100vw;
     background-color: var(--gray);
@@ -381,4 +384,37 @@ footer {
     height: 5vh;
     max-width: 100vw;
     background-color: var(--black);
+}
+
+#modal {
+    margin-top: 30px;
+    padding: 0;
+    height: 90vh;
+    width: 85vw;
+    position: relative;
+    color: var(--white);
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: rgba(68, 68, 68, 0.9);
+    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0.5);
+}
+#modal-close {
+    cursor: pointer;
+    font-size: 3em;
+    text-shadow: var(--txtShadow);
+    transition: all 0.2s ease-in-out;
+}
+#modal-close:hover {
+    color: var(--black);
+    text-shadow: none;
+}
+#modal-nav {
+    position: absolute;
+    right: 5vw;
+    top: 5vh;
+}
+#modal-body {
+    position: absolute;
+    top: 15vh;
+    left: 3vw;
 }
