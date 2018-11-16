@@ -181,13 +181,13 @@ $(document).ready(function () {
         minZoom: 2,
         maxZoom: 18
     });
-    
+
     // flyTo the latitude/longitude + zoom level based on the user selection
     $("#countries").on("change", function () {
         var countryData = $(this).val().split(",");
         var MapLat = countryData[0];
         var MapLng = countryData[1];
-        var MapZoom = countryData[2];
+        var MapZoom = parseInt(countryData[2]);
         map.flyTo([MapLat, MapLng], MapZoom);
     });
 
