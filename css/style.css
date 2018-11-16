@@ -39,12 +39,128 @@ header {
     border-bottom: 0.5vh solid var(--airplane);
 }
 
-/* map icons/markers */
+/*----- map icons markers -----*/
 img.leaflet-marker-icon {
     border-radius: 50%;
     border: 1px solid var(--black);
     transition: all 0.2s ease-in-out;
 }
+
+/*----- animations per specific icon marker -----*/
+img[src*="airplane"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(1, 143, 195, 0.5);
+    animation: pulse-airplane 2.5s infinite;
+}
+img[src*="bus"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(195, 62, 1, 0.5);
+    animation: pulse-bus 2.5s infinite;
+}
+img[src*="city"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(255, 255, 255, 0.5);
+    animation: pulse-city 2.5s infinite;
+}
+img[src*="ferry"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(195, 159, 1, 0.5);
+    animation: pulse-ferry 2.5s infinite;
+}
+img[src*="helicopter"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(195, 14, 1, 0.5);
+    animation: pulse-helicopter 2.5s infinite;
+}
+img[src*="seaplane"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(124, 1, 195, 0.5);
+    animation: pulse-seaplane 2.5s infinite;
+}
+img[src*="train"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(1, 195, 53, 0.5);
+    animation: pulse-train 2.5s infinite;
+}
+img.leaflet-marker-icon:active,
+img.leaflet-marker-icon:hover,
+img.leaflet-marker-icon:focus {
+    animation: none;
+}
+
+/*----- keyframes for icon animations -----*/
+@keyframes pulse-airplane {
+    0% {
+      box-shadow: 0 0 0 0 rgba(1, 143, 195, 0.5);
+    }
+    75% {
+        box-shadow: 0 0 0 15px rgba(1, 143, 195, 0);
+    }
+    100% {
+        box-shadow: 0 0 25px 5px rgba(1, 143, 195, 0);
+    }
+}
+@keyframes pulse-bus {
+    0% {
+      box-shadow: 0 0 0 0 rgba(195, 62, 1, 0.5);
+    }
+    75% {
+        box-shadow: 0 0 0 15px rgba(195, 62, 1, 0);
+    }
+    100% {
+        box-shadow: 0 0 25px 5px rgba(195, 62, 1, 0);
+    }
+}
+@keyframes pulse-city {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+    }
+    75% {
+        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0);
+    }
+}
+@keyframes pulse-ferry {
+    0% {
+      box-shadow: 0 0 0 0 rgba(195, 159, 1, 0.5);
+    }
+    75% {
+        box-shadow: 0 0 0 15px rgba(195, 159, 1, 0);
+    }
+    100% {
+        box-shadow: 0 0 25px 5px rgba(195, 159, 1, 0);
+    }
+}
+@keyframes pulse-helicopter {
+    0% {
+      box-shadow: 0 0 0 0 rgba(195, 14, 1, 0.5);
+    }
+    75% {
+        box-shadow: 0 0 0 15px rgba(195, 14, 1, 0);
+    }
+    100% {
+        box-shadow: 0 0 25px 5px rgba(195, 14, 1, 0);
+    }
+}
+@keyframes pulse-seaplane {
+    0% {
+      box-shadow: 0 0 0 0 rgba(124, 1, 195, 0.5);
+    }
+    75% {
+        box-shadow: 0 0 0 15px rgba(124, 1, 195, 0);
+    }
+    100% {
+        box-shadow: 0 0 25px 5px rgba(124, 1, 195, 0);
+    }
+}
+@keyframes pulse-train {
+    0% {
+      box-shadow: 0 0 0 0 rgba(1, 195, 53, 0.5);
+    }
+    75% {
+        box-shadow: 0 0 0 15px rgba(1, 195, 53, 0);
+    }
+    100% {
+        box-shadow: 0 0 25px 5px rgba(1, 195, 53, 0);
+    }
+}
+
+/*----- hover effects per specific icon marker -----*/
 img[src*="airplane"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 50px 5px var(--airplane);
 }
@@ -67,7 +183,7 @@ img[src*="train"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 50px 5px var(--train);
 }
 
-/* pop-up text styles*/
+/*----- pop-up text styles -----*/
 .popup-iata {
     font-size: 4em;
     font-weight: bold;
@@ -138,7 +254,7 @@ img[src*="train"]:not(.layers-icon):hover {
     color: var(--train);
 }
 
-/* custom Leaflet Layer styles */
+/*----- custom Leaflet Layer styles -----*/
 .leaflet-control-layers-expanded {
     min-width: 200px;
     color: var(--airplane);
@@ -163,7 +279,7 @@ img[src*="train"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 5px 3px var(--airplane);
 }
 
-/* override Leaflet.css Zoom Controls */
+/*----- override Leaflet.css Zoom Controls -----*/
 .leaflet-bar a {
     background-color: rgba(0, 0, 0, 0.8);
     color: var(--airplane);
@@ -180,13 +296,13 @@ img[src*="train"]:not(.layers-icon):hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* override Leaflet.css pop-up styles */
+/*----- override Leaflet.css pop-up styles -----*/
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
     min-width: 300px;
     border: 1px solid var(--black);
     background-color: rgba(68, 68, 68, 0.95);
-    box-shadow: 0px 0px 50px 1px rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .leaflet-container a.leaflet-popup-close-button {
