@@ -198,10 +198,13 @@ img[src*="train"]:not(.layers-icon):hover {
     font-size: 1.25em;
 }
 .popup-wiki a {
-    padding: 10px;
+    padding: 10px 15px;
     font-size: 1.25em;
+    font-weight: bold;
     text-decoration: none;
+    border-radius: 25px;
     background-color: var(--black);
+    transition: all 0.2s ease-in-out;
 }
 .popup-latlng {
     color: var(--white);
@@ -254,6 +257,38 @@ img[src*="train"]:not(.layers-icon):hover {
     color: var(--train);
 }
 
+.popup-wiki.airport a:hover,
+.popup-wiki.bus_station a:hover,
+.popup-wiki.city_code a:hover,
+.popup-wiki.ferry_port a:hover,
+.popup-wiki.heliport a:hover,
+.popup-wiki.seaplane_base a:hover,
+.popup-wiki.train_station a:hover {
+    color: var(--black);
+    box-shadow: 0px 0px 5px 3px var(--black);
+}
+.popup-wiki.airport a:hover {
+    background-color: var(--airplane);
+}
+.popup-wiki.bus_station a:hover {
+    background-color: var(--bus);
+}
+.popup-wiki.city_code a:hover {
+    background-color: var(--white);
+}
+.popup-wiki.ferry_port a:hover {
+    background-color: var(--ferry);
+}
+.popup-wiki.heliport a:hover {
+    background-color: var(--helicopter);
+}
+.popup-wiki.seaplane_base a:hover {
+    background-color: var(--seaplane);
+}
+.popup-wiki.train_station a:hover {
+    background-color: var(--train);
+}
+
 /*----- custom Leaflet Layer styles -----*/
 .leaflet-control-layers-expanded {
     min-width: 200px;
@@ -277,6 +312,24 @@ img[src*="train"]:not(.layers-icon):hover {
     padding-right: 10px;
     padding-left: 15px;
     box-shadow: 0px 0px 5px 3px var(--airplane);
+}
+
+/*----- custom Marker Cluster icons -----*/
+.marker-cluster-large,
+.marker-cluster-medium,
+.marker-cluster-small {
+    background-color: transparent;
+}
+.marker-cluster-large div,
+.marker-cluster-medium div,
+.marker-cluster-small div {
+    background-color: #7D3E11;
+    font-size: 1.25em;
+    color: var(--white);
+    text-shadow: var(--txtShadow);
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 5px rgba(125, 62, 17, 0.5);
 }
 
 /*----- override Leaflet.css Zoom Controls -----*/
@@ -316,6 +369,11 @@ img[src*="train"]:not(.layers-icon):hover {
 .leaflet-container a.leaflet-popup-close-button:hover {
     color: var(--black);
     text-shadow: none;
+}
+
+/*----- override Leaflet.css standard settings -----*/
+.leaflet-container {
+    background: #071F41;
 }
 
 /*----- FOOTER -----*/

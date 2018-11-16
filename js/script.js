@@ -223,4 +223,18 @@ $(document).ready(function () {
     // add Map Overlay and higher Z-Index so it sits on top of under-layers
     mapOverlay.bringToFront().addTo(map).setZIndex(9);
 
+    // update the Leaflet Container based on which Map Layer is selected
+    $(".leaflet-control-layers-base input[type=radio]:eq(0)").on("click", function () {
+        // DARK MAP
+        $(".leaflet-container").css("background-color", "#262626");
+    });
+    $(".leaflet-control-layers-base input[type=radio]:eq(1)").on("click", function () {
+        // LIGHT MAP
+        $(".leaflet-container").css("background-color", "#D4DADC");
+    });
+    $(".leaflet-control-layers-base input[type=radio]:eq(2)").on("click", function () {
+        // EARTH MAP
+        $(".leaflet-container").css("background-color", "#071F41");
+    });
+
 });
