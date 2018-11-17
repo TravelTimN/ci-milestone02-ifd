@@ -41,6 +41,19 @@ body {
     border-top: 0.5vh solid var(--airplane);
     border-bottom: 0.5vh solid var(--airplane);
 }
+.leaflet-control-attribution.leaflet-control {
+    background-color: var(--black);
+    color: rgba(255,255,255,0.5);
+    box-shadow: 0px 0px 10px 5px rgba(1, 143, 195, 0.5);
+}
+.leaflet-control-attribution.leaflet-control a {
+    color: var(--airplane);
+    transition: all 0.2s ease-in-out;
+}
+.leaflet-control-attribution.leaflet-control a:hover {
+    text-decoration: none;
+    color: var(--white);
+}
 
 /*----- map icons markers -----*/
 img.leaflet-marker-icon {
@@ -376,7 +389,8 @@ img[src*="train"]:not(.layers-icon):hover {
 
 /*----- override Leaflet.css standard settings -----*/
 .leaflet-container {
-    background: #071F41;
+    /*background: #071F41;*/
+    background: #262626;
 }
 
 /*----- FOOTER -----*/
@@ -386,6 +400,7 @@ footer {
     background-color: var(--black);
 }
 
+/*----- MODAL -----*/
 #modal {
     margin-top: 30px;
     padding: 0;
@@ -396,7 +411,7 @@ footer {
     border-radius: 25px;
     border: 1px solid rgba(0, 0, 0, 0.5);
     background-color: rgba(68, 68, 68, 0.9);
-    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.1);
 }
 #modal-close {
     cursor: pointer;

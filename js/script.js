@@ -11,9 +11,9 @@ $(document).ready(function () {
 
 
         // map Links
-        var osmLink = "<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>";
-        var cartoLink = "<a href='https://carto.com/attribution/' target='_blank'>CARTO</a>";
-        var arcgisLink = "<a href='https://developers.arcgis.com/terms/attribution/' target='_blank'>Esri ArcGIS</a>";
+        var osmLink = "<a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap</a>";
+        var cartoLink = "<a href='https://carto.com/attribution/' target='_blank' rel='noopener'>CARTO</a>";
+        var arcgisLink = "<a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Esri ArcGIS</a>";
 
         // map tile URLs
         var osmDarkUrl = "http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png";
@@ -119,7 +119,7 @@ $(document).ready(function () {
             if (feature.properties.hasOwnProperty("wikipedia")) {
                 if (feature.properties.wikipedia != "") {
                     popupData += "<p class='popup-wiki " + feature.properties.transport +
-                        "'><a href='" + feature.properties.wikipedia + "' target='_blank'>Wikipedia</a></p>";
+                        "'><a href='" + feature.properties.wikipedia + "' target='_blank' rel='noopener'>Wikipedia</a></p>";
                 }
             }
             // add Latitude / Longitude (must exist)
@@ -143,7 +143,6 @@ $(document).ready(function () {
         var trains = new L.LayerGroup();
 
         // assigning the Icons to their respective layers
-        //var theMarkers = L.geoJson(testData, { // using testDataAll to temporarily test ALL current data
         var theMarkers = L.geoJson(testDataAll, {
             onEachFeature: function (feature, layer) {
                 layer.bindPopup(addPopupData(feature));
@@ -184,7 +183,7 @@ $(document).ready(function () {
 
         // the Map itself
         var map = L.map("map", {
-            layers: [arcgisEarthMap],
+            layers: [osmDarkMap],
             center: [20.77, 4.53],
             zoom: 3,
             minZoom: 2,
@@ -202,20 +201,20 @@ $(document).ready(function () {
 
         // map Layer Control
         var mapLayers = {
-            "<img src='images/mapDark.png' width='25px'> <span class='popup-text'>Dark</span>": osmDarkMap,
-            "<img src='images/mapLight.png' width='25px'> <span class='popup-text'>Light</span>": osmLightMap,
-            "<img src='images/mapEarth.png' width='25px'> <span class='popup-text'>Earth</span>": arcgisEarthMap
+            "<img src='images/mapDark.png' width='25px' height='25px' alt='Dark Map'> <span class='popup-text'>Dark</span>": osmDarkMap,
+            "<img src='images/mapLight.png' width='25px' height='25px' alt='Light Map'> <span class='popup-text'>Light</span>": osmLightMap,
+            "<img src='images/mapEarth.png' width='25px' height='25px' alt='Earth Map'> <span class='popup-text'>Earth</span>": arcgisEarthMap
         };
 
         // map Transportation Options/Layers
         var mapOptions = {
-            "<img src='images/helicopter.png' width='25px' class='layers-icon'> <span class='popup-text heliport'>Heliports</span>": heliports,
-            "<img src='images/bus.png' width='25px' class='layers-icon'> <span class='popup-text bus_station'>Bus Stations</span>": buses,
-            "<img src='images/ferry.png' width='25px' class='layers-icon'> <span class='popup-text ferry_port'>Ferry Ports</span>": ferries,
-            "<img src='images/train.png' width='25px' class='layers-icon'> <span class='popup-text train_station'>Train Stations</span>": trains,
-            "<img src='images/airplane.png' width='25px' class='layers-icon'> <span class='popup-text airport'>Airports</span>": airports,
-            "<img src='images/seaplane.png' width='25px' class='layers-icon'> <span class='popup-text seaplane_base'>Seaplane Bases</span>": seaports,
-            "<img src='images/city.png' width='25px' class='layers-icon'> <span class='popup-text city_code'>City Codes</span>": cities
+            "<img src='images/airplane.png' width='25px' height='25px' class='layers-icon' alt='Airports'> <span class='popup-text airport'>Airports</span>": airports,
+            "<img src='images/bus.png' width='25px' height='25px' class='layers-icon' alt='Bus Stations'> <span class='popup-text bus_station'>Bus Stations</span>": buses,
+            "<img src='images/city.png' width='25px' height='25px' class='layers-icon' alt='City Codes'> <span class='popup-text city_code'>City Codes</span>": cities,
+            "<img src='images/ferry.png' width='25px' height='25px' class='layers-icon' alt='Ferry Ports'> <span class='popup-text ferry_port'>Ferry Ports</span>": ferries,
+            "<img src='images/helicopter.png' width='25px' height='25px' class='layers-icon' alt='Heliports'> <span class='popup-text heliport'>Heliports</span>": heliports,
+            "<img src='images/seaplane.png' width='25px' height='25px' class='layers-icon' alt='Seaplane Bases'> <span class='popup-text seaplane_base'>Seaplane Bases</span>": seaports,
+            "<img src='images/train.png' width='25px' height='25px' class='layers-icon' alt='Train Stations'> <span class='popup-text train_station'>Train Stations</span>": trains
         };
 
         // add Markers to MarkerClusterGroup with Layer Support
