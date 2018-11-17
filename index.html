@@ -15,7 +15,6 @@
     <link rel='icon' sizes="192x192" href="images/favicon.png" type="image/x-icon">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css">
     <link rel="stylesheet" href="css/leaflet.css" type="text/css">
     <link rel="stylesheet" href="css/MarkerCluster.css" type="text/css">
     <link rel="stylesheet" href="css/MarkerCluster.Default.css" type="text/css">
@@ -25,20 +24,37 @@
 
 <body>
 
-    <!-- HEADER + NAV -->
-    <div id="modal">
-        <header id="modal-header">
-            <nav id="modal-nav">
-                <i class="far fa-times-circle" id="modal-close"></i>
-            </nav>
-        </header>
-        <main id="modal-body">
-            Interactive Open-Source Travel Dashboard of IATA Codes Globally
-        </main>
+    <!-- START: MODAL -->
+    <div id="modal-container">
+        <section id="modal">
+            <header id="modal-header">
+                <h1>
+                    Interactive Open-Source IATA Dashboard
+                </h1>
+            </header>
+            <main id="modal-body">
+                <p>An IATA code is a 3-letter designator for thousands of transportation locations around the world,
+                    defined by the International Air Transport Association (IATA).</p>
+                <p>Generally used for <mark class="airport">airports</mark>, codes are also assigned to intermodal
+                    locations such as <mark class="train_station">train stations</mark>, <mark class="bus_station">bus
+                        stations</mark>, <mark class="heliport">heliports</mark>, <mark class="ferry_port">ferry ports</mark>,
+                    and <mark class="seaplane_base">seaplane bases</mark>. For larger cities that service multiple
+                    airports, a city designator is often assigned (NYC, LON, PAR).</p>
+                <p>IATA codes are primarily used by travel agencies in Global Distribution Systems (GDS) such as
+                    Amadeus, Galileo, Sabre, Worldspan, and Apollo when booking travel.</p>
+                <p>Use the map layers to select specific IATA types, or choose from different map styles. Virtually fly
+                    to a specific country by selecting it from the list. Have fun!</p>
+            </main>
+            <footer id="modal-footer">
+                <button id="modal-close">EXPLORE MAP</button>
+            </footer>
+        </section>
     </div>
+
+    <!-- HEADER + NAV -->
     <div id="main-container">
-        <header>
-            <nav>
+        <header id="main-header">
+            <nav id="main-nav">
                 <label for="countries" id="countries-label">Fly to a Country</label>
                 <select name="countries" id="countries">
                     <option value="30.15,4.53,3" selected></option>
@@ -296,14 +312,12 @@
         <main id="map"></main>
 
         <!-- FOOTER -->
-        <footer>
+        <footer id="main-footer">
 
         </footer>
     </div>
 
     <!-- SCRIPTS -->
-    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-        crossorigin="anonymous" type="text/javascript"></script>-->
     <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="js/leaflet.js" type="text/javascript"></script>
     <script src="js/iataData.js" type="text/javascript"></script>

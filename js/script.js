@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     // once modal is closed, hide the modal and show the map
     $("#modal-close").on("click", function () {
-        $("#modal").hide();
+        $("#modal-container").hide();
         $("#main-container").fadeIn(500);
 
 
@@ -120,13 +120,13 @@ $(document).ready(function () {
                 if (feature.properties.website != "") {
                     if (feature.properties.website.includes('wikipedia')) {
                         popupData += "<p class='popup-website " + feature.properties.transport +
-                        "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Wikipedia</a></p>";
+                            "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Wikipedia</a></p>";
                     } else if (feature.properties.website.includes('wikitravel')) {
                         popupData += "<p class='popup-website " + feature.properties.transport +
-                        "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Wikitravel</a></p>";
+                            "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Wikitravel</a></p>";
                     } else if (feature.properties.website.includes('google')) {
                         popupData += "<p class='popup-website " + feature.properties.transport +
-                        "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Google</a></p>";
+                            "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Google</a></p>";
                     };
                 };
             };
@@ -217,13 +217,13 @@ $(document).ready(function () {
 
         // map Transportation Options/Layers
         var mapOptions = {
-            "<img src='images/airplane.png' width='25px' height='25px' class='layers-icon' alt='Airports'> <span class='popup-text airport'>Airports</span>": airports,
-            "<img src='images/bus.png' width='25px' height='25px' class='layers-icon' alt='Bus Stations'> <span class='popup-text bus_station'>Bus Stations</span>": buses,
-            "<img src='images/city.png' width='25px' height='25px' class='layers-icon' alt='City Codes'> <span class='popup-text city_code'>City Codes</span>": cities,
-            "<img src='images/ferry.png' width='25px' height='25px' class='layers-icon' alt='Ferry Ports'> <span class='popup-text ferry_port'>Ferry Ports</span>": ferries,
-            "<img src='images/helicopter.png' width='25px' height='25px' class='layers-icon' alt='Heliports'> <span class='popup-text heliport'>Heliports</span>": heliports,
-            "<img src='images/seaplane.png' width='25px' height='25px' class='layers-icon' alt='Seaplane Bases'> <span class='popup-text seaplane_base'>Seaplane Bases</span>": seaports,
-            "<img src='images/train.png' width='25px' height='25px' class='layers-icon' alt='Train Stations'> <span class='popup-text train_station'>Train Stations</span>": trains
+            "<img src='images/airplane.png' width='25px' height='25px' class='layers-icon' alt='Airports'> <span class='popup-text'>Airports</span>": airports,
+            "<img src='images/bus.png' width='25px' height='25px' class='layers-icon' alt='Bus Stations'> <span class='popup-text'>Bus Stations</span>": buses,
+            "<img src='images/city.png' width='25px' height='25px' class='layers-icon' alt='City Codes'> <span class='popup-text'>City Codes</span>": cities,
+            "<img src='images/ferry.png' width='25px' height='25px' class='layers-icon' alt='Ferry Ports'> <span class='popup-text'>Ferry Ports</span>": ferries,
+            "<img src='images/helicopter.png' width='25px' height='25px' class='layers-icon' alt='Heliports'> <span class='popup-text'>Heliports</span>": heliports,
+            "<img src='images/seaplane.png' width='25px' height='25px' class='layers-icon' alt='Seaplane Bases'> <span class='popup-text'>Seaplane Bases</span>": seaports,
+            "<img src='images/train.png' width='25px' height='25px' class='layers-icon' alt='Train Stations'> <span class='popup-text'>Train Stations</span>": trains
         };
 
         // add Markers to MarkerClusterGroup with Layer Support
@@ -235,7 +235,15 @@ $(document).ready(function () {
         layerGroup.addTo(map);
 
         // add Map Layer Control
-        L.control.layers(mapLayers, mapOptions).addTo(map);
+        if ($(window).resize().width() < 800) {
+            // on screens smaller than 800px wide, don't auto-show the layer control
+            L.control.layers(mapLayers, mapOptions).addTo(map);
+        } else {
+            // on larger screens over 800px wide, display the layer control automatically
+            L.control.layers(mapLayers, mapOptions, {
+                collapsed: false
+            }).addTo(map);
+        };
 
         // add Map Overlay and higher Z-Index so it sits on top of under-layers
         mapOverlay.bringToFront().addTo(map).setZIndex(9);
