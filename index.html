@@ -26,7 +26,7 @@
 
     <!-- START: MODAL -->
     <div id="modal-container">
-        <section id="modal">
+        <div id="modal">
             <header id="modal-header">
                 <h1>
                     Interactive Open-Source IATA Map
@@ -48,7 +48,7 @@
             <footer id="modal-footer">
                 <button id="modal-close">EXPLORE MAP</button>
             </footer>
-        </section>
+        </div>
     </div>
 
     <!-- HEADER + NAV -->
@@ -57,7 +57,7 @@
             <nav id="main-nav">
                 <label for="countries" id="countries-label">Fly to a Country</label>
                 <select name="countries" id="countries">
-                    <option value="30.15,4.53,3" selected></option>
+                    <option value="30.15,4.53,3" selected>Select Country</option>
                     <option value="33.8352307278,66.0047336558,6">Afghanistan</option>
                     <option value="60.2148868756,19.953287676,9">Aland Islands</option>
                     <option value="41.1424498947,20.0498339611,7">Albania</option>
@@ -309,7 +309,7 @@
         </header>
 
         <!-- MAP -->
-        <main id="map"></main>
+        <div id="map"></div>
 
         <!-- FOOTER -->
         <footer id="main-footer">
@@ -318,13 +318,13 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
-    <script src="js/leaflet.js" type="text/javascript"></script>
-    <script src="js/iataData.js" type="text/javascript"></script>
-    <script src="js/leaflet.markercluster-src.js" type="text/javascript"></script>
-    <script src="js/leaflet.markercluster.js" type="text/javascript"></script>
-    <script src="js/leaflet.markercluster.layersupport.js" type="text/javascript"></script>
-    <script src="js/script.js" type="text/javascript"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/iataData.js"></script>
+    <script src="js/leaflet.markercluster-src.js"></script>
+    <script src="js/leaflet.markercluster.js"></script>
+    <script src="js/leaflet.markercluster.layersupport.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
