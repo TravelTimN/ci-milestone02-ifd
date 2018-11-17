@@ -213,7 +213,7 @@ img[src*="train"]:not(.layers-icon):hover {
 .popup-name {
     font-size: 1.25em;
 }
-.popup-wiki a {
+.popup-website a {
     padding: 10px 15px;
     font-size: 1.25em;
     font-weight: bold;
@@ -232,76 +232,76 @@ img[src*="train"]:not(.layers-icon):hover {
 }
 .popup-iata.airport,
 .popup-name.airport,
-.popup-wiki.airport a,
+.popup-website.airport a,
 .latlng.airport {
     color: var(--airplane);
 }
 .popup-iata.bus_station,
 .popup-name.bus_station,
-.popup-wiki.bus_station a,
+.popup-website.bus_station a,
 .latlng.bus_station {
     color: var(--bus);
 }
 .popup-iata.city_code,
 .popup-name.city_code,
-.popup-wiki.city_code a,
+.popup-website.city_code a,
 .latlng.city_code {
     color: var(--white);
 }
 .popup-iata.ferry_port,
 .popup-name.ferry_port,
-.popup-wiki.ferry_port a,
+.popup-website.ferry_port a,
 .latlng.ferry_port {
     color: var(--ferry);
 }
 .popup-iata.heliport,
 .popup-name.heliport,
-.popup-wiki.heliport a,
+.popup-website.heliport a,
 .latlng.heliport {
     color: var(--helicopter);
 }
 .popup-iata.seaplane_base,
 .popup-name.seaplane_base,
-.popup-wiki.seaplane_base a,
+.popup-website.seaplane_base a,
 .latlng.seaplane_base {
     color: var(--seaplane);
 }
 .popup-iata.train_station,
 .popup-name.train_station,
-.popup-wiki.train_station a,
+.popup-website.train_station a,
 .latlng.train_station {
     color: var(--train);
 }
 
-.popup-wiki.airport a:hover,
-.popup-wiki.bus_station a:hover,
-.popup-wiki.city_code a:hover,
-.popup-wiki.ferry_port a:hover,
-.popup-wiki.heliport a:hover,
-.popup-wiki.seaplane_base a:hover,
-.popup-wiki.train_station a:hover {
+.popup-website.airport a:hover,
+.popup-website.bus_station a:hover,
+.popup-website.city_code a:hover,
+.popup-website.ferry_port a:hover,
+.popup-website.heliport a:hover,
+.popup-website.seaplane_base a:hover,
+.popup-website.train_station a:hover {
     color: var(--black);
     box-shadow: 0px 0px 5px 3px var(--black);
 }
-.popup-wiki.airport a:hover {
+.popup-website.airport a:hover {
     background-color: var(--airplane);
 }
-.popup-wiki.bus_station a:hover {
+.popup-website.bus_station a:hover {
     background-color: var(--bus);
 }
-.popup-wiki.city_code a:hover {
+.popup-website.city_code a:hover {
     background-color: var(--white);
 }
-.popup-wiki.ferry_port a:hover {
+.popup-website.ferry_port a:hover {
     background-color: var(--ferry);
 }
-.popup-wiki.heliport a:hover {
+.popup-website.heliport a:hover {
     background-color: var(--helicopter);
 }
-.popup-wiki.seaplane_base a:hover {
+.popup-website.seaplane_base a:hover {
     background-color: var(--seaplane);
 }
-.popup-wiki.train_station a:hover {
+.popup-website.train_station a:hover {
     background-color: var(--train);
 }
 

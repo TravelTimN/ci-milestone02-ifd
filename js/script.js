@@ -78,12 +78,12 @@ $(document).ready(function () {
             if (feature.properties.hasOwnProperty("iata")) {
                 popupData += "<h1 class='popup-iata " + feature.properties.transport + "'>" +
                     feature.properties.iata + "</h1>";
-            }
+            };
             // add Name (must exist)
             if (feature.properties.hasOwnProperty("name")) {
                 popupData += "<p class='popup-text'><span class='popup-name " +
                     feature.properties.transport + "'><b>" + feature.properties.name + "</b></span>";
-            }
+            };
             // add Municipality if it exists
             if (feature.properties.hasOwnProperty("municipality")) {
                 // add Region if it exists
@@ -99,7 +99,7 @@ $(document).ready(function () {
                                 // if Municipality and Region are the same as the country (ie: Cocos/Keeling Islands), then only add Country
                                 popupData += "<br>" + feature.properties.municipality +
                                     "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
-                            }
+                            };
                         } else if (feature.properties.region != feature.properties.country) {
                             // Municipality and Region are identical here, so only add Region if it doesn't match the Country too
                             popupData += "<br>" + feature.properties.region +
@@ -107,31 +107,39 @@ $(document).ready(function () {
                         } else {
                             // add just Country if all others are identical (ie: Cocos/Keeling Islands)
                             popupData += "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
-                        }
-                    }
-                }
-            }
+                        };
+                    };
+                };
+            };
             // add Continent if it exists
             if (feature.properties.hasOwnProperty("continent")) {
                 popupData += "<br>" + feature.properties.continent + "</p>";
-            }
-            // add Wikipedia page if it exists
-            if (feature.properties.hasOwnProperty("wikipedia")) {
-                if (feature.properties.wikipedia != "") {
-                    popupData += "<p class='popup-wiki " + feature.properties.transport +
-                        "'><a href='" + feature.properties.wikipedia + "' target='_blank' rel='noopener'>Wikipedia</a></p>";
-                }
-            }
+            };
+            // add Website if it exists
+            if (feature.properties.hasOwnProperty("website")) {
+                if (feature.properties.website != "") {
+                    if (feature.properties.website.includes('wikipedia')) {
+                        popupData += "<p class='popup-website " + feature.properties.transport +
+                        "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Wikipedia</a></p>";
+                    } else if (feature.properties.website.includes('wikitravel')) {
+                        popupData += "<p class='popup-website " + feature.properties.transport +
+                        "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Wikitravel</a></p>";
+                    } else if (feature.properties.website.includes('google')) {
+                        popupData += "<p class='popup-website " + feature.properties.transport +
+                        "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Google</a></p>";
+                    };
+                };
+            };
             // add Latitude / Longitude (must exist)
             if (feature.geometry.hasOwnProperty("coordinates")) {
                 popupData += "<p class='popup-latlng'>latitude: <span class='latlng " +
                     feature.properties.transport + "'>" + feature.geometry.coordinates[0] +
                     "</span><br>longitude: <span class='latlng " + feature.properties.transport +
                     "'>" + feature.geometry.coordinates[1] + "</span></p>";
-            }
+            };
             // display the data in the PopUp
             return popupData;
-        }
+        };
 
         // creating the Transportation Layers
         var airports = new L.LayerGroup();
@@ -143,7 +151,8 @@ $(document).ready(function () {
         var trains = new L.LayerGroup();
 
         // assigning the Icons to their respective layers
-        var theMarkers = L.geoJson(testDataAll, {
+        //var theMarkers = L.geoJson(testDataAll, {
+        var theMarkers = L.geoJson(iataData, {
             onEachFeature: function (feature, layer) {
                 layer.bindPopup(addPopupData(feature));
                 if (feature.properties.transport === "airport") {
@@ -174,7 +183,7 @@ $(document).ready(function () {
                     // set the TRAIN icon if the "transport" type is train_station
                     layer.setIcon(trainIcon);
                     layer.addTo(trains);
-                }
+                };
             }
         });
 
