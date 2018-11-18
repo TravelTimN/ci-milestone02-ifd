@@ -65,6 +65,7 @@ body {
     background-color: var(--gray);
     border-radius: 5px;
     border: 1px solid var(--black);
+    outline: none;
 }
 
 /*----- MAP -----*/
@@ -78,7 +79,7 @@ body {
     background-color: var(--black);
     color: rgba(255,255,255,0.5);
     box-shadow: 0px 0px 10px 5px rgba(1, 143, 195, 0.5);
-    font-size: 0.8vmax;
+    font-size: 0.9em;
 }
 .leaflet-control-attribution.leaflet-control a {
     color: var(--airplane);
@@ -414,9 +415,51 @@ img[src*="train"]:not(.layers-icon):hover {
 
 /*----- FOOTER -----*/
 #main-footer {
-    height: 5vh;
+    height: 9vh;
     max-width: 100vw;
     background-color: var(--black);
+    align-self: center;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: minmax(20px,1vw) auto minmax(20px,1vw);
+    grid-template-rows: minmax(5px,15px) auto minmax(5px,15px);
+    grid-template-areas:
+        ". . ."
+        ". footer-attributes ."
+        ". . .";
+}
+.footer-attributes {
+    grid-area: footer-attributes;
+    align-self: center;
+    justify-items: center;
+    color: var(--white);
+    font-size: 1.75vmax;
+}
+.footer-attributes a {
+    text-decoration: none;
+    color: var(--white);
+    margin: 0 2.5px;
+}
+.footer-attributes img {
+    vertical-align: bottom;
+    transition: all 0.2s ease-in-out;
+    width: 2.5vmax;
+}
+#github {
+    border-radius: 50%;
+}
+#linkedin {
+    border-radius: 3px;
+}
+#github:hover {
+    background-color: #4078C0;
+    box-shadow: 0 0 10px 5px rgba(64, 120, 192, 0.75);
+    outline: none;
+}
+#linkedin:hover {
+    background-color: #0077B5;
+    box-shadow: 0 0 10px 5px rgba(0, 119, 181, 0.75);
+    outline: none;
 }
 
 /*----- MODAL -----*/
@@ -493,9 +536,12 @@ img[src*="train"]:not(.layers-icon):hover {
     box-shadow: 0px 0px 50px 5px rgba(1, 143, 195, 0.75);
     transition: all 0.2s ease-in-out;
 }
-#modal-close:hover {
+#modal-close:hover,
+#modal-close:active,
+#modal-close:focus {
     background-color: var(--black);
     color: var(--airplane);
+    outline: none;
     animation: none;
 }
 @keyframes pulse-modal-button {

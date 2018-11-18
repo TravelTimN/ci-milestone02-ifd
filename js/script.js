@@ -285,4 +285,7 @@ $(document).ready(function () {
 
     });
 
+    // set the copyright year dynamically
+    $("#year").html(new Date().getFullYear());
+
 });
