@@ -9,6 +9,7 @@
     --white: #FFFFFF; /* color: var(--white); */
     --black: #000000; /* color: var(--black); */
     --gray: #444444; /* color: var(--gray); */
+    --darkGray: #262626; /* color: var(--darkGray); */
     --earth: #1157B9; /* color: var(--earth); */
     --txtShadow: 2px 2px 2px var(--black); /* text-shadow: var(--txtShadow); */
 }
@@ -19,21 +20,58 @@
     font-family: Verdana, Geneva, sans-serif;
 }
 body {
-    background: url(../images/earth.jpg) top / cover no-repeat fixed;
+    background-color: var(--black);
+}
+
+/*----- MAIN CONTAINER -----*/
+#main-container {
     background-color: var(--black);
 }
 
 /*----- HEADER -----*/
-#main-container header {
-    height: 19vh;
+#main-header {
+    height: 8vh;
+    font-size: 1.25vmax;
     max-width: 100vw;
-    background-color: var(--gray);
+    color: var(--white);
+    background-color: var(--darkGray);
+    text-shadow: var(--txtShadow);
+    display: grid;
+    grid-template-columns: minmax(20px,2vw) auto 1fr;
+    grid-template-rows: minmax(5px,15px) auto minmax(5px,15px);
+    grid-template-areas:
+        ". . ."
+        ". main-header ."
+        ". . .";
+}
+#main-header h1 {
+    grid-area: main-header;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+    justify-items: center;
 }
 
 /*----- NAV ------*/
-#countries-label {
-    margin: 15px;
+#main-nav {
+    height: 6vh;
+    justify-items: center;
+    background-color: var(--gray);display: grid;
+    grid-template-columns: minmax(20px,2vw) auto minmax(20px,2vw);
+    grid-template-rows: minmax(5px,15px) auto minmax(5px,15px);
+    grid-template-areas:
+        ". . ."
+        ". main-nav ."
+        ". . .";
+}
+#countries {
+    grid-area: main-nav;
+    font-size: 1.5vmax;
+    font-weight: bold;
     color: var(--white);
+    background-color: var(--darkGray);
+    border-radius: 5px;
+    border: 1px solid var(--black);
 }
 
 /*----- MAP -----*/
@@ -47,6 +85,7 @@ body {
     background-color: var(--black);
     color: rgba(255,255,255,0.5);
     box-shadow: 0px 0px 10px 5px rgba(1, 143, 195, 0.5);
+    font-size: 0.8vmax;
 }
 .leaflet-control-attribution.leaflet-control a {
     color: var(--airplane);
@@ -377,7 +416,7 @@ img[src*="train"]:not(.layers-icon):hover {
 
 /*----- override Leaflet.css standard settings -----*/
 .leaflet-container {
-    background: #262626;
+    background-color: var(--darkGray);
 }
 
 /*----- FOOTER -----*/
@@ -389,6 +428,8 @@ img[src*="train"]:not(.layers-icon):hover {
 
 /*----- MODAL -----*/
 #modal-container {
+    height: 100vh;
+    background: url(../images/earth.jpg) top / cover no-repeat fixed;
     display: grid;
     align-self: center;
     justify-items: center;

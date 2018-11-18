@@ -248,18 +248,42 @@ $(document).ready(function () {
         // add Map Overlay and higher Z-Index so it sits on top of under-layers
         mapOverlay.bringToFront().addTo(map).setZIndex(9);
 
-        // update the Leaflet Container based on which Map Layer is selected
+        // update the Leaflet Container and Page Color scheme based on which Map Layer is selected
         $(".leaflet-control-layers-base input[type=radio]:eq(0)").on("click", function () {
-            // DARK MAP
+            // DARK MAP (change map and page color settings)
             $(".leaflet-container").css("background-color", "#262626");
+            $("#main-header").css("background-color", "#262626");
+            $("#main-header :header").css({
+                'color': '#FFFFFF',
+                'text-shadow': '2px 2px 2px #000000'
+            });
+            $("#main-nav").css("background-color", "#444444");
+            $("#countries").css("background-color", "#262626");
+            $("#countries").css("color", "#FFFFFF");
         });
         $(".leaflet-control-layers-base input[type=radio]:eq(1)").on("click", function () {
-            // LIGHT MAP
+            // LIGHT MAP (change map and page color settings)
             $(".leaflet-container").css("background-color", "#D4DADC");
+            $("#main-header").css("background-color", "#D4DADC");
+            $("#main-header :header").css({
+                'color': '#018FC3',
+                'text-shadow': '2px 2px 2px #E2E6E8'
+            });
+            $("#main-nav").css("background-color", "#E2E6E8");
+            $("#countries").css("background-color", "#D4DADC");
+            $("#countries").css("color", "#018FC3");
         });
         $(".leaflet-control-layers-base input[type=radio]:eq(2)").on("click", function () {
-            // EARTH MAP
+            // EARTH MAP (change map and page color settings)
             $(".leaflet-container").css("background-color", "#071F41");
+            $("#main-header").css("background-color", "#071F41");
+            $("#main-header :header").css({
+                'color': '#FFFFFF',
+                'text-shadow': '2px 2px 2px #000000'
+            });
+            $("#main-nav").css("background-color", "#3A5274");
+            $("#countries").css("background-color", "#071F41");
+            $("#countries").css("color", "#FFFFFF");
         });
 
     });
