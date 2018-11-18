@@ -14,10 +14,13 @@
     --txtShadow: 2px 2px 2px var(--black); /* text-shadow: var(--txtShadow); */
 }
 
+/*----- Roboto - Google font -----*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
 * {
     margin: 0 auto;
     padding: 0;
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 body {
     background-color: var(--black);
