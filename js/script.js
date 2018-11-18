@@ -193,7 +193,7 @@ $(document).ready(function () {
         // the Map itself
         var map = L.map("map", {
             layers: [osmDarkMap],
-            center: [20.77, 4.53],
+            center: [23.5, 12],
             zoom: 3,
             minZoom: 2,
             maxZoom: 18
@@ -257,8 +257,7 @@ $(document).ready(function () {
                 'color': '#FFFFFF',
                 'text-shadow': '2px 2px 2px #000000'
             });
-            $("#main-nav").css("background-color", "#444444");
-            $("#countries").css("background-color", "#262626");
+            $("#countries").css("background-color", "#444444");
             $("#countries").css("color", "#FFFFFF");
         });
         $(".leaflet-control-layers-base input[type=radio]:eq(1)").on("click", function () {
@@ -266,12 +265,11 @@ $(document).ready(function () {
             $(".leaflet-container").css("background-color", "#D4DADC");
             $("#main-header").css("background-color", "#D4DADC");
             $("#main-header :header").css({
-                'color': '#018FC3',
-                'text-shadow': '2px 2px 2px #E2E6E8'
+                'color': '#000000',
+                'text-shadow': '2px 2px 2px #FFFFFF'
             });
-            $("#main-nav").css("background-color", "#E2E6E8");
-            $("#countries").css("background-color", "#D4DADC");
-            $("#countries").css("color", "#018FC3");
+            $("#countries").css("background-color", "#E2E6E8");
+            $("#countries").css("color", "#000000");
         });
         $(".leaflet-control-layers-base input[type=radio]:eq(2)").on("click", function () {
             // EARTH MAP (change map and page color settings)
@@ -281,8 +279,7 @@ $(document).ready(function () {
                 'color': '#FFFFFF',
                 'text-shadow': '2px 2px 2px #000000'
             });
-            $("#main-nav").css("background-color", "#3A5274");
-            $("#countries").css("background-color", "#071F41");
+            $("#countries").css("background-color", "#3A5274");
             $("#countries").css("color", "#FFFFFF");
         });
 
