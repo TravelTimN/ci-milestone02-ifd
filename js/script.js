@@ -26,93 +26,29 @@ var theMarkers = L.geoJson(iataData, {
         };
     }
 });
+// animated counter from zero to X-value
+// concept of animated count-up is from: https://codepen.io/saadeghi/pen/KdpdoQ
+// for some of the code, I had assistance from my mentor (James Timmins) how to make this into a working function
+// I had the code already working, but he helped with nearly 100 lines unneccessary repetitive loops (replaying "this")
+var countMarkers = function (markerID, markerType) {
+    $(markerID).prop("Counter", 0).animate({
+        Counter: markerType.getLayers().length
+    }, {
+        duration: 10000,
+        easing: "swing",
+        step: function (now) {
+            $(markerID).text(Math.ceil(now));
+        }
+    });
+}
 // update the modal with total number of markers per transport type
-// concept to count-up was borrowed from: https://codepen.io/saadeghi/pen/KdpdoQ
-// (jQuery Animated Number Counter from Zero to Value by Pouya Saadeghi)
-// function to count up to and update AIRPORTS
-$("#count-airport").html(function () {
-    $(this).prop("Counter", 0).animate({
-        Counter: airportCount.getLayers().length
-    }, {
-        duration: 10000,
-        easing: "swing",
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
-// function to count up to and update BUSES
-$("#count-buses").html(function () {
-    $(this).prop("Counter", 0).animate({
-        Counter: busCount.getLayers().length
-    }, {
-        duration: 10000,
-        easing: "swing",
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
-// function to count up to and update CITIES
-$("#count-cities").html(function () {
-    $(this).prop("Counter", 0).animate({
-        Counter: cityCount.getLayers().length
-    }, {
-        duration: 10000,
-        easing: "swing",
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
-// function to count up to and update FERRIES
-$("#count-ferries").html(function () {
-    $(this).prop("Counter", 0).animate({
-        Counter: ferryCount.getLayers().length
-    }, {
-        duration: 10000,
-        easing: "swing",
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
-// function to count up to and update HELIPORTS
-$("#count-heliports").html(function () {
-    $(this).prop("Counter", 0).animate({
-        Counter: heliportCount.getLayers().length
-    }, {
-        duration: 10000,
-        easing: "swing",
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
-// function to count up to and update SEAPORTS
-$("#count-seaports").html(function () {
-    $(this).prop("Counter", 0).animate({
-        Counter: seaportCount.getLayers().length
-    }, {
-        duration: 10000,
-        easing: "swing",
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
-// function to count up to and update TRAINS
-$("#count-trains").html(function () {
-    $(this).prop("Counter", 0).animate({
-        Counter: trainCount.getLayers().length
-    }, {
-        duration: 10000,
-        easing: "swing",
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
+$("#count-airport").html(countMarkers("#count-airport", airportCount));
+$("#count-buses").html(countMarkers("#count-buses", busCount));
+$("#count-cities").html(countMarkers("#count-cities", cityCount));
+$("#count-ferries").html(countMarkers("#count-ferries", ferryCount));
+$("#count-heliports").html(countMarkers("#count-heliports", heliportCount));
+$("#count-seaports").html(countMarkers("#count-seaports", seaportCount));
+$("#count-trains").html(countMarkers("#count-trains", trainCount));
 
 // hide the main page / map on initial load
 $("#main-container").hide();
@@ -307,7 +243,7 @@ $(document).ready(function () {
 
         // the Map itself
         var map = L.map("map", {
-            layers: [osmDarkMap],
+            layers: [arcgisEarthMap],
             center: [23.5, 12],
             zoom: 3,
             minZoom: 2,
