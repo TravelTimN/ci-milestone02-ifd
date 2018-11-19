@@ -27,14 +27,92 @@ var theMarkers = L.geoJson(iataData, {
     }
 });
 // update the modal with total number of markers per transport type
-$("#count-airport").html("<span class='airport'>Airports</span> <mark class='airport'>" + airportCount.getLayers().length + "</mark>");
-$("#count-buses").html("| <span class='bus_station'>Bus Stations</span> <mark class='bus_station'>" + busCount.getLayers().length + "</mark>");
-$("#count-cities").html("| <span class='city_code'>City Codes</span> <mark class='city_code'>" + cityCount.getLayers().length + "</mark>");
-$("#count-ferries").html("| <span class='ferry_port'>Ferry Ports</span> <mark class='ferry_port'>" + ferryCount.getLayers().length + "</mark>");
-$("#count-heliports").html("| <span class='heliport'>Heliports</span> <mark class='heliport'>" + heliportCount.getLayers().length + "</mark>");
-$("#count-seaports").html("| <span class='seaplane_base'>Seaports</span> <mark class='seaplane_base'>" + seaportCount.getLayers().length + "</mark>");
-$("#count-trains").html("| <span class='train_station'>Train Stations</span> <mark class='train_station'>" + trainCount.getLayers().length + "</mark>");
-
+// concept to count-up was borrowed from: https://codepen.io/saadeghi/pen/KdpdoQ
+// (jQuery Animated Number Counter from Zero to Value by Pouya Saadeghi)
+// function to count up to and update AIRPORTS
+$("#count-airport").html(function () {
+    $(this).prop("Counter", 0).animate({
+        Counter: airportCount.getLayers().length
+    }, {
+        duration: 10000,
+        easing: "swing",
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+// function to count up to and update BUSES
+$("#count-buses").html(function () {
+    $(this).prop("Counter", 0).animate({
+        Counter: busCount.getLayers().length
+    }, {
+        duration: 10000,
+        easing: "swing",
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+// function to count up to and update CITIES
+$("#count-cities").html(function () {
+    $(this).prop("Counter", 0).animate({
+        Counter: cityCount.getLayers().length
+    }, {
+        duration: 10000,
+        easing: "swing",
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+// function to count up to and update FERRIES
+$("#count-ferries").html(function () {
+    $(this).prop("Counter", 0).animate({
+        Counter: ferryCount.getLayers().length
+    }, {
+        duration: 10000,
+        easing: "swing",
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+// function to count up to and update HELIPORTS
+$("#count-heliports").html(function () {
+    $(this).prop("Counter", 0).animate({
+        Counter: heliportCount.getLayers().length
+    }, {
+        duration: 10000,
+        easing: "swing",
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+// function to count up to and update SEAPORTS
+$("#count-seaports").html(function () {
+    $(this).prop("Counter", 0).animate({
+        Counter: seaportCount.getLayers().length
+    }, {
+        duration: 10000,
+        easing: "swing",
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+// function to count up to and update TRAINS
+$("#count-trains").html(function () {
+    $(this).prop("Counter", 0).animate({
+        Counter: trainCount.getLayers().length
+    }, {
+        duration: 10000,
+        easing: "swing",
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
 
 // hide the main page / map on initial load
 $("#main-container").hide();
