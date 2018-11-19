@@ -78,7 +78,7 @@ body {
 .leaflet-control-attribution.leaflet-control {
     background-color: var(--black);
     color: rgba(255,255,255,0.75);
-    box-shadow: 0px 0px 10px 5px rgba(1, 143, 195, 0.5);
+    box-shadow: 0px 0px 10px 5px rgba(1,143,195,0.5);
     font-size: 0.9em;
 }
 .leaflet-control-attribution.leaflet-control a {
@@ -99,31 +99,31 @@ img.leaflet-marker-icon {
 
 /*----- animations per specific icon marker -----*/
 img[src*="airplane"]:not(.layers-icon) {
-    box-shadow: 0px 0px 50px 5px rgba(1, 143, 195, 0.5);
+    box-shadow: 0px 0px 50px 5px rgba(1,143,195,0.5);
     animation: pulse-airplane 2.5s infinite;
 }
 img[src*="bus"]:not(.layers-icon) {
-    box-shadow: 0px 0px 50px 5px rgba(195, 62, 1, 0.5);
+    box-shadow: 0px 0px 50px 5px rgba(195,62,1,0.5);
     animation: pulse-bus 2.5s infinite;
 }
 img[src*="city"]:not(.layers-icon) {
-    box-shadow: 0px 0px 50px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 50px 5px rgba(255,255,255,0.5);
     animation: pulse-city 2.5s infinite;
 }
 img[src*="ferry"]:not(.layers-icon) {
-    box-shadow: 0px 0px 50px 5px rgba(195, 159, 1, 0.5);
+    box-shadow: 0px 0px 50px 5px rgba(195,159,1,0.5);
     animation: pulse-ferry 2.5s infinite;
 }
 img[src*="helicopter"]:not(.layers-icon) {
-    box-shadow: 0px 0px 50px 5px rgba(195, 14, 1, 0.5);
+    box-shadow: 0px 0px 50px 5px rgba(195,14,1,0.5);
     animation: pulse-helicopter 2.5s infinite;
 }
 img[src*="seaplane"]:not(.layers-icon) {
-    box-shadow: 0px 0px 50px 5px rgba(124, 1, 195, 0.5);
+    box-shadow: 0px 0px 50px 5px rgba(124,1,195,0.5);
     animation: pulse-seaplane 2.5s infinite;
 }
 img[src*="train"]:not(.layers-icon) {
-    box-shadow: 0px 0px 50px 5px rgba(1, 195, 53, 0.5);
+    box-shadow: 0px 0px 50px 5px rgba(1,195,53,0.5);
     animation: pulse-train 2.5s infinite;
 }
 img.leaflet-marker-icon:active,
@@ -135,79 +135,79 @@ img.leaflet-marker-icon:focus {
 /*----- keyframes for icon animations -----*/
 @keyframes pulse-airplane {
     0% {
-      box-shadow: 0 0 0 0 rgba(1, 143, 195, 1);
+      box-shadow: 0 0 0 0 rgba(1,143,195,1);
     }
     75% {
-        box-shadow: 0 0 25px 15px rgba(1, 143, 195, 0);
+        box-shadow: 0 0 25px 15px rgba(1,143,195,0);
     }
     100% {
-        box-shadow: 0 0 25px 5px rgba(1, 143, 195, 0);
+        box-shadow: 0 0 25px 5px rgba(1,143,195,0);
     }
 }
 @keyframes pulse-bus {
     0% {
-      box-shadow: 0 0 0 0 rgba(195, 62, 1, 1);
+      box-shadow: 0 0 0 0 rgba(195,62,1,1);
     }
     75% {
-        box-shadow: 0 0 25px 15px rgba(195, 62, 1, 0);
+        box-shadow: 0 0 25px 15px rgba(195,62,1,0);
     }
     100% {
-        box-shadow: 0 0 25px 5px rgba(195, 62, 1, 0);
+        box-shadow: 0 0 25px 5px rgba(195,62,1,0);
     }
 }
 @keyframes pulse-city {
     0% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+      box-shadow: 0 0 0 0 rgba(255,255,255,1);
     }
     75% {
-        box-shadow: 0 0 25px 15px rgba(255, 255, 255, 0);
+        box-shadow: 0 0 25px 15px rgba(255,255,255,0);
     }
     100% {
-        box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0);
+        box-shadow: 0 0 25px 5px rgba(255,255,255,0);
     }
 }
 @keyframes pulse-ferry {
     0% {
-      box-shadow: 0 0 0 0 rgba(195, 159, 1, 1);
+      box-shadow: 0 0 0 0 rgba(195,159,1,1);
     }
     75% {
-        box-shadow: 0 0 25px 15px rgba(195, 159, 1, 0);
+        box-shadow: 0 0 25px 15px rgba(195,159,1,0);
     }
     100% {
-        box-shadow: 0 0 25px 5px rgba(195, 159, 1, 0);
+        box-shadow: 0 0 25px 5px rgba(195,159,1,0);
     }
 }
 @keyframes pulse-helicopter {
     0% {
-      box-shadow: 0 0 0 0 rgba(195, 14, 1, 1);
+      box-shadow: 0 0 0 0 rgba(195,14,1,1);
     }
     75% {
-        box-shadow: 0 0 25px 15px rgba(195, 14, 1, 0);
+        box-shadow: 0 0 25px 15px rgba(195,14,1,0);
     }
     100% {
-        box-shadow: 0 0 25px 5px rgba(195, 14, 1, 0);
+        box-shadow: 0 0 25px 5px rgba(195,14,1,0);
     }
 }
 @keyframes pulse-seaplane {
     0% {
-      box-shadow: 0 0 0 0 rgba(124, 1, 195, 1);
+      box-shadow: 0 0 0 0 rgba(124,1,195,1);
     }
     75% {
-        box-shadow: 0 0 25px 15px rgba(124, 1, 195, 0);
+        box-shadow: 0 0 25px 15px rgba(124,1,195,0);
     }
     100% {
-        box-shadow: 0 0 25px 5px rgba(124, 1, 195, 0);
+        box-shadow: 0 0 25px 5px rgba(124,1,195,0);
     }
 }
 @keyframes pulse-train {
     0% {
-      box-shadow: 0 0 0 0 rgba(1, 195, 53, 1);
+      box-shadow: 0 0 0 0 rgba(1,195,53,1);
     }
     75% {
-        box-shadow: 0 0 25px 15px rgba(1, 195, 53, 0);
+        box-shadow: 0 0 25px 15px rgba(1,195,53,0);
     }
     100% {
-        box-shadow: 0 0 25px 5px rgba(1, 195, 53, 0);
+        box-shadow: 0 0 25px 5px rgba(1,195,53,0);
     }
 }
 
@@ -332,7 +332,7 @@ img[src*="train"]:not(.layers-icon):hover {
     color: var(--airplane);
     font-weight: bold;
     text-shadow: 2px 2px 2px var(--black);
-    background-color: rgba(68, 68, 68, 0.95);
+    background-color: rgba(68,68,68,0.95);
 }
 .leaflet-control-layers-toggle {
     padding: 5px;
@@ -366,12 +366,12 @@ img[src*="train"]:not(.layers-icon):hover {
     text-shadow: var(--txtShadow);
     border: 1px solid rgba(0,0,0,0.4);
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 5px rgba(125, 62, 17, 0.5);
+    box-shadow: 0px 0px 0px 5px rgba(125,62,17,0.5);
 }
 
 /*----- override Leaflet.css Zoom Controls -----*/
 .leaflet-bar a {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0,0,0,0.8);
     color: var(--airplane);
     box-shadow: 0px 0px 5px 1px var(--airplane);
     transition: all 0.1s ease-in-out;
@@ -383,7 +383,7 @@ img[src*="train"]:not(.layers-icon):hover {
 }
 .leaflet-bar a.leaflet-disabled {
     color: transparent;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0,0,0,0.8);
 }
 
 /*----- override Leaflet.css pop-up styles -----*/
@@ -391,8 +391,8 @@ img[src*="train"]:not(.layers-icon):hover {
 .leaflet-popup-tip {
     min-width: 300px;
     border: 1px solid var(--black);
-    background-color: rgba(68, 68, 68, 0.95);
-    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
+    background-color: rgba(68,68,68,0.95);
+    box-shadow: 0 0 0 10px rgba(255,255,255,0.1);
 }
 
 .leaflet-container a.leaflet-popup-close-button {
@@ -453,12 +453,12 @@ img[src*="train"]:not(.layers-icon):hover {
 }
 #github:hover {
     background-color: #4078C0;
-    box-shadow: 0 0 1em 0.25em rgba(64, 120, 192, 0.75);
+    box-shadow: 0 0 1em 0.25em rgba(64,120,192,0.75);
     outline: none;
 }
 #linkedin:hover {
     background-color: #0077B5;
-    box-shadow: 0 0 1em 0.25em rgba(0, 119, 181, 0.75);
+    box-shadow: 0 0 1em 0.25em rgba(0,119,181,0.75);
     outline: none;
 }
 
@@ -469,34 +469,35 @@ img[src*="train"]:not(.layers-icon):hover {
     display: grid;
     align-self: center;
     justify-items: center;
-    grid-template-rows: minmax(1vh,5vh) auto minmax(1vh,auto);
+    grid-template-rows: minmax(1vh,2vh) auto minmax(1vh,auto);
     grid-template-areas:
         "."
         "modal"
         ".";
 }
 #modal {
-    padding: 25px;
+    padding: 20px;
     width: 75vw;
     color: var(--white);
     border-radius: 25px;
     text-shadow: var(--txtShadow);
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    background-color: rgba(68, 68, 68, 0.9);
-    box-shadow: 0 0 25px 15px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(68,68,68,0.9);
+    box-shadow: 0 0 25px 15px rgba(255,255,255,0.1);
     display: grid;
     grid-area: modal;
     grid-template-areas:
         "modal-header"
         "modal-body"
-        "modal-footer";
+        "modal-footer"
+        "modal-counts";
 }
 #modal-header {
     grid-area: modal-header;
     align-self: center;
     justify-items: center;
     text-align: center;
-    margin: 10px;
+    margin: 5px;
     font-size: 1.75vmax;
     letter-spacing: 1.5px;
 }
@@ -505,14 +506,8 @@ img[src*="train"]:not(.layers-icon):hover {
     font-size: 1.5vmax;
 }
 #modal-body p {
-    margin: 20px;
+    margin: 1.25em 2em 0 2em;
     text-align: justify;
-}
-#modal-body p mark {
-    background-color: rgba(0,0,0,1);
-    border-radius: 10px;
-    padding: 0 10px;
-    text-shadow: 2px 2px 2px var(--black);
 }
 #modal-footer {
     grid-area: modal-footer;
@@ -521,8 +516,8 @@ img[src*="train"]:not(.layers-icon):hover {
 }
 #modal-close {
     cursor: pointer;
-    padding: 25px;
-    margin: 20px;
+    padding: 1em;
+    margin: 1.25em;
     font-size: 2vmax;
     font-weight: bold;
     border-radius: 3em;
@@ -533,7 +528,7 @@ img[src*="train"]:not(.layers-icon):hover {
     text-shadow: var(--txtShadow);
     background-color: var(--airplane);
     animation: pulse-modal-button 2.5s infinite;
-    box-shadow: 0px 0px 50px 5px rgba(1, 143, 195, 0.75);
+    box-shadow: 0px 0px 50px 5px rgba(1,143,195,0.75);
     transition: all 0.2s ease-in-out;
 }
 #modal-close:hover,
@@ -546,12 +541,27 @@ img[src*="train"]:not(.layers-icon):hover {
 }
 @keyframes pulse-modal-button {
     0% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+        box-shadow: 0 0 0 0 rgba(255,255,255,1);
     }
     50% {
-        box-shadow: 0 0 25px 25px rgba(255, 255, 255, 0);
+        box-shadow: 0 0 25px 25px rgba(255,255,255,0);
     }
     100% {
-        box-shadow: 0 0 50px 1px rgba(255, 255, 255, 0);
+        box-shadow: 0 0 50px 1px rgba(255,255,255,0);
     }
+}
+#modal-counts {
+    grid-area: modal-counts;
+    align-self: center;
+    justify-items: center;
+    font-size: 1.25vmax;
+    font-weight: bold;
+    text-align: center;
+}
+#modal-counts mark {
+    background-color: rgba(0,0,0,1);
+    border-radius: 10px;
+    padding: 0 5px;
+    font-size: 1.25vmax;
+    font-weight: bold;
 }

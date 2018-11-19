@@ -37,10 +37,8 @@
             <main id="modal-body">
                 <p>An IATA code is a 3-letter designator for thousands of transportation locations around the world,
                     defined by the International Air Transport Association (IATA).</p>
-                <p>Generally used for <mark class="airport">airports</mark>, codes are also assigned to intermodal
-                    locations such as <mark class="train_station">train stations</mark>, <mark class="bus_station">bus
-                        stations</mark>, <mark class="heliport">heliports</mark>, <mark class="ferry_port">ferry ports</mark>,
-                    and <mark class="seaplane_base">seaplane bases</mark>. For larger cities that service multiple
+                <p>Generally used for airports, codes are also assigned to intermodal locations such as train stations,
+                    bus stations, heliports, ferry ports, and seaplane bases. For larger cities that service multiple
                     airports, a city designator is often assigned (NYC, LON, PAR).</p>
                 <p>IATA codes are primarily used by travel agencies in Global Distribution Systems (GDS) such as
                     Amadeus, Galileo, Sabre, Worldspan, and Apollo when booking travel.</p>
@@ -51,6 +49,15 @@
             <footer id="modal-footer">
                 <button id="modal-close">EXPLORE MAP</button>
             </footer>
+            <div id="modal-counts">
+                <span id="count-airport"></span>
+                <span id="count-buses"></span>
+                <span id="count-cities"></span>
+                <span id="count-ferries"></span>
+                <span id="count-heliports"></span>
+                <span id="count-seaports"></span>
+                <span id="count-trains"></span>
+            </div>
         </div>
     </div>
 
@@ -317,6 +324,7 @@
         <!-- FOOTER -->
         <footer id="main-footer">
             <div class="footer-attributes">
+                <!-- update copyright year from js function -->
                 &copy; <span id="year"></span> | Tim Nelson
                 <a href="https://github.com/TravelTimN" target="_blank" rel="noopener">
                     <img src="images/github.png" alt="GitHub" id="github" title="GitHub | TravelTimN">

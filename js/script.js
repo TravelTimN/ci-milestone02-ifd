@@ -1,3 +1,41 @@
+/* adding marker count to start of page (modal),
+requires adding them to LayerGroup outside of thte map build below */
+var airportCount = new L.LayerGroup();
+var busCount = new L.LayerGroup();
+var cityCount = new L.LayerGroup();
+var ferryCount = new L.LayerGroup();
+var heliportCount = new L.LayerGroup();
+var seaportCount = new L.LayerGroup();
+var trainCount = new L.LayerGroup();
+var theMarkers = L.geoJson(iataData, {
+    onEachFeature: function (feature, layer) {
+        if (feature.properties.transport === "airport") {
+            layer.addTo(airportCount);
+        } else if (feature.properties.transport === "bus_station") {
+            layer.addTo(busCount);
+        } else if (feature.properties.transport === "city_code") {
+            layer.addTo(cityCount);
+        } else if (feature.properties.transport === "ferry_port") {
+            layer.addTo(ferryCount);
+        } else if (feature.properties.transport === "heliport") {
+            layer.addTo(heliportCount);
+        } else if (feature.properties.transport === "seaplane_base") {
+            layer.addTo(seaportCount);
+        } else if (feature.properties.transport === "train_station") {
+            layer.addTo(trainCount);
+        };
+    }
+});
+// update the modal with total number of markers per transport type
+$("#count-airport").html("<span class='airport'>Airports</span> <mark class='airport'>" + airportCount.getLayers().length + "</mark>");
+$("#count-buses").html("| <span class='bus_station'>Bus Stations</span> <mark class='bus_station'>" + busCount.getLayers().length + "</mark>");
+$("#count-cities").html("| <span class='city_code'>City Codes</span> <mark class='city_code'>" + cityCount.getLayers().length + "</mark>");
+$("#count-ferries").html("| <span class='ferry_port'>Ferry Ports</span> <mark class='ferry_port'>" + ferryCount.getLayers().length + "</mark>");
+$("#count-heliports").html("| <span class='heliport'>Heliports</span> <mark class='heliport'>" + heliportCount.getLayers().length + "</mark>");
+$("#count-seaports").html("| <span class='seaplane_base'>Seaports</span> <mark class='seaplane_base'>" + seaportCount.getLayers().length + "</mark>");
+$("#count-trains").html("| <span class='train_station'>Train Stations</span> <mark class='train_station'>" + trainCount.getLayers().length + "</mark>");
+
+
 // hide the main page / map on initial load
 $("#main-container").hide();
 
@@ -151,7 +189,6 @@ $(document).ready(function () {
         var trains = new L.LayerGroup();
 
         // assigning the Icons to their respective layers
-        //var theMarkers = L.geoJson(testDataAll, {
         var theMarkers = L.geoJson(iataData, {
             onEachFeature: function (feature, layer) {
                 layer.bindPopup(addPopupData(feature));
@@ -283,9 +320,9 @@ $(document).ready(function () {
             $("#countries").css("color", "#FFFFFF");
         });
 
-    });
+        // set the copyright year dynamically for the footer
+        $("#year").html(new Date().getFullYear());
 
-    // set the copyright year dynamically
-    $("#year").html(new Date().getFullYear());
+    });
 
 });
