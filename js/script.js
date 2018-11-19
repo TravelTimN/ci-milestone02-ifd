@@ -7,7 +7,7 @@ var ferryCount = new L.LayerGroup();
 var heliportCount = new L.LayerGroup();
 var seaportCount = new L.LayerGroup();
 var trainCount = new L.LayerGroup();
-var theMarkers = L.geoJson(iataData, {
+L.geoJson(iataData, {
     onEachFeature: function (feature, layer) {
         if (feature.properties.transport === "airport") {
             layer.addTo(airportCount);
@@ -23,7 +23,7 @@ var theMarkers = L.geoJson(iataData, {
             layer.addTo(seaportCount);
         } else if (feature.properties.transport === "train_station") {
             layer.addTo(trainCount);
-        };
+        }
     }
 });
 // animated counter from zero to X-value
@@ -40,7 +40,7 @@ var countMarkers = function (markerID, markerType) {
             $(markerID).text(Math.ceil(now));
         }
     });
-}
+};
 // update the modal with total number of markers per transport type
 $("#count-airport").html(countMarkers("#count-airport", airportCount));
 $("#count-buses").html(countMarkers("#count-buses", busCount));
@@ -127,15 +127,11 @@ $(document).ready(function () {
         function addPopupData(feature) {
             var popupData = "";
             // add IATA code (must exist)
-            if (feature.properties.hasOwnProperty("iata")) {
-                popupData += "<h1 class='popup-iata " + feature.properties.transport + "'>" +
-                    feature.properties.iata + "</h1>";
-            };
+            popupData += "<h1 class='popup-iata " + feature.properties.transport + "'>" +
+                feature.properties.iata + "</h1>";
             // add Name (must exist)
-            if (feature.properties.hasOwnProperty("name")) {
-                popupData += "<p class='popup-text'><span class='popup-name " +
-                    feature.properties.transport + "'><b>" + feature.properties.name + "</b></span>";
-            };
+            popupData += "<p class='popup-text'><span class='popup-name " + feature.properties.transport +
+                "'><b>" + feature.properties.name + "</b></span>";
             // add Municipality if it exists
             if (feature.properties.hasOwnProperty("municipality")) {
                 // add Region if it exists
@@ -151,7 +147,7 @@ $(document).ready(function () {
                                 // if Municipality and Region are the same as the country (ie: Cocos/Keeling Islands), then only add Country
                                 popupData += "<br>" + feature.properties.municipality +
                                     "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
-                            };
+                            }
                         } else if (feature.properties.region != feature.properties.country) {
                             // Municipality and Region are identical here, so only add Region if it doesn't match the Country too
                             popupData += "<br>" + feature.properties.region +
@@ -159,17 +155,15 @@ $(document).ready(function () {
                         } else {
                             // add just Country if all others are identical (ie: Cocos/Keeling Islands)
                             popupData += "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
-                        };
-                    };
-                };
-            };
-            // add Continent if it exists
-            if (feature.properties.hasOwnProperty("continent")) {
-                popupData += "<br>" + feature.properties.continent + "</p>";
-            };
+                        }
+                    }
+                }
+            }
+            // add Continent if it exists (must exist)
+            popupData += "<br>" + feature.properties.continent + "</p>";
             // add Website if it exists
             if (feature.properties.hasOwnProperty("website")) {
-                if (feature.properties.website != "") {
+                if (feature.properties.website !== "") {
                     if (feature.properties.website.includes('wikipedia')) {
                         popupData += "<p class='popup-website " + feature.properties.transport +
                             "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Wikipedia</a></p>";
@@ -179,19 +173,16 @@ $(document).ready(function () {
                     } else if (feature.properties.website.includes('google')) {
                         popupData += "<p class='popup-website " + feature.properties.transport +
                             "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Google</a></p>";
-                    };
-                };
-            };
+                    }
+                }
+            }
             // add Latitude / Longitude (must exist)
-            if (feature.geometry.hasOwnProperty("coordinates")) {
-                popupData += "<p class='popup-latlng'>latitude: <span class='latlng " +
-                    feature.properties.transport + "'>" + feature.geometry.coordinates[0] +
-                    "</span><br>longitude: <span class='latlng " + feature.properties.transport +
-                    "'>" + feature.geometry.coordinates[1] + "</span></p>";
-            };
+            popupData += "<p class='popup-latlng'>latitude: <span class='latlng " + feature.properties.transport + "'>" +
+                feature.geometry.coordinates[0] + "</span><br>longitude: <span class='latlng " + feature.properties.transport + "'>" +
+                feature.geometry.coordinates[1] + "</span></p>";
             // display the data in the PopUp
             return popupData;
-        };
+        }
 
         // creating the Transportation Layers
         var airports = new L.LayerGroup();
@@ -234,7 +225,7 @@ $(document).ready(function () {
                     // set the TRAIN icon if the "transport" type is train_station
                     layer.setIcon(trainIcon);
                     layer.addTo(trains);
-                };
+                }
             }
         });
 
@@ -294,7 +285,7 @@ $(document).ready(function () {
             L.control.layers(mapLayers, mapOptions, {
                 collapsed: false
             }).addTo(map);
-        };
+        }
 
         // add Map Overlay and higher Z-Index so it sits on top of under-layers
         mapOverlay.bringToFront().addTo(map).setZIndex(9);
