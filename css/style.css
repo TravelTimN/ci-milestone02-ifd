@@ -477,13 +477,13 @@ img[src*="train"]:not(.layers-icon):hover {
 }
 #modal {
     padding: 20px;
-    width: 75vw;
+    width: 80vw;
     color: var(--white);
     border-radius: 25px;
     text-shadow: var(--txtShadow);
-    border: 1px solid rgba(0,0,0,0.5);
-    background-color: rgba(68,68,68,0.9);
-    box-shadow: 0 0 25px 15px rgba(255,255,255,0.1);
+    border: 1px solid rgba(0,0,0,0.25);
+    background-color: rgba(68,68,68,0.85);
+    box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
     display: grid;
     grid-area: modal;
     grid-template-areas:
