@@ -1,12 +1,12 @@
 /* adding marker count to start of page (modal),
 requires adding them to LayerGroup outside of thte map build below */
-var airportCount = new L.LayerGroup();
-var busCount = new L.LayerGroup();
-var cityCount = new L.LayerGroup();
-var ferryCount = new L.LayerGroup();
-var heliportCount = new L.LayerGroup();
-var seaportCount = new L.LayerGroup();
-var trainCount = new L.LayerGroup();
+var airportCount = new L.LayerGroup(),
+    busCount = new L.LayerGroup(),
+    cityCount = new L.LayerGroup(),
+    ferryCount = new L.LayerGroup(),
+    heliportCount = new L.LayerGroup(),
+    seaportCount = new L.LayerGroup(),
+    trainCount = new L.LayerGroup();
 L.geoJson(iataData, {
     onEachFeature: function (feature, layer) {
         if (feature.properties.transport === "airport") {
@@ -29,7 +29,7 @@ L.geoJson(iataData, {
 // animated counter from zero to X-value
 // concept of animated count-up is from: https://codepen.io/saadeghi/pen/KdpdoQ
 // for some of the code, I had assistance from my mentor (James Timmins) how to make this into a working function
-// I had the code already working, but he helped with nearly 100 lines unneccessary repetitive loops (replaying "this")
+// I had the code already working, but he helped me eliminate nearly 100 lines unneccessary repeating code (replacing "this")
 var countMarkers = function (markerID, markerType) {
     $(markerID).prop("Counter", 0).animate({
         Counter: markerType.getLayers().length
@@ -63,65 +63,65 @@ $(document).ready(function () {
 
 
         // map Links
-        var osmLink = "<a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap</a>";
-        var cartoLink = "<a href='https://carto.com/attribution/' target='_blank' rel='noopener'>CARTO</a>";
-        var arcgisLink = "<a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Esri ArcGIS</a>";
+        var osmLink = "<a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap</a>",
+            cartoLink = "<a href='https://carto.com/attribution/' target='_blank' rel='noopener'>CARTO</a>",
+            arcgisLink = "<a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Esri ArcGIS</a>";
 
         // map tile URLs
-        var osmDarkUrl = "http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png";
-        var osmLightUrl = "http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png";
-        var arcgisEarthUrl = "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
+        var osmDarkUrl = "http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png",
+            osmLightUrl = "http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
+            arcgisEarthUrl = "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
 
         // map Attributes
         var attributes = "&copy; " + osmLink + " contributors | " + cartoLink + " | " + arcgisLink;
 
         // map Tile Layers
         var osmDarkMap = L.tileLayer(osmDarkUrl, {
-            attribution: attributes
-        });
-        var osmLightMap = L.tileLayer(osmLightUrl, {
-            attribution: attributes
-        });
-        var arcgisEarthMap = L.tileLayer(arcgisEarthUrl, {
-            attribution: attributes
-        });
+                attribution: attributes
+            }),
+            osmLightMap = L.tileLayer(osmLightUrl, {
+                attribution: attributes
+            }),
+            arcgisEarthMap = L.tileLayer(arcgisEarthUrl, {
+                attribution: attributes
+            });
 
         // assigning my custom Icons
         var airplaneIcon = new L.Icon({
-            iconUrl: "images/airplane.png",
-            iconSize: [50, 50],
-            iconAnchor: [25, 50]
-        });
-        var busIcon = new L.Icon({
-            iconUrl: "images/bus.png",
-            iconSize: [50, 50],
-            iconAnchor: [25, 50]
-        });
-        var cityIcon = new L.Icon({
-            iconUrl: "images/city.png",
-            iconSize: [50, 50],
-            iconAnchor: [25, 50]
-        });
-        var ferryIcon = new L.Icon({
-            iconUrl: "images/ferry.png",
-            iconSize: [50, 50],
-            iconAnchor: [25, 50]
-        });
-        var helicopterIcon = new L.Icon({
-            iconUrl: "images/helicopter.png",
-            iconSize: [50, 50],
-            iconAnchor: [25, 50]
-        });
-        var seaplaneIcon = new L.Icon({
-            iconUrl: "images/seaplane.png",
-            iconSize: [50, 50],
-            iconAnchor: [25, 50]
-        });
-        var trainIcon = new L.Icon({
-            iconUrl: "images/train.png",
-            iconSize: [50, 50],
-            iconAnchor: [25, 50]
-        });
+                iconUrl: "images/airplane.png",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            }),
+            busIcon = new L.Icon({
+                iconUrl: "images/bus.png",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            }),
+            cityIcon = new L.Icon({
+                iconUrl: "images/city.png",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            }),
+            ferryIcon = new L.Icon({
+                iconUrl: "images/ferry.png",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            }),
+            helicopterIcon = new L.Icon({
+                iconUrl: "images/helicopter.png",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            }),
+            seaplaneIcon = new L.Icon({
+                iconUrl: "images/seaplane.png",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            }),
+            trainIcon = new L.Icon({
+                iconUrl: "images/train.png",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            });
 
         // adding the data to Popups
         function addPopupData(feature) {
@@ -139,8 +139,8 @@ $(document).ready(function () {
                     // add Country if it exists
                     if (feature.properties.hasOwnProperty("country")) {
                         // but only add these 3 properties if they don't all match each other
-                        if (feature.properties.municipality != feature.properties.region) {
-                            if (feature.properties.region != feature.properties.country) {
+                        if (feature.properties.municipality !== feature.properties.region) {
+                            if (feature.properties.region !== feature.properties.country) {
                                 popupData += "<br>" + feature.properties.municipality + ", " + feature.properties.region +
                                     "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
                             } else {
@@ -148,7 +148,7 @@ $(document).ready(function () {
                                 popupData += "<br>" + feature.properties.municipality +
                                     "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
                             }
-                        } else if (feature.properties.region != feature.properties.country) {
+                        } else if (feature.properties.region !== feature.properties.country) {
                             // Municipality and Region are identical here, so only add Region if it doesn't match the Country too
                             popupData += "<br>" + feature.properties.region +
                                 "<br>" + feature.properties.country + " (" + feature.properties.countryISO + ")";
@@ -185,13 +185,13 @@ $(document).ready(function () {
         }
 
         // creating the Transportation Layers
-        var airports = new L.LayerGroup();
-        var buses = new L.LayerGroup();
-        var cities = new L.LayerGroup();
-        var ferries = new L.LayerGroup();
-        var heliports = new L.LayerGroup();
-        var seaports = new L.LayerGroup();
-        var trains = new L.LayerGroup();
+        var airports = new L.LayerGroup(),
+            buses = new L.LayerGroup(),
+            cities = new L.LayerGroup(),
+            ferries = new L.LayerGroup(),
+            heliports = new L.LayerGroup(),
+            seaports = new L.LayerGroup(),
+            trains = new L.LayerGroup();
 
         // assigning the Icons to their respective layers
         var theMarkers = L.geoJson(iataData, {
@@ -243,10 +243,10 @@ $(document).ready(function () {
 
         // flyTo the latitude/longitude + zoom level based on the user selection
         $("#countries").on("change", function () {
-            var countryData = $(this).val().split(",");
-            var MapLat = countryData[0];
-            var MapLng = countryData[1];
-            var MapZoom = parseInt(countryData[2]);
+            var countryData = $(this).val().split(","),
+                MapLat = countryData[0],
+                MapLng = countryData[1],
+                MapZoom = parseInt(countryData[2]);
             map.flyTo([MapLat, MapLng], MapZoom);
         });
 
