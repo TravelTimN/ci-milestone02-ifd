@@ -84,7 +84,9 @@ $(document).ready(function () {
             }),
             arcgisEarthMap = L.tileLayer(arcgisEarthUrl, {
                 attribution: attributes
-            });
+            }),
+            // set max boundary level to prevent map repeat left/right
+            bounds = new L.LatLngBounds(new L.LatLng(-85, -190), new L.LatLng(85, 190));
 
         // assigning my custom Icons
         var airplaneIcon = new L.Icon({
@@ -237,8 +239,10 @@ $(document).ready(function () {
             layers: [arcgisEarthMap],
             center: [23.5, 12],
             zoom: 3,
-            minZoom: 2,
-            maxZoom: 18
+            minZoom: 3,
+            maxZoom: 18,
+            maxBounds: bounds,
+            maxBoundsViscosity: 1.0
         });
 
         // flyTo the latitude/longitude + zoom level based on the user selection
@@ -277,15 +281,7 @@ $(document).ready(function () {
         layerGroup.addTo(map);
 
         // add Map Layer Control
-        if ($(window).resize().width() < 800) {
-            // on screens smaller than 800px wide, don't auto-show the layer control
-            L.control.layers(mapLayers, mapOptions).addTo(map);
-        } else {
-            // on larger screens over 800px wide, display the layer control automatically
-            L.control.layers(mapLayers, mapOptions, {
-                collapsed: false
-            }).addTo(map);
-        }
+        L.control.layers(mapLayers, mapOptions).addTo(map);
 
         // add Map Overlay and higher Z-Index so it sits on top of under-layers
         mapOverlay.bringToFront().addTo(map).setZIndex(9);
