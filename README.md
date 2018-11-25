@@ -51,9 +51,9 @@ The remaining aesthetics were my own preference, to match the three different ma
 
 #### WIREFRAMES
 
-![Testing as .png](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/wireframe/wireframe.png)
-
 I've used [Adobe XD](https://www.adobe.com/ie/products/xd.html) to create my wireframe / mock-up. To allow for visual representation on GitHub, I have also included a `.png` file.
+
+![Testing as .png](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/wireframe/wireframe.png)
 
 ## FEATURES
 
@@ -94,9 +94,9 @@ Brief overview of the languages, frameworks, and other tools I've used on this p
 
 #### TEST MATRIX
 
-![Testing Matrix](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/testing/testing-ci-milestone02-ifd.png)
-
 I created a [testing matrix](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/testing/testing-ci-milestone02-ifd.xlsx) in Excel, but saved as `.png` to visualize here on GitHub. It outlines the various tests I made to ensure the site renders consistently across different platforms, and that each functionality behaves as intended. Jasmine testing was not essential for this particular project.
+
+![Testing Matrix](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/testing/testing-ci-milestone02-ifd.png)
 
 - [HTML Validation](https://validator.w3.org/): No errors or warnings found.
 - [CSS Validation](https://jigsaw.w3.org/css-validator/): Parsing errors due to `:root` variables.
@@ -121,11 +121,15 @@ To ensure a broad range of users can successfully use this site, I tested it acr
 
 This particular project does not require any local deployment.
 
+Deployment and source control was entirely done via GitHub. My repository can be found here:
+
+- **Repo: [https://github.com/TravelTimN/ci-milestone02-ifd](https://github.com/TravelTimN/ci-milestone02-ifd)**
+
 I've published the source code built from the *master branch* using **GitHub Pages**.
 
-A [live demo](https://traveltimn.github.io/ci-milestone02-ifd) can be found here:
+A live demo can be found here:
 
-- **[https://traveltimn.github.io/ci-milestone02-ifd](https://traveltimn.github.io/ci-milestone02-ifd)**
+- **Demo: [https://traveltimn.github.io/ci-milestone02-ifd](https://traveltimn.github.io/ci-milestone02-ifd)**
 
 There are no difference between the deployed version and the development version.
 
