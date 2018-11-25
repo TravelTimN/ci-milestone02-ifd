@@ -1,6 +1,6 @@
 ![Demo IATA Map](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/images/demo.gif)
 
-#### **[Live Demo](https://traveltimn.github.io/ci-milestone02-ifd)**
+#### **[Live Site](https://traveltimn.github.io/ci-milestone02-ifd)**
 
 # Open-Source IATA Map
 
@@ -32,7 +32,7 @@ I wanted to make this project open-source and fully interactive, so I have decid
 
 #### FRAMEWORK
 
-- **CSS Grid**: Personally, I prefer the dynamic flexibility and use of CSS Grid, which is why I've decided to build this project using Grid, without the use of Bootstrap or Flexbox required.
+- **CSS Grid**: Personally, I prefer the dynamic flexibility and use of CSS Grid, which is why I've decided to build this project using Grid, without the use of Bootstrap or Flexbox.
 
 #### COLOR SCHEME
 
@@ -47,7 +47,7 @@ Due to the size of this project, I felt the simplicity of it didn't require prep
 - ![#A602FF](https://placehold.it/15/A602FF/A602FF) `#A602FF` (*seaplane bases*)
 - ![#03FF42](https://placehold.it/15/03FF42/03FF42) `#03FF42` (*train stations*)
 
-The remaining aesthetics were my own preference, to match the three different map-tile layers that I've incorporated for user-selection, which simultaneously keeps the site looking fairly modern and professional.
+The remaining aesthetics were my own preference, to match the three different map-tile layers that I've incorporated for user-selection, which keeps the site looking both modern and professional.
 
 #### WIREFRAMES
 
@@ -57,16 +57,16 @@ I've used [Adobe XD](https://www.adobe.com/ie/products/xd.html) to create my wir
 
 ## FEATURES
 
-#### EXISTING
+#### EXISTING FEATURES
 **Leaflet Plugins**: Since I have approximately 10,000 markers, I've incorporated the use of a couple Leaflet plugins in order to avoid significant payloads to the server.
 
 - **[Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster)** (by: [Dave Leaver](https://github.com/danzel))
- - Clusters markers within close proximity to each other.
+    - Clusters markers within close proximity to each other.
 
 - **[Leaflet.GroupedLayerControl](https://github.com/ismyrnow/leaflet-groupedlayercontrol)** (by: [Ishmael Smyrnow](https://github.com/ismyrnow))
- - Layer control with support for grouping overlays together.
+    - Layer control with support for grouping overlays together.
 
-#### WISH LIST
+#### FEATURES TO BE IMPLEMENTED
 
 **Search by Location**: Ideally I'd like to allow the user to search by location, which subsequently pans to the user-selected location.
 
@@ -127,9 +127,9 @@ Deployment and source control was entirely done via GitHub. My repository can be
 
 I've published the source code built from the *master branch* using **GitHub Pages**.
 
-A live demo can be found here:
+The live site can be found here:
 
-- **Demo: [https://traveltimn.github.io/ci-milestone02-ifd](https://traveltimn.github.io/ci-milestone02-ifd)**
+- **GH Pages: [https://traveltimn.github.io/ci-milestone02-ifd](https://traveltimn.github.io/ci-milestone02-ifd)**
 
 There are no difference between the deployed version and the development version.
 
