@@ -481,8 +481,8 @@ img[src*="train"]:not(.layers-icon):hover {
         ".";
 }
 #modal {
-    padding: 20px;
-    width: 80vw;
+    padding: 10px;
+    width: 90vw;
     color: var(--white);
     border-radius: 25px;
     text-shadow: var(--txtShadow);
@@ -508,10 +508,10 @@ img[src*="train"]:not(.layers-icon):hover {
 }
 #modal-body {
     grid-area: modal-body;
-    font-size: 1.5vmax;
+    font-size: 1.75vmax;
 }
 #modal-body p {
-    margin: 1.25em 2em 0 2em;
+    margin: 1em 1em 0 1em;
     text-align: justify;
 }
 #modal-footer {
@@ -522,7 +522,7 @@ img[src*="train"]:not(.layers-icon):hover {
 #modal-close {
     cursor: pointer;
     padding: 1em;
-    margin: 1em;
+    margin: 0.5em;
     font-size: 2vmax;
     font-weight: bold;
     border-radius: 3em;
@@ -559,14 +559,14 @@ img[src*="train"]:not(.layers-icon):hover {
     grid-area: modal-counts;
     align-self: center;
     justify-items: center;
-    font-size: 1.25vmax;
+    font-size: 1.5vmax;
     font-weight: bold;
     text-align: center;
 }
 #modal-counts mark {
-    background-color: rgba(0,0,0,1);
+    background-color: var(--black);
     border-radius: 10px;
     padding: 0 5px;
-    font-size: 1.25vmax;
+    font-size: 1.5vmax;
     font-weight: bold;
 }

@@ -84,9 +84,7 @@ $(document).ready(function () {
             }),
             arcgisEarthMap = L.tileLayer(arcgisEarthUrl, {
                 attribution: attributes
-            }),
-            // set max boundary level to prevent map repeat left/right
-            bounds = new L.LatLngBounds(new L.LatLng(-85, -190), new L.LatLng(85, 190));
+            });
 
         // assigning my custom Icons
         var airplaneIcon = new L.Icon({
@@ -241,8 +239,11 @@ $(document).ready(function () {
             zoom: 3,
             minZoom: 3,
             maxZoom: 18,
-            maxBounds: bounds,
-            maxBoundsViscosity: 1.0
+            maxBounds: [
+                [-75, -190],
+                [90, 190]
+            ],
+            maxBoundsViscosity: 0.5,
         });
 
         // flyTo the latitude/longitude + zoom level based on the user selection
