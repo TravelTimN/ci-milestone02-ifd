@@ -1,6 +1,6 @@
 ![Demo IATA Map](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/images/demo.gif)
 
-####**[Live Demo](https://traveltimn.github.io/ci-milestone02-ifd)**
+#### **[Live Demo](https://traveltimn.github.io/ci-milestone02-ifd)**
 
 # Open-Source IATA Map
 
@@ -51,9 +51,9 @@ The remaining aesthetics were my own preference, to match the three different ma
 
 #### WIREFRAMES
 
-I've used [Adobe XD](https://www.adobe.com/ie/products/xd.html) to create my wireframe / mock-up. To allow for visual representation on GitHub, I have also included a `.png` file.
+![Testing as .png](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/wireframe/wireframe.png)
 
-![Testing as .png](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/testing/testing-ci-milestone02-ifd.png)
+I've used [Adobe XD](https://www.adobe.com/ie/products/xd.html) to create my wireframe / mock-up. To allow for visual representation on GitHub, I have also included a `.png` file.
 
 ## FEATURES
 
