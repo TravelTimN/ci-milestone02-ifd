@@ -1,3 +1,6 @@
+// hide the main page / map on initial load until user is finished with Modal
+$("#main-container").hide();
+
 /* adding marker count to start of page (modal),
 requires adding them to LayerGroup outside of thte map build below */
 var airportCount = new L.LayerGroup(),
@@ -50,9 +53,6 @@ $("#count-heliports").html(countMarkers("#count-heliports", heliportCount));
 $("#count-seaports").html(countMarkers("#count-seaports", seaportCount));
 $("#count-trains").html(countMarkers("#count-trains", trainCount));
 
-// hide the main page / map on initial load
-$("#main-container").hide();
-
 // rest of document once fully ready
 $(document).ready(function () {
 
@@ -61,13 +61,12 @@ $(document).ready(function () {
         $("#modal-container").hide();
         $("#main-container").fadeIn(500);
 
-
-        // map Links
+        // map Attribution Links
         var osmLink = "<a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap</a>",
             cartoLink = "<a href='https://carto.com/attribution/' target='_blank' rel='noopener'>CARTO</a>",
-            arcgisLink = "<a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Esri ArcGIS</a>";
+            arcgisLink = "<a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Powered by Esri</a>";
 
-        // map tile URLs
+        // map Tile URLs
         var osmDarkUrl = "http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png",
             osmLightUrl = "http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
             arcgisEarthUrl = "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
@@ -86,7 +85,7 @@ $(document).ready(function () {
                 attribution: attributes
             });
 
-        // assigning my custom Icons
+        // assigning my own custom Icons
         var airplaneIcon = new L.Icon({
                 iconUrl: "images/airplane.png",
                 iconSize: [50, 50],
@@ -123,7 +122,7 @@ $(document).ready(function () {
                 iconAnchor: [25, 50]
             });
 
-        // adding the data to Popups
+        // adding the data to PopUps
         function addPopupData(feature) {
             var popupData = "";
             // add IATA code (must exist)
@@ -159,18 +158,21 @@ $(document).ready(function () {
                     }
                 }
             }
-            // add Continent if it exists (must exist)
+            // add Continent (must exist)
             popupData += "<br>" + feature.properties.continent + "</p>";
-            // add Website if it exists
+            // add Website (must exist)
             if (feature.properties.hasOwnProperty("website")) {
                 if (feature.properties.website !== "") {
+                    // if website property contains 'wikipedia'
                     if (feature.properties.website.includes('wikipedia')) {
                         popupData += "<p class='popup-website " + feature.properties.transport +
                             "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Wikipedia</a></p>";
                     } else if (feature.properties.website.includes('wikitravel')) {
+                        // if website property contains 'wikitravel' (only the City_Codes)
                         popupData += "<p class='popup-website " + feature.properties.transport +
                             "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Wikitravel</a></p>";
                     } else if (feature.properties.website.includes('google')) {
+                        // if website property contains 'google' (performs a Google Search of the item)
                         popupData += "<p class='popup-website " + feature.properties.transport +
                             "'><a href='" + feature.properties.website + "' target='_blank' rel='noopener'>Google</a></p>";
                     }
@@ -198,31 +200,31 @@ $(document).ready(function () {
             onEachFeature: function (feature, layer) {
                 layer.bindPopup(addPopupData(feature));
                 if (feature.properties.transport === "airport") {
-                    // set the AIRPLANE icon if the "transport" type is airport
+                    // set the AIRPLANE icon if the transport property is airport
                     layer.setIcon(airplaneIcon);
                     layer.addTo(airports);
                 } else if (feature.properties.transport === "bus_station") {
-                    // set the BUS icon if the "transport" type is bus_station
+                    // set the BUS icon if the transport property is bus_station
                     layer.setIcon(busIcon);
                     layer.addTo(buses);
                 } else if (feature.properties.transport === "city_code") {
-                    // set the CITY icon if the "transport" type is city_code
+                    // set the CITY icon if the transport property is city_code
                     layer.setIcon(cityIcon);
                     layer.addTo(cities);
                 } else if (feature.properties.transport === "ferry_port") {
-                    // set the FERRY icon if the "transport" type is ferry_port
+                    // set the FERRY icon if the transport property is ferry_port
                     layer.setIcon(ferryIcon);
                     layer.addTo(ferries);
                 } else if (feature.properties.transport === "heliport") {
-                    // set the HELICOPTER icon if the "transport" type is heliport
+                    // set the HELICOPTER icon if the transport property is heliport
                     layer.setIcon(helicopterIcon);
                     layer.addTo(heliports);
                 } else if (feature.properties.transport === "seaplane_base") {
-                    // set the SEAPLANE icon if the "transport" type is seaplane_base
+                    // set the SEAPLANE icon if the transport property is seaplane_base
                     layer.setIcon(seaplaneIcon);
                     layer.addTo(seaports);
                 } else if (feature.properties.transport === "train_station") {
-                    // set the TRAIN icon if the "transport" type is train_station
+                    // set the TRAIN icon if the transport property is train_station
                     layer.setIcon(trainIcon);
                     layer.addTo(trains);
                 }
@@ -232,7 +234,7 @@ $(document).ready(function () {
         // map Overlay (the labels of the map)
         var mapOverlay = L.tileLayer("http://services.arcgisonline.com/arcgis/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}");
 
-        // the Map itself
+        // the Map itself (with initial values)
         var map = L.map("map", {
             layers: [arcgisEarthMap],
             center: [23.5, 12],
@@ -284,7 +286,7 @@ $(document).ready(function () {
         // add Map Layer Control
         L.control.layers(mapLayers, mapOptions).addTo(map);
 
-        // add Map Overlay and higher Z-Index so it sits on top of under-layers
+        // add Map Overlay and higher Z-Index so it sits on top of all base layers
         mapOverlay.bringToFront().addTo(map).setZIndex(9);
 
         // update the Leaflet Container and Page Color scheme based on which Map Layer is selected
