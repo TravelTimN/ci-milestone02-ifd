@@ -64,7 +64,7 @@ $(document).ready(function () {
         // map Attribution Links
         var osmLink = "<a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap</a>",
             cartoLink = "<a href='https://carto.com/attribution/' target='_blank' rel='noopener'>CARTO</a>",
-            arcgisLink = "<a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Powered by Esri</a>";
+            arcgisLink = "<a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Esri</a>";
 
         // map Tile URLs
         var osmDarkUrl = "http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png",
@@ -72,7 +72,7 @@ $(document).ready(function () {
             arcgisEarthUrl = "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
 
         // map Attributes
-        var attributes = "&copy; " + osmLink + " contributors | " + cartoLink + " | " + arcgisLink;
+        var attributes = "&copy; " + osmLink + " contributors | " + cartoLink + " | Powered by " + arcgisLink;
 
         // map Tile Layers
         var osmDarkMap = L.tileLayer(osmDarkUrl, {
