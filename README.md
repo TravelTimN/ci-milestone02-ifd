@@ -74,7 +74,7 @@ I've used [Adobe XD](https://www.adobe.com/ie/products/xd.html) to create my wir
 
 - These could both potentially be accomplished by using an additional plugin, such as: [Leaflet.Search](https://github.com/stefanocudini/leaflet-search)
 
-**Additional Markers**: I am aware of roughly 1,500-2,000 IATA codes that could potentially be added, but would require a significant amount of manual work to obtain the appropriate latitude/longitude for each. A large majority of these are train and bus stations. 90% of the current non-airport markers were added by me manually.
+**Additional Markers**: ~~I am aware of roughly 1,500-2,000 IATA codes that could potentially be added, but would require a significant amount of manual work to obtain the appropriate latitude/longitude for each. A large majority of these are train and bus stations. 90% of the current non-airport markers were added by me manually.~~ Scratch that... I spent a few extra days ploughing through the remaining IATA codes, and finally ended with a grand total of **11,349** individual IATA codes - Woohoo! *(sincere thanks to my accountability partner, [Chris Quinn](https://github.com/10xOXR) for helping gather some of the latitude/longitude locations!)*
 
 ## TECHNOLOGIES USED
 
