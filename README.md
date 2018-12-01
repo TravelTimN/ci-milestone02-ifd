@@ -101,6 +101,18 @@ I created a [testing matrix](https://github.com/TravelTimN/ci-milestone02-ifd/bl
 - [HTML Validation](https://validator.w3.org/): No errors or warnings found.
 - [CSS Validation](https://jigsaw.w3.org/css-validator/): Parsing errors due to `:root` variables.
 - [JavaScript Validation](http://beautifytools.com/javascript-validator.php): Leaflet `'L'` not defined in my source file.
+- [JSHint (v2.9.6)](https://jshint.com/) Metrics from my `script.js` file:
+    - There are **11** functions in this file.
+    - Function with the largest signature take **2** arguments, while the median is **0**.
+    - Largest function has **27** statements in it, while the median is **5**.
+    - The most complex function has a cyclomatic complexity value of **12** while the median is **1**.
+    - Three undefined variables:
+        - `$` *(x35)* - used for **jQuery**
+        - `L` *(x31)* - used for **LeaflefJS**
+        - `iataData` *(x2)* - external variable from **iataData.js**
+- [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/):
+    - *Mixed Content: The page at <[`URL`](https://traveltimn.github.io/ci-milestone02-ifd/)> was loaded over HTTPS, but requested an insecure image <[`URL`](http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/3/3/4)>. This content should also be served over HTTPS.*
+        - This is due to the fact that the ArcGIS layer is delivered over *HTTP* rather than *HTTPS*.
 
 #### COMPATIBILITY
 
