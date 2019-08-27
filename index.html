@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#262626">
-    <meta name="Description" content="Developed by: Tim Nelson, Site: Interactive Open-Source IATA MAP">
+    <meta name="Description" content="Developed by: Tim Nelson, Site: Interactive Open-Source IATA Map">
 
     <!-- TITLE and FAVICON -->
     <title>IATA Codes | Interactive Open-Source IATA Map</title>
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/leaflet/leaflet.css" type="text/css">
     <link rel="stylesheet" href="css/leaflet/MarkerCluster.css" type="text/css">
     <link rel="stylesheet" href="css/leaflet/MarkerCluster.Default.css" type="text/css">
+    <link rel="stylesheet" href="css/leaflet/leaflet-search.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
 </head>
@@ -344,6 +345,20 @@
         </footer>
     </div>
 
+    <!-- do not display site if browser is Internet Explorer -->
+    <script>
+        const isIE = false || !!document.documentMode;
+        if (isIE === true) {
+            document.getElementById("modal-container").style.display="none";
+            document.getElementById("main-container").style.display="none";
+            document.body.setAttribute(
+                "style", "width: 100vw; margin: 0 auto; text-align: center; position: absolute; top: 10%; background: #262626; color: #0C8898; text-shadow: 2px 2px 2px #000000;"
+            );
+            document.body.innerHTML="<h1>Internet Explorer is not supported.</h1><br><img src='images/no-ie.png' alt='IE sucks!'><br><br><h3>Best Viewed in: <a href='https://www.google.com/chrome/' target='_blank'>Google Chrome</a></h3>";
+            document.querySelector("img").style.borderRadius="8px";
+        }
+    </script>
+
     <!-- SCRIPTS -->
     <script src="js/jquery/jquery-3.3.1.min.js"></script>
     <script src="js/data/iataData.js"></script>
@@ -351,6 +366,9 @@
     <script src="js/leaflet/leaflet.markercluster-src.js"></script>
     <script src="js/leaflet/leaflet.markercluster.js"></script>
     <script src="js/leaflet/leaflet.markercluster.layersupport.js"></script>
+    <script src="js/leaflet/leaflet-search.js"></script>
+    <script src="js/esri/esri-leaflet.js"></script>
+    <script src="js/esri/esri-leaflet-geocoder.js"></script>
     <script src="js/script.js"></script>
 
 </body>

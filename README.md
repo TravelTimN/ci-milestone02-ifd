@@ -90,6 +90,13 @@ Brief overview of the languages, frameworks, and other tools I've used on this p
 - [ConvertCSV.com](http://www.convertcsv.com/csv-to-geojson.htm): Used to convert data from CSV to GeoJSON.
 - [Adobe Photoshop CS6](https://www.adobe.com/products/photoshop.html): To create all custom markers, and image modifications.
 
+**LEAFLET PLUGINS**
+
+- [leaflet-search](https://github.com/stefanocudini/leaflet-search)
+- [esri-leaflet-geocoding](https://esri.github.io/esri-leaflet/examples/geocoding-control.html)
+- [leaflet-markercluster](https://github.com/Leaflet/Leaflet.markercluster)
+- [leaflet-markercluster-layersupport](https://github.com/ghybs/Leaflet.MarkerCluster.LayerSupport)
+
 ## TESTING
 
 #### TEST MATRIX
@@ -129,6 +136,19 @@ To ensure a broad range of users can successfully use this site, I tested it acr
 
 - **Internet Explorer** is not capable of rendering CSS Grid, which causes the site to break. I don't find this too much of a problem, since use of IE has fallen to less than 7% globally as of August 2018, and all other browsers support CSS Grid natively now.
 
+- **Esri Leaflet Geocoding** known issue when you search for a location and then try to scroll/zoom, it causes the following console error (functionality still works fine, but error still gets triggered):
+
+```js
+leaflet.js:5
+Uncaught TypeError: Cannot set property '_leaflet_pos' of undefined
+    at wi (leaflet.js:5)
+	at i._setPos (leaflet.js:5)
+	at i._animateZoom (leaflet.js:5)
+	at i.fire (leaflet.js:5)
+	at i._animateZoom (leaflet.js:5)
+	at i.<anonymous> (leaflet.js:5)
+```
+
 ## DEPLOYMENT
 
 This particular project does not require any local deployment.
@@ -154,6 +174,11 @@ The majority of the data used is from [OurAirports.com](http://ourairports.com/d
 Once I had the appropriate data required, I used an [online converter](http://www.convertcsv.com/csv-to-geojson.htm) to convert my CSV data into the appropriate GeoJSON format, which is saved as `iataData.js` and can be [found here](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/js/data/iataData.js).
 
 Approximately 90% of the non-airport markers have been manually added by me, having obtained the valid IATA code from a system at work called [Amadeus](https://www.sellingplatformconnect.amadeus.com) (used by travel agents), and Google Maps to obtain the appropriate latitude/longitude. A lot of manual work, as you could imagine!
+
+- [StackOverflow](https://stackoverflow.com/a/44081354): update marker local timestamp
+- [StackOverflow](https://stackoverflow.com/a/50188159): bind popup only when needed
+- [StackOverflow](https://stackoverflow.com/a/9851769): detect browser to ignore Internet Explorer
+- [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) and [GeoNames](http://www.geonames.org/export/web-services.html#timezone): timezone database data
 
 #### MEDIA
 

@@ -2,7 +2,7 @@
 $("#main-container").hide();
 
 /* adding marker count to start of page (modal),
-requires adding them to LayerGroup outside of thte map build below */
+requires adding them to LayerGroup outside of the map build below */
 var airportCount = new L.LayerGroup(),
     busCount = new L.LayerGroup(),
     cityCount = new L.LayerGroup(),
@@ -12,27 +12,33 @@ var airportCount = new L.LayerGroup(),
     trainCount = new L.LayerGroup();
 L.geoJson(iataData, {
     onEachFeature: function (feature, layer) {
-        if (feature.properties.transport === "airport") {
-            layer.addTo(airportCount);
-        } else if (feature.properties.transport === "bus_station") {
-            layer.addTo(busCount);
-        } else if (feature.properties.transport === "city_code") {
-            layer.addTo(cityCount);
-        } else if (feature.properties.transport === "ferry_port") {
-            layer.addTo(ferryCount);
-        } else if (feature.properties.transport === "heliport") {
-            layer.addTo(heliportCount);
-        } else if (feature.properties.transport === "seaplane_base") {
-            layer.addTo(seaportCount);
-        } else if (feature.properties.transport === "train_station") {
-            layer.addTo(trainCount);
+        switch (feature.properties.transport) {
+            case "airport":
+                layer.addTo(airportCount);
+                break;
+            case "bus_station":
+                layer.addTo(busCount);
+                break;
+            case "city_code":
+                layer.addTo(cityCount);
+                break;
+            case "ferry_port":
+                layer.addTo(ferryCount);
+                break;
+            case "heliport":
+                layer.addTo(heliportCount);
+                break;
+            case "seaplane_base":
+                layer.addTo(seaportCount);
+                break;
+            case "train_station":
+                layer.addTo(trainCount);
+                break;
         }
     }
 });
 // animated counter from zero to X-value
 // concept of animated count-up is from: https://codepen.io/saadeghi/pen/KdpdoQ
-// for some of the code, I had assistance from my mentor (James Timmins) how to make this into a working function
-// I had the code already working, but he helped me eliminate nearly 100 lines unneccessary repeating code (replacing "this")
 var countMarkers = function (markerID, markerType) {
     $(markerID).prop("Counter", 0).animate({
         Counter: markerType.getLayers().length
@@ -58,13 +64,12 @@ $(document).ready(function () {
 
     // once modal is closed, hide the modal and show the map
     $("#modal-close").on("click", function () {
-        $("#modal-container").hide();
-        $("#main-container").fadeIn(500);
+        $("#modal-container").slideUp(1500);
+        $("#main-container").fadeIn(2000);
 
         // map Attribution Links
         var osmLink = "<a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap</a>",
-            cartoLink = "<a href='https://carto.com/attribution/' target='_blank' rel='noopener'>CARTO</a>",
-            arcgisLink = "<a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Esri</a>";
+            cartoLink = "<a href='https://carto.com/attribution/' target='_blank' rel='noopener'>CARTO</a>";
 
         // map Tile URLs
         var osmDarkUrl = "http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png",
@@ -72,7 +77,7 @@ $(document).ready(function () {
             arcgisEarthUrl = "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
 
         // map Attributes
-        var attributes = "&copy; " + osmLink + " contributors | " + cartoLink + " | Powered by " + arcgisLink;
+        var attributes = "&copy; " + osmLink + " contributors | " + cartoLink;
 
         // map Tile Layers
         var osmDarkMap = L.tileLayer(osmDarkUrl, {
@@ -160,6 +165,7 @@ $(document).ready(function () {
             }
             // add Continent (must exist)
             popupData += "<br>" + feature.properties.continent + "</p>";
+
             // add Website (must exist)
             if (feature.properties.hasOwnProperty("website")) {
                 if (feature.properties.website !== "") {
@@ -178,10 +184,27 @@ $(document).ready(function () {
                     }
                 }
             }
+
+            // add local time using timezone data-attribute
+            popupData += "<p class='popup-small'>Local Time: <span class='clock bold " +
+            feature.properties.transport + "' data-timezone='" + feature.properties.timezone + "'>";
+            function updateClock() {
+                let time = new Date().toLocaleTimeString("en-UK", {
+                    hour: "numeric",
+                    minute: "2-digit",
+                    timeZone: $(".clock").data("timezone")
+                });
+                popupData += $(".clock").text(time);
+            }
+            updateClock();
+            setInterval(updateClock, 100);
+            popupData += "</span><span class='" + feature.properties.transport + "'> (UTC " + feature.properties.utc + ")</span><br>Time Zone: <span class='bold " + feature.properties.transport + "'>" + feature.properties.timezone + "</span><br>";
+
             // add Latitude / Longitude (must exist)
-            popupData += "<p class='popup-latlng'>latitude: <span class='latlng " + feature.properties.transport + "'>" +
-                feature.geometry.coordinates[0] + "</span><br>longitude: <span class='latlng " + feature.properties.transport + "'>" +
-                feature.geometry.coordinates[1] + "</span></p>";
+            popupData += "Latitude: <span class='bold " + feature.properties.transport + "'>" +
+                feature.geometry.coordinates[1] + "</span><br>Longitude: <span class='bold " + feature.properties.transport + "'>" +
+                feature.geometry.coordinates[0] + "</span></p>";
+
             // display the data in the PopUp
             return popupData;
         }
@@ -198,35 +221,45 @@ $(document).ready(function () {
         // assigning the Icons to their respective layers
         var theMarkers = L.geoJson(iataData, {
             onEachFeature: function (feature, layer) {
-                layer.bindPopup(addPopupData(feature));
-                if (feature.properties.transport === "airport") {
-                    // set the AIRPLANE icon if the transport property is airport
-                    layer.setIcon(airplaneIcon);
-                    layer.addTo(airports);
-                } else if (feature.properties.transport === "bus_station") {
-                    // set the BUS icon if the transport property is bus_station
-                    layer.setIcon(busIcon);
-                    layer.addTo(buses);
-                } else if (feature.properties.transport === "city_code") {
-                    // set the CITY icon if the transport property is city_code
-                    layer.setIcon(cityIcon);
-                    layer.addTo(cities);
-                } else if (feature.properties.transport === "ferry_port") {
-                    // set the FERRY icon if the transport property is ferry_port
-                    layer.setIcon(ferryIcon);
-                    layer.addTo(ferries);
-                } else if (feature.properties.transport === "heliport") {
-                    // set the HELICOPTER icon if the transport property is heliport
-                    layer.setIcon(helicopterIcon);
-                    layer.addTo(heliports);
-                } else if (feature.properties.transport === "seaplane_base") {
-                    // set the SEAPLANE icon if the transport property is seaplane_base
-                    layer.setIcon(seaplaneIcon);
-                    layer.addTo(seaports);
-                } else if (feature.properties.transport === "train_station") {
-                    // set the TRAIN icon if the transport property is train_station
-                    layer.setIcon(trainIcon);
-                    layer.addTo(trains);
+                layer.once("click", ()=>{
+                    layer.bindPopup(addPopupData(feature)).openPopup();
+                });
+                switch(feature.properties.transport) {
+                    case "airport":
+                        // set the AIRPLANE icon if the transport property is airport
+                        layer.setIcon(airplaneIcon);
+                        layer.addTo(airports);
+                        break;
+                    case "bus_station":
+                        // set the BUS icon if the transport property is bus_station
+                        layer.setIcon(busIcon);
+                        layer.addTo(buses);
+                        break;
+                    case "city_code":
+                        // set the CITY icon if the transport property is city_code
+                        layer.setIcon(cityIcon);
+                        layer.addTo(cities);
+                        break;
+                    case "ferry_port":
+                        // set the FERRY icon if the transport property is ferry_port
+                        layer.setIcon(ferryIcon);
+                        layer.addTo(ferries);
+                        break;
+                    case "heliport":
+                        // set the HELICOPTER icon if the transport property is heliport
+                        layer.setIcon(helicopterIcon);
+                        layer.addTo(heliports);
+                        break;
+                    case "seaplane_base":
+                        // set the SEAPLANE icon if the transport property is seaplane_base
+                        layer.setIcon(seaplaneIcon);
+                        layer.addTo(seaports);
+                        break;
+                    case "train_station":
+                        // set the TRAIN icon if the transport property is train_station
+                        layer.setIcon(trainIcon);
+                        layer.addTo(trains);
+                        break;
                 }
             }
         });
@@ -236,16 +269,49 @@ $(document).ready(function () {
 
         // the Map itself (with initial values)
         var map = L.map("map", {
-            layers: [arcgisEarthMap],
+            layers: [osmDarkMap],
             center: [23.5, 12],
             zoom: 3,
-            minZoom: 3,
+            minZoom: 2,
             maxZoom: 18,
             maxBounds: [
-                [-75, -190],
-                [90, 190]
+                [-75, -225],
+                [90, 225]
             ],
             maxBoundsViscosity: 0.5,
+        });
+
+        // search the database by IATA code
+        var controlSearch = new L.Control.Search({
+            propertyName: "iata",
+            layer: theMarkers,
+            initial: false,
+            zoom: 11,
+            delayType: 0,
+            // openPopup: true, // doesn't seem to work
+            collapsed: false,
+            textErr: "IATA Code Not Recognized",
+            autoCollapseTime: 10000,
+            textPlaceholder: "IATA Code",
+            buildTip: function(text, val) {
+                var type = val.layer.feature.properties.transport;
+                return "<a href='#'><b class='" + type + "'>" + text + " - " + type + "</b></a>";
+            }
+        });
+        // open popup once result found
+        controlSearch.on("search:locationfound", function () {
+            $("path.leaflet-interactive").show();
+        });
+        map.addControl(controlSearch);
+        // max-length of input = 3 for IATA codes
+        $(".leaflet-control-search").children("input.search-input").attr("maxlength", "3");
+        // fade marker for new search
+        $("a.search-cancel").on("click", function () {
+            $("path.leaflet-interactive").hide();
+        });
+        $(".search-input").on("click", function () {
+            $("path.leaflet-interactive").hide();
+            $("select#countries").val($("select#countries option:first").val());
         });
 
         // flyTo the latitude/longitude + zoom level based on the user selection
@@ -284,10 +350,50 @@ $(document).ready(function () {
         layerGroup.addTo(map);
 
         // add Map Layer Control
-        L.control.layers(mapLayers, mapOptions).addTo(map);
+        L.control.layers(mapLayers, mapOptions/*, {collapsed:false}*/).addTo(map);
 
         // add Map Overlay and higher Z-Index so it sits on top of all base layers
         mapOverlay.bringToFront().addTo(map).setZIndex(9);
+
+        // search by location using ESRI geosearch
+        var searchControl = L.esri.Geocoding.geosearch({
+            placeholder: "Search City / Location",
+            title: "Search City / Location",
+            expanded: true,
+            collapseAfterResult: false
+        }).addTo(map);
+        var results = L.layerGroup().addTo(map);
+        searchControl.on("results", function (data) {
+            for (var i = data.results.length - 1; i >= 0; i--) {
+                results.addLayer(L.marker(data.results[i].latlng).bindPopup(data.results[0].text).bindTooltip(data.results[0].text));
+            }
+        });
+        // zoom-out to level-7 for new search to allow global-search, not local-search
+        $(".geocoder-control-input").on("click", function () {
+            var currentZoom = map.getZoom();
+            var currentCenter = map.getCenter();
+            if (currentZoom > 7) {
+                var newZoom = 7;
+                map.flyTo([currentCenter.lat, currentCenter.lng], newZoom);
+            }
+            results.clearLayers();
+            // remove IATA marker search (if any)
+            $("path.leaflet-interactive").hide();
+            $("select#countries").val($("select#countries option:first").val());
+        });
+
+        //------------- DISABLED : causes Uncaught RangeError: Maximum call stack size exceeded
+        // Markers in the high arctic can't display fully if zoomed-out.
+        // Zoom-in based on the current latitude (works like a charm! - but console errors above!)
+        // map.on("moveend zoomend", function () {
+        //     var currentZoom = map.getZoom();
+        //     var currentCenter = map.getCenter();
+        //     if (currentCenter.lat >= "75" && currentZoom < 5) {
+        //         map.setZoom(5);
+        //     } else if (currentCenter.lat >= "70" && currentZoom < 4) {
+        //         map.setZoom(4);
+        //     }
+        // });
 
         // update the Leaflet Container and Page Color scheme based on which Map Layer is selected
         $(".leaflet-control-layers-base input[type=radio]:eq(0)").on("click", function () {
