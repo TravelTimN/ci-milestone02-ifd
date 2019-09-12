@@ -1,0 +1,46 @@
+/*
+original source: https://github.com/route360/Leaflet.CondensedAttribution
+*/
+
+.leaflet-container .leaflet-condensed-attribution {
+    margin: 10px;
+    padding: 0;
+    border-radius: 20px;
+    /* border: 6px solid rgba(68, 68, 68, .25); */ /* if using image instead of '?' */
+    /* background: rgba(0, 0, 0, .9); */ /* if using image instead of '?' */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.leaflet-condensed-attribution .attributes-body {
+    display: none;
+    padding: 0 4px 0 12px;
+    height: 28px;
+    line-height: 28px;
+    transition: all 0.75s ease-in-out;
+}
+
+.leaflet-condensed-attribution:hover .attributes-body {
+    display: inline-block !important;
+}
+
+.leaflet-condensed-attribution .attributes-emblem {
+    height: 28px;
+    width: 28px;
+    font-size: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+/* if using image instead of '?' */
+/* .leaflet-condensed-attribution .attributes-emblem .emblem-wrap img {
+    margin-top: 8px;
+} */

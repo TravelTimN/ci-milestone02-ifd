@@ -1,3 +1,8 @@
+// preloader animation (gif)
+$(window).on("load", function () {
+    $("#container-loader").fadeOut();
+});
+
 // hide the main page / map on initial load until user is finished with Modal
 $("#main-container").hide();
 
@@ -64,8 +69,10 @@ $(document).ready(function () {
 
     // once modal is closed, hide the modal and show the map
     $("#modal-close").on("click", function () {
-        $("#modal-container").slideUp(1500);
-        $("#main-container").fadeIn(2000);
+        $("#modal-container").hide();
+        $("#container-loader").fadeIn(10);
+        $("#main-container").show();
+        $("#container-loader").fadeOut(2000);
 
         // map Attribution Links
         var osmLink = "<a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap</a>",
@@ -198,7 +205,7 @@ $(document).ready(function () {
             }
             updateClock();
             setInterval(updateClock, 100);
-            popupData += "</span><span class='" + feature.properties.transport + "'> (UTC " + feature.properties.utc + ")</span><br>Time Zone: <span class='bold " + feature.properties.transport + "'>" + feature.properties.timezone + "</span><br>";
+            popupData += "</span><span class='bold " + feature.properties.transport + "'> (UTC " + feature.properties.utc + ")</span><br>Time Zone: <span class='bold " + feature.properties.transport + "'>" + feature.properties.timezone + "</span><br>";
 
             // add Latitude / Longitude (must exist)
             popupData += "Latitude: <span class='bold " + feature.properties.transport + "'>" +
@@ -261,6 +268,9 @@ $(document).ready(function () {
                         layer.addTo(trains);
                         break;
                 }
+                layer.bindTooltip("<h2>" + feature.properties.iata + "</h2>" + feature.properties.municipality + ", " + feature.properties.countryISO + "<br><small class='white-text'>click for more info</small>", {
+                    className: "tooltip-" + feature.properties.transport
+                });
             }
         });
 
@@ -271,6 +281,7 @@ $(document).ready(function () {
         var map = L.map("map", {
             layers: [osmDarkMap],
             center: [23.5, 12],
+            // condensedAttributionControl: false, // if using image instead of '?' --- see below
             zoom: 3,
             minZoom: 2,
             maxZoom: 18,
@@ -280,6 +291,24 @@ $(document).ready(function () {
             ],
             maxBoundsViscosity: 0.5,
         });
+
+        // if using image instead of '?' for attribution
+        // L.control.condensedAttribution({
+        //     emblem: "<div class='emblem-wrap'><img src='../css/leaflet/images/attribution.png'/></div>"
+        // }).addTo(map);
+
+        // get user's current location
+        navigator.geolocation.getCurrentPosition(function (location) {
+            var myLocation = new L.LatLng(location.coords.latitude, location.coords.longitude);
+            var marker = L.marker(myLocation).addTo(map).bindTooltip("your location<br>Lat. " + location.coords.latitude.toFixed(4) + "<br>Lng. " + location.coords.longitude.toFixed(4));
+            var icon = new L.Icon({
+                iconUrl: "../css/leaflet/images/marker-user.png"
+            });
+            marker.setIcon(icon);
+        });
+
+        // add map scale to bottom-left corner
+        L.control.scale().addTo(map);
 
         // search the database by IATA code
         var controlSearch = new L.Control.Search({
@@ -293,7 +322,7 @@ $(document).ready(function () {
             textErr: "IATA Code Not Recognized",
             autoCollapseTime: 10000,
             textPlaceholder: "IATA Code",
-            buildTip: function(text, val) {
+            buildTip: function (text, val) {
                 var type = val.layer.feature.properties.transport;
                 return "<a href='#'><b class='" + type + "'>" + text + " - " + type + "</b></a>";
             }
@@ -365,7 +394,7 @@ $(document).ready(function () {
         var results = L.layerGroup().addTo(map);
         searchControl.on("results", function (data) {
             for (var i = data.results.length - 1; i >= 0; i--) {
-                results.addLayer(L.marker(data.results[i].latlng).bindPopup(data.results[0].text).bindTooltip(data.results[0].text));
+                results.addLayer(L.marker(data.results[i].latlng).bindTooltip(data.results[0].text));
             }
         });
         // zoom-out to level-7 for new search to allow global-search, not local-search

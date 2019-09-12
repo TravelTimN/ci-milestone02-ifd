@@ -19,11 +19,20 @@
     <link rel="stylesheet" href="css/leaflet/MarkerCluster.css" type="text/css">
     <link rel="stylesheet" href="css/leaflet/MarkerCluster.Default.css" type="text/css">
     <link rel="stylesheet" href="css/leaflet/leaflet-search.css" type="text/css">
+    <link rel="stylesheet" href="css/leaflet/leaflet-attribution.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
 </head>
 
 <body>
+
+    <div id="container-loader">
+        <div id="loader">
+            <img src="images/earth.gif" alt="Loader">
+            <br><br>
+            <h3>. . . L O A D I N G . . .</h3>
+        </div>
+    </div>
 
     <!-- BEGINNING MODAL -->
     <div id="modal-container">
@@ -334,7 +343,7 @@
         <footer id="main-footer">
             <div class="footer-attributes">
                 <!-- update copyright year from js function -->
-                &copy; <span id="year"></span> Tim Nelson
+                &copy; 2018-<span id="year"></span> Tim Nelson
                 <a href="https://github.com/TravelTimN" target="_blank" rel="noopener">
                     <img src="images/github.png" alt="GitHub" id="github" title="GitHub | TravelTimN">
                 </a>
@@ -367,6 +376,7 @@
     <script src="js/leaflet/leaflet.markercluster.js"></script>
     <script src="js/leaflet/leaflet.markercluster.layersupport.js"></script>
     <script src="js/leaflet/leaflet-search.js"></script>
+    <script src="js/leaflet/leaflet-attribution.js"></script>
     <script src="js/esri/esri-leaflet.js"></script>
     <script src="js/esri/esri-leaflet-geocoder.js"></script>
     <script src="js/script.js"></script>

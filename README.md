@@ -66,6 +66,9 @@ I've used [Adobe XD](https://www.adobe.com/ie/products/xd.html) to create my wir
 - **[Leaflet.GroupedLayerControl](https://github.com/ismyrnow/leaflet-groupedlayercontrol)** (by: [Ishmael Smyrnow](https://github.com/ismyrnow))
     - Layer control with support for grouping overlays together.
 
+- **[Leaflet.CondensedAttribution](https://github.com/route360/Leaflet.CondensedAttribution)** (by: [Route360°](https://github.com/route360))
+    - Hide the attributes until `:hover`, since they're too long.
+
 #### FEATURES TO BE IMPLEMENTED
 
 **Search by Location**: Ideally I'd like to allow the user to search by location, which subsequently pans to the user-selected location.
@@ -184,6 +187,8 @@ Approximately 90% of the non-airport markers have been manually added by me, hav
 
 The images used on the buttons are all royalty free vector graphics obtained through a simple Google search. I then used Adobe Photoshop CS6 to create my own markers for the various transportation type.
 
+- [Spinning Globe Loader](http://cdn.lowgif.com/full/7682c56ef78473fe-planet-earth-unitedunderwear-giffy-pinterest-planets.gif)
+
 The images for the map layers (dark, light, earth) were screenshots from my actual project, which I once again used Photoshop to create the actual images used.
 
 I decided not to use Font Awesome just for two tiny icons in the footer, so the [GitHub](https://github.com/logos) and [LinkedIn](https://brand.linkedin.com/) images were obtained through their respective branding pages.
@@ -192,7 +197,7 @@ Due to the nature of wanting this project to be entirely open-source, I didn't w
 
 #### ACKNOWLEDGEMENTS
 
-A huge thanks to my mentor [James Timmins](https://github.com/jhtimmins) for his time, suggestions, and constructive feedback for this project!
+A huge thanks to my *[temporary]* mentor [James Timmins](https://github.com/jhtimmins) for his time, suggestions, and constructive feedback for this project!
 
 Also where credit is due, the concept of getting the animated counter came from Codepen: [jQuery Animated Number Counter From Zero To Value - Javascript Animation by Pouya Saadeghi](https://codepen.io/saadeghi/pen/KdpdoQ). I got the code to work on my own, but with some quick assistance from my mentor, I was able to eliminate nearly 100 lines of repetitive code to accomplish the same concept in only 18 lines.
 
