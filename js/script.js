@@ -294,7 +294,7 @@ $(document).ready(function () {
 
         // if using image instead of '?' for attribution
         // L.control.condensedAttribution({
-        //     emblem: "<div class='emblem-wrap'><img src='../css/leaflet/images/attribution.png'/></div>"
+        //     emblem: "<div class='emblem-wrap'><img src='css/leaflet/images/attribution.png'/></div>"
         // }).addTo(map);
 
         // get user's current location
@@ -302,7 +302,7 @@ $(document).ready(function () {
             var myLocation = new L.LatLng(location.coords.latitude, location.coords.longitude);
             var marker = L.marker(myLocation).addTo(map).bindTooltip("your location<br>Lat. " + location.coords.latitude.toFixed(4) + "<br>Lng. " + location.coords.longitude.toFixed(4));
             var icon = new L.Icon({
-                iconUrl: "../../css/leaflet/images/marker-user.png"
+                iconUrl: "css/leaflet/images/marker-user.png"
             });
             marker.setIcon(icon);
         });
