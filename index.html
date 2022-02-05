@@ -12,15 +12,27 @@
 
     <!-- TITLE and FAVICON -->
     <title>IATA Codes | Interactive Open-Source IATA Map</title>
-    <link rel='icon' sizes="192x192" href="images/favicon.png" type="image/x-icon">
+    <link rel='icon' sizes="192x192" href="assets/images/favicon.png" type="image/x-icon">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/leaflet/leaflet.css" type="text/css">
-    <link rel="stylesheet" href="css/leaflet/MarkerCluster.css" type="text/css">
-    <link rel="stylesheet" href="css/leaflet/MarkerCluster.Default.css" type="text/css">
-    <link rel="stylesheet" href="css/leaflet/leaflet-search.css" type="text/css">
-    <link rel="stylesheet" href="css/leaflet/leaflet-attribution.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css"
+        integrity="sha512-mQ77VzAakzdpWdgfL/lM1ksNy89uFgibRQANsNneSTMD/bj0Y/8+94XMwYhnbzx8eki2hrbPpDm0vD0CiT2lcg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css"
+        integrity="sha512-6ZCLMiYwTeli2rVh3XAPxy3YoR5fVxGdH/pz+KMCzRY2M65Emgkw00Yqmhh8qLGeYQ3LbVZGdmOX9KUjSKr0TA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.2/leaflet-search.src.css"
+        integrity="sha512-jOi1rJf03Z0SR+DlpRnqqHOWbDh0nlTm0UXcyUf+EUaeyVn/VA5zttGxL1mn7TI63CMpAQtLbHCRPcFD8f/y/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
+    <link rel="stylesheet" href="assets/css/leaflet/leaflet-attribution.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
 </head>
 
@@ -28,7 +40,7 @@
 
     <div id="container-loader">
         <div id="loader">
-            <img src="images/earth.gif" alt="Loader">
+            <img src="assets/images/earth.gif" alt="Loader">
             <br><br>
             <h3>. . . L O A D I N G . . .</h3>
         </div>
@@ -45,16 +57,20 @@
             </header>
             <!-- info about IATA codes -->
             <main id="modal-body">
-                <p>An IATA code is a 3-letter designator for thousands of transportation locations around the world,
+                <p>
+                    An IATA code is a 3-letter designator for thousands of transportation locations around the world,
                     defined by the International Air Transport Association (IATA). Generally used for airports, codes
                     are also assigned to intermodal locations such as train stations, bus stations, heliports, ferry
                     ports, and seaplane bases. For larger cities that service multiple airports, a city designator is
                     often assigned (NYC, LON, PAR). IATA codes are primarily used by travel agencies in Global
                     Distribution Systems (GDS) when booking travel, such as Amadeus, Galileo, Sabre, Worldspan, and
-                    Apollo.</p>
-                <p>Use the map layers to select specific IATA types, or choose from different map styles. Zoom-in to
+                    Apollo.
+                </p>
+                <p>
+                    Use the map layers to select specific IATA types, or choose from different map styles. Zoom-in to
                     see all locations when there are several clusters. Virtually fly to a specific country by selecting
-                    it from the list. Have fun, and safe travels!</p>
+                    it from the list. Have fun, and safe travels!
+                </p>
             </main>
             <!-- call-to-action / go to Map -->
             <footer id="modal-footer">
@@ -345,10 +361,10 @@
                 <!-- update copyright year from js function -->
                 &copy; 2018-<span id="year"></span> Tim Nelson
                 <a href="https://github.com/TravelTimN" target="_blank" rel="noopener">
-                    <img src="images/github.png" alt="GitHub" id="github" title="GitHub | TravelTimN">
+                    <i class="fab fa-github" id="github" title="GitHub | TravelTimN"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/travel-tim-nelson" target="_blank" rel="noopener">
-                    <img src="images/linkedin.png" alt="LinkedIn" id="linkedin" title="LinkedIn | Tim Nelson">
+                    <i class="fab fa-linkedin" id="linkedin" title="LinkedIn | Tim Nelson"></i>
                 </a>
             </div>
         </footer>
@@ -363,23 +379,33 @@
             document.body.setAttribute(
                 "style", "width: 100vw; margin: 0 auto; text-align: center; position: absolute; top: 10%; background: #262626; color: #0C8898; text-shadow: 2px 2px 2px #000000;"
             );
-            document.body.innerHTML="<h1>Internet Explorer is not supported.</h1><br><img src='images/no-ie.png' alt='IE sucks!'><br><br><h3>Best Viewed in: <a href='https://www.google.com/chrome/' target='_blank'>Google Chrome</a></h3>";
+            document.body.innerHTML="<h1>Internet Explorer is not supported.</h1><br><img src='assets/images/no-ie.png' alt='IE sucks!'><br><br><h3>Best Viewed in: <a href='https://www.google.com/chrome/' target='_blank'>Google Chrome</a></h3>";
             document.querySelector("img").style.borderRadius="8px";
         }
     </script>
 
     <!-- SCRIPTS -->
-    <script src="js/jquery/jquery-3.3.1.min.js"></script>
-    <script src="js/data/iataData.js"></script>
-    <script src="js/leaflet/leaflet.js"></script>
-    <script src="js/leaflet/leaflet.markercluster-src.js"></script>
-    <script src="js/leaflet/leaflet.markercluster.js"></script>
-    <script src="js/leaflet/leaflet.markercluster.layersupport.js"></script>
-    <script src="js/leaflet/leaflet-search.js"></script>
-    <script src="js/leaflet/leaflet-attribution.js"></script>
-    <script src="js/esri/esri-leaflet.js"></script>
-    <script src="js/esri/esri-leaflet-geocoder.js"></script>
-    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="assets/js/data/iataData.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster-src.js"
+        integrity="sha512-+v1wwh3/ssdlBHT9KaotlPNisom2W6Ryj4g2/HfkKu6OLp62Lbf6VgRdEm2+OYOQVnR0WoxVgWZq5JmPBAj+HQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"
+        integrity="sha512-OFs3W4DIZ5ZkrDhBFtsCP6JXtMEDGmhl0QPlmWYBJay40TT1n3gt2Xuw8Pf/iezgW9CdabjkNChRqozl/YADmg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/leaflet.markercluster.layersupport@2.0.1/dist/leaflet.markercluster.layersupport.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.2/leaflet-search.src.js"
+        integrity="sha512-V+GL/y/SDxveIQvxnw71JKEPqV2N+RYrUlf6os3Ru31Yhnv2giUsPadRuFtgmIipiXFBc+nCGMHPUJQc6uxxOA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/leaflet/leaflet-attribution.js"></script>
+    <script src="assets/js/esri/esri-leaflet.js"></script>
+    <script src="assets/js/esri/esri-leaflet-geocoder.js"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 
