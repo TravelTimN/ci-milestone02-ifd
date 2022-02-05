@@ -1,0 +1,932 @@
+/*----- Roboto - Google font -----*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+/*----- ROOT VARIABLES -----*/
+:root {
+    --earth: 17, 87, 185; /* #1157B9 earth */
+    --earthLight: 58, 82, 116; /* #3A5274 earth light */
+    --earthDark: 7, 31, 65; /* #071F41 earth dark */
+    --cluster: 125, 62, 17; /* #7D3E11 marker clusters */
+    --airplane: 1, 143, 195; /* #018FC3 airplane */
+    --bus: 255, 81, 0; /* #FF5100 bus */
+    --ferry: 255, 208, 0; /* #FFD000 ferry */
+    --helicopter: 255, 17, 0; /* #FF1100 helicopter */
+    --seaplane: 166, 2, 255; /* #A602FF seaplane */
+    --train: 3, 255, 66; /* #03FF42 train */
+    --white: 255, 255, 255; /* #FFFFFF */
+    --porcelain: 226, 230, 232; /* #E2E6E8 porcelain */
+    --iron: 212, 218, 220; /* #D4DADC iron */
+    --black: 0, 0, 0; /* #000000 */
+    --gray: 68, 68, 68; /* #444444*/
+    --darkGray: 38, 38, 38; /* #262626 */
+    --github: 64, 120, 192; /* #4078C0 github */
+    --linkedin: 0, 119, 181; /* #0077B5 linkedin */
+    --txtShadow: 2px 2px 2px rgba(var(--black), 1);
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: rgba(var(--black), 1);
+    overflow: hidden;
+}
+
+.white-text {
+    color: rgba(var(--white), 1);
+}
+
+/*----- MAIN CONTAINER -----*/
+#main-container {
+    background-color: rgba(var(--black), 1);
+}
+
+/*----- HEADER -----*/
+#main-header {
+    height: 6vh;
+    font-size: 1.5vmax;
+    font-size: 3.5vmin;
+    max-width: 100vw;
+    color: rgba(var(--white), 1);
+    background-color: rgba(var(--darkGray), 1);
+    text-shadow: var(--txtShadow);
+    display: grid;
+    grid-template-columns: minmax(20px, 1vw) auto minmax(5px, 1fr) auto 7px;
+    grid-template-rows: minmax(2px, 5px) auto minmax(2px, 5px);
+    grid-template-areas:
+        ". . . . ."
+        ". main-header . countries ."
+        ". . . . .";
+}
+
+#main-header h1 {
+    grid-area: main-header;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 2vmax;
+    text-align: center;
+    align-self: center;
+    justify-items: center;
+}
+
+#countries {
+    grid-area: countries;
+    padding-left: 10px;
+    font-size: 1.5vmax;
+    font-weight: bold;
+    color: rgba(var(--white), 1);
+    background-color: rgba(var(--gray), 1);
+    border-radius: 5px;
+    border: 1px solid rgba(var(--black), 1);
+    outline: none;
+}
+
+/*----- LOADER -----*/
+#container-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: rgba(var(--white), 1);
+    background: rgba(var(--black), 0.95);
+}
+
+#loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#loader img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px 10px rgba(var(--airplane), 1);
+}
+
+/*----- MAP -----*/
+#map {
+    height: 88vh;
+    max-width: 100vw;
+    border-top: 0.5vh solid rgba(var(--airplane), 1);
+    border-bottom: 0.5vh solid rgba(var(--airplane), 1);
+}
+
+.leaflet-control-attribution.leaflet-control {
+    color: rgba(var(--white), 0.75);
+    background-color: rgba(var(--black), 0.9);
+    box-shadow: 0px 0px 5px 1px rgba(var(--airplane), 1);
+    font-size: 0.9em;
+}
+
+.leaflet-control-attribution.leaflet-control a {
+    color: rgba(var(--airplane), 1);
+    transition: all 0.2s ease-in-out;
+}
+
+.leaflet-control-attribution.leaflet-control a:hover {
+    text-decoration: none;
+    color: rgba(var(--white), 1);
+}
+
+/* custom control-layers toggle and search icon */
+.leaflet-control-layers-toggle {
+    background-image: url("leaflet/images/layers.png");
+}
+
+.leaflet-retina .leaflet-control-layers-toggle {
+    background-image: url("leaflet/images/layers-2x.png");
+}
+
+.leaflet-control-search .search-button {
+    background: url("leaflet/images/search-icon.png") no-repeat 4px 4px;
+}
+
+.leaflet-control-search .search-button:hover {
+    background: url("leaflet/images/search-icon.png") no-repeat 4px -20px;
+}
+
+.leaflet-control-search .search-cancel {
+	background: url("leaflet/images/search-icon.png") no-repeat 0 -46px;	
+}
+
+.leaflet-control-search.search-load .search-input {
+	background: url("leaflet/images/loader.gif") no-repeat center right;
+}
+
+/*----- map icons markers -----*/
+img.leaflet-marker-icon {
+    border-radius: 50%;
+    border: 1px solid rgba(var(--black), 1);
+    transition: all 0.2s ease-in-out;
+}
+
+img[src*="marker-icon"].leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive,
+img[src*="marker-user"] {
+    border-radius: 0;
+    border: none;
+}
+
+/*----- map tooltips -----*/
+.leaflet-tooltip {
+    border-radius: 8px;
+    font-size: 1.25em;
+    padding: 1em;
+    border: 2px solid rgba(var(--white), 1);
+    color: rgba(var(--white), 1);
+    background-color: rgba(var(--black), 1);
+}
+
+.leaflet-tooltip-right::before {
+    border-right-color: rgba(var(--white), 1);
+}
+
+.leaflet-tooltip-left::before {
+    border-left-color: rgba(var(--white), 1);
+}
+
+.tooltip-airport {
+    border: 2px solid rgba(var(--airplane), 1);
+    color: rgba(var(--airplane), 1);
+}
+
+.tooltip-airport.leaflet-tooltip-right::before {
+    border-right-color: rgba(var(--airplane), 1);
+}
+
+.tooltip-airport.leaflet-tooltip-left::before {
+    border-left-color: rgba(var(--airplane), 1);
+}
+
+.tooltip-bus_station {
+    border: 2px solid rgba(var(--bus), 1);
+    color: rgba(var(--bus), 1);
+}
+
+.tooltip-bus_station.leaflet-tooltip-right::before {
+    border-right-color: rgba(var(--bus), 1);
+}
+
+.tooltip-bus_station.leaflet-tooltip-left::before {
+    border-left-color: rgba(var(--bus), 1);
+}
+
+.tooltip-city_code {
+    border: 2px solid rgba(var(--white), 1);
+    color: rgba(var(--white), 1);
+}
+
+.tooltip-city_code.leaflet-tooltip-right::before {
+    border-right-color: rgba(var(--white), 1);
+}
+
+.tooltip-city_code.leaflet-tooltip-left::before {
+    border-left-color: rgba(var(--white), 1);
+}
+
+.tooltip-ferry_port {
+    border: 2px solid rgba(var(--ferry), 1);
+    color: rgba(var(--ferry), 1);
+}
+
+.tooltip-ferry_port.leaflet-tooltip-right::before {
+    border-right-color: rgba(var(--ferry), 1);
+}
+
+.tooltip-ferry_port.leaflet-tooltip-left::before {
+    border-left-color: rgba(var(--ferry), 1);
+}
+
+.tooltip-heliport {
+    border: 2px solid rgba(var(--helicopter), 1);
+    color: rgba(var(--helicopter), 1);
+}
+
+.tooltip-heliport.leaflet-tooltip-right::before {
+    border-right-color: rgba(var(--helicopter), 1);
+}
+
+.tooltip-heliport.leaflet-tooltip-left::before {
+    border-left-color: rgba(var(--helicopter), 1);
+}
+
+.tooltip-seaplane_base {
+    border: 2px solid rgba(var(--seaplane), 1);
+    color: rgba(var(--seaplane), 1);
+}
+
+.tooltip-seaplane_base.leaflet-tooltip-right::before {
+    border-right-color: rgba(var(--seaplane), 1);
+}
+
+.tooltip-seaplane_base.leaflet-tooltip-left::before {
+    border-left-color: rgba(var(--seaplane), 1);
+}
+
+.tooltip-train_station {
+    border: 2px solid rgba(var(--train), 1);
+    color: rgba(var(--train), 1);
+}
+
+.tooltip-train_station.leaflet-tooltip-right::before {
+    border-right-color: rgba(var(--train), 1);
+}
+
+.tooltip-train_station.leaflet-tooltip-left::before {
+    border-left-color: rgba(var(--train), 1);
+}
+
+/*----- map scale legend -----*/
+.leaflet-control-scale-line {
+    background-color: rgba(var(--black), 1);
+    color: rgba(var(--white), 1);
+    border: none;
+    border-left: 2px solid rgba(var(--airplane), 1);
+    border-right: 2px solid rgba(var(--airplane), 1);
+}
+
+.leaflet-control-scale-line:not(:first-child) {
+    border: none;
+    border-left: 2px solid rgba(var(--airplane), 1);
+    border-right: 2px solid rgba(var(--airplane), 1);
+    margin-top: 1px;
+}
+
+@media (max-width: 559px) {
+    .leaflet-control-scale-line {
+        display: none;
+    }
+}
+
+/*----- animations per specific icon marker -----*/
+img[src*="airplane"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(var(--airplane), 0.5);
+    border: 10px solid rgba(var(--airplane), 0.25);
+    animation: pulse-airplane 2.5s infinite;
+}
+
+img[src*="bus"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(var(--bus), 0.5);
+    border: 10px solid rgba(var(--bus), 0.25);
+    animation: pulse-bus 2.5s infinite;
+}
+
+img[src*="city"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(var(--white), 0.5);
+    border: 10px solid rgba(var(--white), 0.25);
+    animation: pulse-city 2.5s infinite;
+}
+
+img[src*="ferry"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(var(--ferry), 0.5);
+    border: 10px solid rgba(var(--ferry), 0.25);
+    animation: pulse-ferry 2.5s infinite;
+}
+
+img[src*="helicopter"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(var(--helicopter), 0.5);
+    border: 10px solid rgba(var(--helicopter), 0.25);
+    animation: pulse-helicopter 2.5s infinite;
+}
+
+img[src*="seaplane"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(var(--seaplane), 0.5);
+    border: 10px solid rgba(var(--seaplane), 0.25);
+    animation: pulse-seaplane 2.5s infinite;
+}
+
+img[src*="train"]:not(.layers-icon) {
+    box-shadow: 0px 0px 50px 5px rgba(var(--train), 0.5);
+    border: 10px solid rgba(var(--train), 0.25);
+    animation: pulse-train 2.5s infinite;
+}
+
+img.leaflet-marker-icon:active,
+img.leaflet-marker-icon:hover,
+img.leaflet-marker-icon:focus {
+    animation: none;
+}
+
+/*----- keyframes for icon animations -----*/
+@keyframes pulse-airplane {
+    0% {box-shadow: 0 0 0 0 rgba(var(--airplane), 1);}
+    75% {box-shadow: 0 0 25px 15px rgba(var(--airplane), 0);}
+    100% {box-shadow: 0 0 25px 5px rgba(var(--airplane), 0);}
+}
+
+@keyframes pulse-bus {
+    0% {box-shadow: 0 0 0 0 rgba(var(--bus), 1);}
+    75% {box-shadow: 0 0 25px 15px rgba(var(--bus), 0);}
+    100% {box-shadow: 0 0 25px 5px rgba(var(--bus), 0);}
+}
+
+@keyframes pulse-city {
+    0% {box-shadow: 0 0 0 0 rgba(var(--white), 1);}
+    75% {box-shadow: 0 0 25px 15px rgba(var(--white), 0);}
+    100% {box-shadow: 0 0 25px 5px rgba(var(--white), 0);}
+}
+
+@keyframes pulse-ferry {
+    0% {box-shadow: 0 0 0 0 rgba(var(--ferry), 1);}
+    75% {box-shadow: 0 0 25px 15px rgba(var(--ferry), 0);}
+    100% {box-shadow: 0 0 25px 5px rgba(var(--ferry), 0);}
+}
+
+@keyframes pulse-helicopter {
+    0% {box-shadow: 0 0 0 0 rgba(var(--helicopter), 1);}
+    75% {box-shadow: 0 0 25px 15px rgba(var(--helicopter), 0);}
+    100% {box-shadow: 0 0 25px 5px rgba(var(--helicopter), 0);}
+}
+
+@keyframes pulse-seaplane {
+    0% {box-shadow: 0 0 0 0 rgba(var(--seaplane), 1);}
+    75% {box-shadow: 0 0 25px 15px rgba(var(--seaplane), 0);}
+    100% {box-shadow: 0 0 25px 5px rgba(var(--seaplane), 0);}
+}
+
+@keyframes pulse-train {
+    0% {box-shadow: 0 0 0 0 rgba(var(--train), 1);}
+    75% {box-shadow: 0 0 25px 15px rgba(var(--train), 0);}
+    100% {box-shadow: 0 0 25px 5px rgba(var(--train), 0);}
+}
+
+/*----- hover effects per specific icon marker -----*/
+img[src*="airplane"]:not(.layers-icon):hover {
+    box-shadow: 0px 0px 50px 5px rgba(var(--airplane), 1);
+}
+
+img[src*="bus"]:not(.layers-icon):hover {
+    box-shadow: 0px 0px 50px 5px rgba(var(--bus), 1);
+}
+
+img[src*="city"]:not(.layers-icon):hover {
+    box-shadow: 0px 0px 50px 5px rgba(var(--white), 1);
+}
+
+img[src*="ferry"]:not(.layers-icon):hover {
+    box-shadow: 0px 0px 50px 5px rgba(var(--ferry), 1);
+}
+
+img[src*="helicopter"]:not(.layers-icon):hover {
+    box-shadow: 0px 0px 50px 5px rgba(var(--helicopter), 1);
+}
+
+img[src*="seaplane"]:not(.layers-icon):hover {
+    box-shadow: 0px 0px 50px 5px rgba(var(--seaplane), 1);
+}
+
+img[src*="train"]:not(.layers-icon):hover {
+    box-shadow: 0px 0px 50px 5px rgba(var(--train), 1);
+}
+
+/*----- pop-up text styles -----*/
+.popup-iata {
+    font-size: 4em;
+    font-weight: bold;
+    text-shadow: var(--txtShadow);
+}
+
+.popup-text {
+    color: rgba(var(--white), 1);
+    font-size: 1.5em;
+    text-shadow: var(--txtShadow);
+}
+
+.popup-name {
+    font-size: 1.25em;
+}
+
+.popup-website a {
+    padding: 10px 15px;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    background-color: rgba(var(--black), 1);
+    transition: all 0.2s ease-in-out;
+}
+
+.popup-small {
+    color: rgba(var(--white), 1);
+    font-size: 1.25em;
+    text-shadow: var(--txtShadow);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.airport,
+.airport a {
+    color: rgba(var(--airplane), 1);
+}
+
+.bus_station,
+.bus_station a {
+    color: rgba(var(--bus), 1);
+}
+
+.city_code,
+.city_code a {
+    color: rgba(var(--white), 1);
+}
+
+.ferry_port,
+.ferry_port a {
+    color: rgba(var(--ferry), 1);
+}
+
+.heliport,
+.heliport a {
+    color: rgba(var(--helicopter), 1);
+}
+
+.seaplane_base,
+.seaplane_base a {
+    color: rgba(var(--seaplane), 1);
+}
+
+.train_station,
+.train_station a {
+    color: rgba(var(--train), 1);
+}
+
+.airport a:hover,
+.bus_station a:hover,
+.city_code a:hover,
+.ferry_port a:hover,
+.heliport a:hover,
+.seaplane_base a:hover,
+.train_station a:hover {
+    color: rgba(var(--black), 1);
+    box-shadow: 0px 0px 5px 3px rgba(var(--black), 1);
+}
+
+.airport a:hover {
+    background-color: rgba(var(--airplane), 1);
+}
+
+.bus_station a:hover {
+    background-color: rgba(var(--bus), 1);
+}
+
+.city_code a:hover {
+    background-color: rgba(var(--white), 1);
+}
+
+.ferry_port a:hover {
+    background-color: rgba(var(--ferry), 1);
+}
+
+.heliport a:hover {
+    background-color: rgba(var(--helicopter), 1);
+}
+
+.seaplane_base a:hover {
+    background-color: rgba(var(--seaplane), 1);
+}
+
+.train_station a:hover {
+    background-color: rgba(var(--train), 1);
+}
+
+/*----- custom Leaflet Layer styles -----*/
+.leaflet-control-layers-expanded {
+    min-width: 200px;
+    color: rgba(var(--airplane), 1);
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(var(--black), 1);
+    background-color: rgba(var(--gray), 0.95);
+}
+
+.leaflet-control-layers-expanded img {
+    margin: 0 3px 3px 3px;
+    vertical-align: top;
+}
+
+.leaflet-control-layers-toggle {
+    padding: 5px;
+    border-radius: 50%;
+    background-color: rgba(var(--gray), 1);
+    box-shadow: 0px 0px 10px 5px rgba(var(--airplane), 1);
+}
+
+.leaflet-control-layers.leaflet-control:not(.leaflet-control-layers-expanded) {
+    background-color: transparent;
+    border: 10px;
+}
+
+.leaflet-control-layers.leaflet-control.leaflet-control-layers-expanded {
+    border: 0;
+    padding-right: 10px;
+    padding-left: 15px;
+    box-shadow: 0px 0px 5px 3px rgba(var(--airplane), 1);
+}
+
+/*----- custom Marker Cluster icons -----*/
+.marker-cluster-large,
+.marker-cluster-medium,
+.marker-cluster-small {
+    background-color: transparent;
+}
+
+.marker-cluster-large div,
+.marker-cluster-medium div,
+.marker-cluster-small div {
+    background-color: rgba(var(--cluster), 1);
+    font-size: 1.25em;
+    color: rgba(var(--white), 1);
+    text-shadow: var(--txtShadow);
+    border: 1px solid rgba(var(--black), 0.4);
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 5px rgba(var(--cluster), 0.5);
+}
+
+/*----- override Leaflet.css Zoom Controls -----*/
+.leaflet-bar a {
+    background-color: rgba(var(--black), 0.8);
+    color: rgba(var(--airplane), 1);
+    box-shadow: 0px 0px 5px 1px rgba(var(--airplane), 1);
+    transition: all 0.1s ease-in-out;
+}
+
+.leaflet-bar a:hover {
+    background-color: rgba(var(--airplane), 1);
+    color: rgba(var(--black), 1);
+    box-shadow: 0px 0px 5px 1px rgba(var(--airplane), 1);
+}
+
+.leaflet-bar a.leaflet-disabled {
+    color: transparent;
+    background-color: rgba(var(--black), 0.8);
+}
+
+/*----- Leaflet Search - by IATA code -----*/
+.leaflet-control-search.search-exp {
+    background: rgba(var(--white), 1);
+    border: 2px solid rgba(var(--black), 0.8);
+    background-clip: padding-box;
+    background-color: rgba(var(--black), 0.8);
+    box-shadow: 0px 0px 5px 1px rgba(var(--airplane), 1);
+}
+
+.leaflet-control-search {
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.leaflet-control-search .search-input {
+    float: left;
+    background: rgba(var(--white), 1);
+    border: 1px solid rgba(var(--airplane), 1);
+    border-radius: 2px;
+    height: 22px;
+    padding: 0 20px 0 2px;
+    margin: 4px 0 4px 4px;
+    text-transform: uppercase;
+}
+
+.leaflet-control-search .search-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    float: left;
+    list-style: none;
+    padding-left: 0;
+    min-width: 120px;
+    max-height: 122px;
+    box-shadow: 1px 1px 6px rgba(var(--black), 0.4);
+    background-color: rgba(var(--black), 1);
+    z-index: 1010;
+    overflow-y: auto;
+    overflow-x: hidden;
+    cursor: pointer;
+}
+
+.leaflet-control-search .search-tip {
+    margin: 2px;
+    padding: 2px 4px;
+    display: block;
+    background: rgba(var(--white), 1);
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: rgba(var(--black), 1);
+    color: rgba(var(--white), 1);
+    font-weight: bold;
+}
+
+.leaflet-control-search .search-tip:hover {
+    background-color: rgba(var(--black), 1);
+}
+
+.leaflet-control-search .search-cancel {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    right: 28px;
+    margin: 6px 0;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.leaflet-control-search .search-button {
+    display: block;
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: rgba(var(--black), 0.8);
+}
+
+.leaflet-control-search .search-button:hover {
+    background-color: rgba(var(--black), 0.8);
+}
+
+.leaflet-control-search .search-alert {
+    cursor: pointer;
+    clear: both;
+    font-size: 11px;
+    margin-bottom: 5px;
+    padding: 0 .25em;
+    color: rgba(var(--helicopter), 1);
+    font-weight: bold;
+    border-radius: .25em;
+}
+
+/*----- Leaflet Geocoder Search -----*/
+.geocoder-control.leaflet-control {
+    padding: 0 4px;
+    border-radius: 4px;
+    background-color: rgba(var(--black), 0.8);
+    box-shadow: 0px 0px 5px 1px rgba(var(--airplane), 1);
+    max-width: 300px;
+}
+
+.geocoder-control.leaflet-control input {
+    background: rgba(var(--white), 1);
+    border-radius: 2px;
+    height: 22px;
+    padding: 0 2px;
+    margin: 6px 1px;
+    width: 95%;
+}
+
+input.geocoder-control-input.leaflet-bar {
+    border: 1px solid rgba(var(--airplane), 1);
+}
+
+.geocoder-control-suggestions.leaflet-bar {
+    background-color: rgba(var(--black), 1);
+    color: rgba(var(--airplane), 1);
+    font-weight: bold;
+}
+
+.geocoder-control-suggestion {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.geocoder-control-suggestion:hover {
+    background-color: rgba(var(--airplane), 1);
+    color: rgba(var(--black), 1);
+}
+
+.geocoder-control-list {
+    list-style: none;
+}
+
+/*----- override Leaflet.css pop-up styles -----*/
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    min-width: 300px;
+    border: 1px solid rgba(var(--black), 1);
+    background-color: rgba(var(--gray), 0.95);
+    box-shadow: 0 0 0 10px rgba(var(--white), 0.1);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    color: rgba(var(--white), 1);
+    font-size: 3em;
+    right: 20px;
+    top: 10px;
+    text-shadow: var(--txtShadow);
+    transition: all 0.3s ease-in-out;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+    color: rgba(var(--black), 1);
+    text-shadow: none;
+}
+
+/*----- override Leaflet.css standard settings -----*/
+.leaflet-container {
+    background-color: rgba(var(--darkGray), 1);
+}
+
+/*----- FOOTER -----*/
+#main-footer {
+    height: 5vh;
+    max-width: 100vw;
+    background-color: rgba(var(--black), 1);
+    align-self: center;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: minmax(20px, 1vw) auto minmax(20px, 1vw);
+    grid-template-rows: minmax(2px, 5px) auto minmax(2px, 5px);
+    grid-template-areas:
+        ". . ."
+        ". footer-attributes ."
+        ". . .";
+}
+
+.footer-attributes {
+    grid-area: footer-attributes;
+    align-self: center;
+    justify-items: center;
+    color: rgba(var(--white), 1);
+    font-size: 1.25vmax;
+}
+
+.footer-attributes a {
+    text-decoration: none;
+    color: rgba(var(--white), 1);
+    margin: 0 2.5px;
+    vertical-align: middle;
+    font-size: 150%;
+}
+
+#github {
+    border-radius: 50%;
+}
+
+#linkedin {
+    border-radius: 3px;
+}
+
+#github:hover {
+    background-color: rgba(var(--github), 1);
+    box-shadow: 0 0 1em 0.25em rgba(var(--github), 0.75);
+    outline: none;
+}
+
+#linkedin:hover {
+    background-color: rgba(var(--linkedin), 1);
+    box-shadow: 0 0 1em 0.25em rgba(var(--linkedin), 0.75);
+    outline: none;
+}
+
+/*----- MODAL -----*/
+#modal-container {
+    height: 100vh;
+    background: url(../images/earth.jpg) top / cover no-repeat fixed;
+    display: grid;
+    align-self: center;
+    justify-items: center;
+    grid-template-rows: minmax(1vh, 2vh) auto minmax(1vh, auto);
+    grid-template-areas:
+        "."
+        "modal"
+        ".";
+}
+
+#modal {
+    padding: 10px;
+    width: 90vw;
+    color: rgba(var(--white), 1);
+    border-radius: 25px;
+    text-shadow: var(--txtShadow);
+    border: 1px solid rgba(var(--black), 0.25);
+    background-color: rgba(var(--gray), 0.85);
+    box-shadow: 0 0 15px 5px rgba(var(--black), 0.5);
+    display: grid;
+    grid-area: modal;
+    grid-template-areas:
+        "modal-header"
+        "modal-body"
+        "modal-footer"
+        "modal-counts";
+}
+
+#modal-header {
+    grid-area: modal-header;
+    align-self: center;
+    justify-items: center;
+    text-align: center;
+    margin: 5px;
+    font-size: 1.75vmax;
+    letter-spacing: 1.5px;
+}
+
+#modal-body {
+    grid-area: modal-body;
+    font-size: 1.75vmax;
+}
+
+#modal-body p {
+    margin: 1em 1em 0 1em;
+    text-align: justify;
+}
+
+#modal-footer {
+    grid-area: modal-footer;
+    align-self: center;
+    justify-items: center;
+}
+
+#modal-close {
+    cursor: pointer;
+    padding: 1em;
+    margin: 0.5em;
+    font-size: 2vmax;
+    font-weight: bold;
+    border-radius: 3em;
+    border: 0;
+    align-self: center;
+    justify-items: center;
+    color: rgba(var(--white), 1);
+    text-shadow: var(--txtShadow);
+    background-color: rgba(var(--airplane), 1);
+    animation: pulse-modal-button 2.5s infinite;
+    box-shadow: 0px 0px 50px 5px rgba(var(--airplane), 0.75);
+    transition: all 0.2s ease-in-out;
+}
+
+#modal-close:hover,
+#modal-close:active,
+#modal-close:focus {
+    background-color: rgba(var(--black), 1);
+    color: rgba(var(--airplane), 1);
+    outline: none;
+    animation: none;
+}
+
+@keyframes pulse-modal-button {
+    0% {box-shadow: 0 0 0 0 rgba(var(--white), 1);}
+    50% {box-shadow: 0 0 25px 25px rgba(var(--white), 0);}
+    100% {box-shadow: 0 0 50px 1px rgba(var(--white), 0);}
+}
+
+#modal-counts {
+    grid-area: modal-counts;
+    align-self: center;
+    justify-items: center;
+    font-size: 1.5vmax;
+    font-weight: bold;
+    text-align: center;
+}
+
+#modal-counts mark {
+    background-color: rgba(var(--black), 1);
+    border-radius: 10px;
+    padding: 0 5px;
+    font-size: 1.5vmax;
+    font-weight: bold;
+}
