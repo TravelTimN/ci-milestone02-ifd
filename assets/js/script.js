@@ -207,7 +207,7 @@ $(document).ready(function () {
                 if (!/^([0-9]{2}\:[0-9]{2})$/.test(time)) {
                     time = `0${time}`;
                 }
-                popupData += $(".clock").text(time);
+                $(".clock").text(time);
             }
             popupData += "</span><span class='bold " + feature.properties.transport + "'> (UTC " + feature.properties.utc + ")</span><br>Time Zone: <span class='bold " + feature.properties.transport + "'>" + feature.properties.timezone + "</span><br>";
             updateClock();
