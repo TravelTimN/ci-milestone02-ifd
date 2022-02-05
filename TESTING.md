@@ -8,9 +8,14 @@ I created a [testing matrix](documentation/testing/testing-ci-milestone02-ifd.xl
 
 ![Testing Matrix](documentation/testing/testing-ci-milestone02-ifd.png)
 
-- [HTML Validation](https://validator.w3.org/): No errors or warnings found.
-- [CSS Validation](https://jigsaw.w3.org/css-validator/): Parsing errors due to `:root` variables.
+- [HTML Validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftraveltimn.github.io%2Fci-milestone02-ifd%2F): No errors or warnings found.
+    - ![html-validation](documentation/testing/html-validation.png)
+
+- [CSS Validation](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ftraveltimn.github.io%2Fci-milestone02-ifd): Property `behavior` doesn't exist. (due to leaflet.css file)
+    - ![css-validation](documentation/testing/css-validation.png)
+
 - [JavaScript Validation](http://beautifytools.com/javascript-validator.php): Leaflet `'L'` not defined in my source file.
+
 - [JSHint (v2.9.6)](https://jshint.com/) Metrics from my `script.js` file:
     - There are **11** functions in this file.
     - Function with the largest signature take **2** arguments, while the median is **0**.
@@ -20,6 +25,8 @@ I created a [testing matrix](documentation/testing/testing-ci-milestone02-ifd.xl
         - `$` *(x35)* - used for **jQuery**
         - `L` *(x31)* - used for **LeaflefJS**
         - `iataData` *(x2)* - external variable from **iataData.js**
+    - ![js-validation](documentation/testing/js-validation.png)
+
 - [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/):
     - *Mixed Content: The page at <[`URL`](https://traveltimn.github.io/ci-milestone02-ifd/)> was loaded over HTTPS, but requested an insecure image <[`URL`](http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/3/3/4)>. This content should also be served over HTTPS.*
         - This is due to the fact that the ArcGIS layer is delivered over *HTTP* rather than *HTTPS*.
@@ -44,7 +51,6 @@ To ensure a broad range of users can successfully use this site, I tested it acr
 - **Esri Leaflet Geocoding** known issue when you search for a location and then try to scroll/zoom, it causes the following console error (functionality still works fine, but error still gets triggered):
 
 ```js
-leaflet.js:5
 Uncaught TypeError: Cannot set property '_leaflet_pos' of undefined
     at wi (leaflet.js:5)
 	at i._setPos (leaflet.js:5)
